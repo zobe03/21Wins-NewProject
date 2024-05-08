@@ -14,11 +14,17 @@ import java.util.ResourceBundle;
 import static com.example.zoe21.RegularGameController.MACHINEMODE;
 
 public class MachineSetDifficultyController implements Initializable {
-    private MachinePlayer machinePlayer = new MachinePlayer();
+    private final MachinePlayer machinePlayer = new MachinePlayer();
     @FXML
     protected Button next;
     @FXML
     protected Button backtomenu;
+    @FXML
+    protected RadioButton easy;
+    @FXML
+    protected RadioButton medium;
+    @FXML
+    protected RadioButton hard;
     @FXML
     protected void setBacktomenu(){
         SwitchingScenes.setScene(0);
@@ -38,21 +44,19 @@ public class MachineSetDifficultyController implements Initializable {
     @FXML
     protected void nextToRegularGame(){
         SwitchingScenes.setScene(2);
-        MACHINEMODE = true;;
+        MACHINEMODE = true;
     }
 
 
     @FXML
     private AnchorPane gameLayout;
     @FXML
-    public void initialize(URL location, ResourceBundle resources){
-        String imagePath = "file:resources/grün.jpeg";// Bild oder Gif im ressource hochladen
+    public void initialize(URL location, ResourceBundle resources) {
+        String imagePath = "file:resources/bücher3.jpeg";
         Image image = new Image(imagePath);
-        // Erstellen Sie ein BackgroundImage-Objekt
-        BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, false, true);
+        BackgroundSize backgroundSize = new BackgroundSize(600, 600, true, true, false, true);
         BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
-
-        // Setzen Sie das Hintergrundbild
-        gameLayout.setBackground(new Background(backgroundImage));
+        Background background = new Background(backgroundImage);
+        gameLayout.setBackground(background);
     }
 }

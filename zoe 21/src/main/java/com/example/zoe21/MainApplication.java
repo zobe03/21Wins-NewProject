@@ -17,21 +17,21 @@ public class MainApplication extends Application {
         window = stage;
 
         FXMLLoader fxmlLoaderMenu = new FXMLLoader(MainApplication.class.getResource("mainmenu.fxml"));
-        mainMenuScene = new Scene(fxmlLoaderMenu.load(), 600, 500);
+        mainMenuScene = new Scene(fxmlLoaderMenu.load(), 600, 600);
 
         // create various scenes + respective loader (size may be changed)
 
         // highscore scene
         FXMLLoader highscoreFxmlLoader = new FXMLLoader(MainApplication.class.getResource("highscore.fxml"));
-        highscoreScene = new Scene(highscoreFxmlLoader.load(), 400, 400);
+        highscoreScene = new Scene(highscoreFxmlLoader.load(), 600, 600);
 
         // regularGame (human players)
         FXMLLoader regularGameFxmlLoader = new FXMLLoader(MainApplication.class.getResource("regularGame.fxml"));
-        regularGameScene = new Scene(regularGameFxmlLoader.load(), 600, 450);
+        regularGameScene = new Scene(regularGameFxmlLoader.load(), 600, 600);
 
         // machineGame (human against player)
         FXMLLoader machineSetDifficultyFxmlLoader = new FXMLLoader(MainApplication.class.getResource("machineSetDifficulty.fxml"));
-        machineSetDifficulty = new Scene(machineSetDifficultyFxmlLoader.load(), 500, 500);
+        machineSetDifficulty = new Scene(machineSetDifficultyFxmlLoader.load(), 600, 600);
 
         SwitchingScenes.creatingSceneSwitcher(window, mainMenuScene, highscoreScene, regularGameScene,machineSetDifficulty);
         window.setScene(mainMenuScene);

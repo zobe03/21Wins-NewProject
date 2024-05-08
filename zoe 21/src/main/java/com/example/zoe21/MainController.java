@@ -40,33 +40,17 @@ public class MainController implements Initializable {
         System.out.println("Switching to Machine Set Difficulty");
         SwitchingScenes.setScene(3);
     }
-
-    protected void switchToHighscoreScene() {
-        SwitchingScenes.setScene(1);
-    }
-
-    protected void switchToRegularGameScene() {
-        SwitchingScenes.setScene(2);
-    }
-
-    protected void switchToMachineDifficultyScene() {
-        SwitchingScenes.setScene(3);
-    }
-
     @FXML
     private AnchorPane gameLayout;
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        String imagePath = "file:resources/grün.jpeg";// Bild oder Gif im ressource hochladen
+        String imagePath = "file:resources/bücher3.jpeg";
         Image image = new Image(imagePath);
-        // Erstellen Sie ein BackgroundImage-Objekt
-        BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, false, true);
+        BackgroundSize backgroundSize = new BackgroundSize(600, 600, true, true, false, true);
         BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
-
-        // Setzen Sie das Hintergrundbild
-        gameLayout.setBackground(new Background(backgroundImage));
+        Background background = new Background(backgroundImage);
+        gameLayout.setBackground(background);
     }
-
 
 }

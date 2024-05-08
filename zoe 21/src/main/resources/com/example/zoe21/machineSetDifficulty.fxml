@@ -23,7 +23,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-              <RadioButton fx:id="easyRadioButton" mnemonicParsing="false" onAction="#onEasySelect" selected="true" text="Easy">
+              <RadioButton fx:id="easy" mnemonicParsing="false" onAction="#onEasySelect" selected="true" text="Easy">
                <font>
                   <Font size="18.0" />
                </font>
@@ -31,12 +31,12 @@
                   <ToggleGroup fx:id="difficulty" />
                </toggleGroup>
             </RadioButton>
-              <RadioButton fx:id="mediumRadioButton" mnemonicParsing="false" onAction="#onMediumSelect" text="Medium" toggleGroup="$difficulty" GridPane.rowIndex="1">
+              <RadioButton fx:id="medium" mnemonicParsing="false" onAction="#onMediumSelect" text="Medium" toggleGroup="$difficulty" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
             </RadioButton>
-              <RadioButton fx:id="hardRadioButton" mnemonicParsing="false" onAction="#onHardSelected" text="Hard" toggleGroup="$difficulty" GridPane.rowIndex="2">
+              <RadioButton fx:id="hard" mnemonicParsing="false" onAction="#onHardSelected" text="Hard" toggleGroup="$difficulty" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
