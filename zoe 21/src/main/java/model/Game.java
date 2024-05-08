@@ -12,13 +12,12 @@ public class Game {
     private final int nrPlayers = 2;
     private boolean stop = false;
 
-    public String playWithPlayer(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList){
+    public void playWithPlayer(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList){
         String input = inputField.getText();
         PlayTheGame(input, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
-        return input;
     }
 
-    public String playWithMachine(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
+    public void playWithMachine(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
         String input;
         Player currentPlayerObject = playersList[currentPlayer - 1];
         if (currentPlayerObject instanceof MachinePlayer) {
@@ -29,7 +28,6 @@ public class Game {
             input = inputField.getText();
         }
         PlayTheGame(input, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
-        return input;
     }
     public void PlayTheGame(String input, Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList){
         boolean inputValid = false;
