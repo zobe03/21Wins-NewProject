@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane fx:id="gameLayout"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.zoe21.HighscoreController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <children>
+        <Button fx:id="backtomenu" text="Back to Menu" onAction="#setBacktomenu" layoutX="250" layoutY="200"/>
+    </children>
+</AnchorPane>
