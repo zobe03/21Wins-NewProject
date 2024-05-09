@@ -30,32 +30,34 @@ public class RegularGameController implements Initializable{
     @FXML
     private TextField inputField;
     @FXML
+    private Button sumButton;
+    @FXML
     private GridPane gridPane;
     @FXML
     protected Button backtomenu;
-    @FXML
-    protected Button sumButton;
     @FXML
     protected void setBacktomenu(){
         SwitchingScenes.setScene(0);
     }
 
     public static boolean MACHINEMODE;
-    public static boolean ENTER;
-    public static boolean SUM;
-    private final Player[] playersList = new Player[2];
-    private final Game game = new Game();
+
+    private Player[] playersList = new Player[2]; //0 und 1
+    private Game game = new Game();
 
     @FXML
     public void initialize(URL location, ResourceBundle resources){
         roundLabel.setText("Round 1");
         messageLabel.setText("Enter a Number between 1 & 9 and press ENTER to add the Number to the Stack");
 
-        String imagePath = "file:resources/grün.jpeg";
+        // Laden Sie das Bild
+        String imagePath = "file:resources/grün.jpeg";// Bild oder Gif im ressource hochladen
         Image image = new Image(imagePath);
-        BackgroundSize backgroundSize = new BackgroundSize(600, 600, true, true, false, true);
+        // Erstellen Sie ein BackgroundImage-Objekt
+        BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, false, true);
         BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
 
+        // Setzen Sie das Hintergrundbild
         gameLayout.setBackground(new Background(backgroundImage));
     }
     public void addNames(){
@@ -74,6 +76,13 @@ public class RegularGameController implements Initializable{
 
     @FXML
     private AnchorPane gameLayout;
+    private void play() {
+        if (MACHINEMODE) {
+            game.playWithMachine( roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+        } else {
+            game.playWithPlayer( roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+        }
+    }
     private String askForPlayerName(String defaultName){
         TextInputDialog dialog = new TextInputDialog(defaultName);
         dialog.setTitle("Spielername eingeben");
@@ -86,22 +95,13 @@ public class RegularGameController implements Initializable{
     @FXML
     protected void onKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
-            play(ENTER);
+            play();
         }
     }
 
     @FXML
     protected void onSumSelect(){
-        play(SUM);
-    }
-    private void play(boolean mode) {
-        if (mode) {
-            if (MACHINEMODE) {
-                game.playWithMachine(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
-            } else {
-                game.playWithPlayer(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
-            }
-        }
+        play();
     }
 
 }
