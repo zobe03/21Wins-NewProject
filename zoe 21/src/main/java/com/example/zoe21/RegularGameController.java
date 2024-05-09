@@ -22,21 +22,20 @@ import java.util.Optional;
 
 public class RegularGameController implements Initializable{
     @FXML
-    private Label roundLabel;
+    private  Label roundLabel;
     @FXML
-    private Label playerLabel;
+    private  Label playerLabel;
     @FXML
-    private Label messageLabel;
+    private  Label messageLabel;
     @FXML
-    private TextField inputField;
+    private  TextField inputField;
     @FXML
-    private GridPane gridPane;
+    private  GridPane gridPane;
     @FXML
     protected Button backtomenu;
     @FXML
     protected Button sumButton;
     public static boolean MACHINEMODE;
-    public static boolean SUM;
     private final Player[] playersList = new Player[2];
     private final Game game = new Game();
 
@@ -76,8 +75,8 @@ public class RegularGameController implements Initializable{
     private AnchorPane gameLayout;
     private String askForPlayerName(String defaultName){
         TextInputDialog dialog = new TextInputDialog(defaultName);
-        dialog.setTitle("Spielername eingeben");
-        dialog.setHeaderText("Bitte geben Sie Ihren Namen ein:");
+        dialog.setTitle("Enter your Name");
+        dialog.setHeaderText("Please enter your Name: ");
         dialog.setContentText("Name:");
         Optional<String> result = dialog.showAndWait();
         return result.orElse(defaultName);
@@ -95,11 +94,23 @@ public class RegularGameController implements Initializable{
 
     @FXML
     protected void onSumSelect(){
-        play();
+        if (game.roundNr < 4){
+            messageLabel.setText("Addition not allowed in first three rounds!");
+        } else if (!game.input.isEmpty()){
+            play2();
+        }
+        else {
+            play();
+        }
     }
 
-    private void play() {
-        game.askForInput(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+
+    public void play() {
+        game.playTheGame(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
     }
+    public void play2() {
+        game.playTheGame2(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+    }
+
 }
 
