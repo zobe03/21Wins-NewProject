@@ -15,8 +15,8 @@ public final class HumanPlayer extends Player {
     public String getName() {
         return name;
     }
-    @Override
-    public int makeMove(int currentRoundNr, Stack<Integer> currentStack) {
+
+    public static int makeMove(int currentRoundNr, Stack<Integer> currentStack) {
         return 0;
     }
 }

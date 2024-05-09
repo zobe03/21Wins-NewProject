@@ -35,13 +35,7 @@ public class RegularGameController implements Initializable{
     protected Button backtomenu;
     @FXML
     protected Button sumButton;
-    @FXML
-    protected void setBacktomenu(){
-        SwitchingScenes.setScene(0);
-    }
-
     public static boolean MACHINEMODE;
-    public static boolean ENTER;
     public static boolean SUM;
     private final Player[] playersList = new Player[2];
     private final Game game = new Game();
@@ -58,16 +52,22 @@ public class RegularGameController implements Initializable{
 
         gameLayout.setBackground(new Background(backgroundImage));
     }
+    public static void setMachineMode() {
+        MACHINEMODE = true;
+        System.out.println("setMachinemode: " + MACHINEMODE);
+    }
     public void addNames(){
-        if (MACHINEMODE) {
-            String playerName = askForPlayerName("Player 1");
-            playersList[0] = new HumanPlayer(playerName);
-            playersList[1] = new MachinePlayer();
-        } else {
+        if (!MACHINEMODE) {
+            System.out.println("Maschinemode false");
             String playerName1 = askForPlayerName("Player 1");
             playersList[0] = new HumanPlayer(playerName1);
             String playerName2 = askForPlayerName("Player 2");
             playersList[1] = new HumanPlayer(playerName2);
+        } else {
+            System.out.println("Maschinemode true");
+            String playerName = askForPlayerName("Player 1");
+            playersList[0] = new HumanPlayer(playerName);
+            playersList[1] = new MachinePlayer();
         }
         playerLabel.setText(playersList[0].getName());
     }
@@ -82,7 +82,10 @@ public class RegularGameController implements Initializable{
         Optional<String> result = dialog.showAndWait();
         return result.orElse(defaultName);
     }
-
+    @FXML
+    protected void setBacktomenu(){
+        SwitchingScenes.setScene(0);
+    }
     @FXML
     protected void onKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
@@ -92,24 +95,11 @@ public class RegularGameController implements Initializable{
 
     @FXML
     protected void onSumSelect(){
-        SUM=true;
         play();
     }
-    private void play() {
-            if (MACHINEMODE) {
-                game.playWithMachine(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
-            } else {
-                game.playWithPlayer(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
-            }
-    }
-    private void playSum() {
-        if (MACHINEMODE) {
-            game.playWithMachine(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
-        } else {
-            game.playWithPlayer(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
-        }
-        SUM = true;
-    }
 
+    private void play() {
+        game.askForInput(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+    }
 }
 
