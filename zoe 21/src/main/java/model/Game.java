@@ -41,21 +41,19 @@ public class Game {
             inputNr = Math.abs(Integer.parseInt(input));
         }
         //welche methode wurde benutzt
-        if (ENTER) {
-            inputValid = playEnter(inputNr, roundLabel, gridPane);
-        } else if (SUM) {
+        if (SUM) {
             inputValid = playSum(inputNr, roundLabel);
+
         } else {
-            messageLabel.setText("Please provide a number between 1-9.");
+            inputValid = playEnter(inputNr, roundLabel, gridPane);
         }
 
         // Is there a WINNER?
         if (gameStack.peek() >= 21) {
             messageLabel.setText("\n!!!! We have a winner !!!! " + currentPlayer);
-            stop = true;
         }
 
-        if (!stop && inputValid) {
+        if (inputValid) {
             int nrPlayers = 2;
             currentPlayer = (currentPlayer % nrPlayers) + 1;
             Player currentPlayerObject = playersList[currentPlayer - 1];

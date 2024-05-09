@@ -86,22 +86,29 @@ public class RegularGameController implements Initializable{
     @FXML
     protected void onKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
-            play(ENTER);
+            play();
         }
     }
 
     @FXML
     protected void onSumSelect(){
-        play(SUM);
+        SUM=true;
+        play();
     }
-    private void play(boolean mode) {
-        if (mode) {
+    private void play() {
             if (MACHINEMODE) {
                 game.playWithMachine(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
             } else {
                 game.playWithPlayer(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
             }
+    }
+    private void playSum() {
+        if (MACHINEMODE) {
+            game.playWithMachine(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+        } else {
+            game.playWithPlayer(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
         }
+        SUM = true;
     }
 
 }
