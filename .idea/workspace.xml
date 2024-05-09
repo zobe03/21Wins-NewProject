@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="new">
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/RegularGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/RegularGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/model/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +15,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Zoé" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,25 +26,19 @@
     &quot;assignee&quot;: &quot;zobe03&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="recentNewPullRequestHead">
-      <RepoCoordinatesHolder>
-        <option name="owner" value="zobe03" />
-        <option name="repository" value="21Wins-NewProject" />
-      </RepoCoordinatesHolder>
-    </option>
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="db393521-902f-45e0-8f37-645439577bbb" />
-        <option name="url" value="https://github.com/zobe03/21Wins-NewProject.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/zobe03/21Wins-NewProject.git",
+    "accountId": "6f6b0d26-fafe-453a-a8b5-9e2e1830ed80"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2gCVvJMM3eBkhux0sMvFeSxneOy" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,7 +48,7 @@
     "Application.MainApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "skyler.ai-dev",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -88,7 +81,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-temurin-21.0.2-4caba194b151-767920ab" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
@@ -102,6 +96,7 @@
       <updated>1715201775838</updated>
       <workItem from="1715201777092" duration="10810000" />
       <workItem from="1715227652161" duration="347000" />
+      <workItem from="1715266591930" duration="433000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
