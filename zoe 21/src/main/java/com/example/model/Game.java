@@ -16,35 +16,41 @@ public class Game {
     private static boolean SUM;
     private static boolean ENTER;
     public String input;
-    public static void setSum(){
+
+    public static void setSum() {
         SUM = true;
         System.out.println("SUM: " + SUM);
     }
-    public static void setEnter(){
+
+    public static void setEnter() {
         ENTER = true;
         System.out.println("Enter: " + ENTER);
     }
-    public void askForInput(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
 
+    public void askForInput(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
+        boolean inputValid = false;
         System.out.println(Arrays.toString(playersList));
 
         if (playersList[0] instanceof HumanPlayer) {
             input = inputField.getText();
-            playTheGame(input, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
-
-            if(playersList[1] instanceof MachinePlayer) {
-                //Verzögerug um 2-3 Sekunden
-                int machineMove = MachinePlayer.makeMove(roundNr, gameStack);
-                inputField.setText(String.valueOf(machineMove));
-                input = String.valueOf(machineMove);
-                playTheGame(input, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+            inputValid = playTheGame(input, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+            if (inputValid) {
+                if (playersList[1] instanceof MachinePlayer) {
+                    //Verzögerug um 2-3 Sekunden
+                    int machineMove = MachinePlayer.makeMove(roundNr, gameStack);
+                    inputField.setText(String.valueOf(machineMove));
+                    input = String.valueOf(machineMove);
+                    System.out.println("Machine number: " + input);
+                    playTheGame(input, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+                }
             }
         }
     }
 
 
 
-    private void playTheGame(String input, Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
+
+    private boolean playTheGame(String input, Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
         int inputNr;
         if (input.isEmpty()) {
             inputNr = 0;
@@ -125,6 +131,7 @@ public class Game {
         }
         ENTER = false;
         SUM = false;
+        return inputValid;
     }
     private void updateGrid(GridPane gridPane) {
         int stackSize = gameStack.size();

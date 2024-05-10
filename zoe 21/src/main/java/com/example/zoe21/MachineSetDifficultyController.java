@@ -29,14 +29,17 @@ public class MachineSetDifficultyController implements Initializable {
     @FXML
     protected void onEasySelect(){
         MachinePlayer.setDifficulty(1);
+        System.out.println("on easy selected");
     }
     @FXML
     protected void onMediumSelect(){
         MachinePlayer.setDifficulty(2);
+        System.out.println("on medium selected");
     }
     @FXML
     protected void onHardSelected(){
         MachinePlayer.setDifficulty(3);
+        System.out.println("on hard selected");
     }
     @FXML
     protected void nextToRegularGame(){
