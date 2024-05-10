@@ -193,7 +193,8 @@ public class Game {
             playerLabel.setText(currentPlayerObject.getName());
             inputField.clear();
         } else {
-            messageLabel.setText("\n!!!! We have a winner !!!! Winner is " + currentPlayer);
+            String winnerName = playersList[currentPlayer - 1].getName();
+            messageLabel.setText("\n!!!! We have a winner !!!! " + winnerName);
             inputField.setEditable(false);
         }
     }
