@@ -4,17 +4,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import model.MachinePlayer;
+import com.example.model.MachinePlayer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.example.zoe21.RegularGameController.MACHINEMODE;
-
 public class MachineSetDifficultyController implements Initializable {
-    private final MachinePlayer machinePlayer = new MachinePlayer();
     @FXML
     protected Button next;
     @FXML
@@ -25,26 +21,31 @@ public class MachineSetDifficultyController implements Initializable {
     protected RadioButton medium;
     @FXML
     protected RadioButton hard;
+
     @FXML
     protected void setBacktomenu(){
         SwitchingScenes.setScene(0);
     }
     @FXML
     protected void onEasySelect(){
-        machinePlayer.setDifficulty(1);
+        MachinePlayer.setDifficulty(1);
+        System.out.println("on easy selected");
     }
     @FXML
     protected void onMediumSelect(){
-        machinePlayer.setDifficulty(2);
+        MachinePlayer.setDifficulty(2);
+        System.out.println("on medium selected");
     }
     @FXML
     protected void onHardSelected(){
-        machinePlayer.setDifficulty(3);
+        MachinePlayer.setDifficulty(3);
+        System.out.println("on hard selected");
     }
     @FXML
     protected void nextToRegularGame(){
+        RegularGameController.setMachineMode();
+        System.out.println("next to regular game2");
         SwitchingScenes.setScene(2);
-        MACHINEMODE = true;
     }
 
 
@@ -52,11 +53,6 @@ public class MachineSetDifficultyController implements Initializable {
     private AnchorPane gameLayout;
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        String imagePath = "file:resources/bücher3.jpeg";
-        Image image = new Image(imagePath);
-        BackgroundSize backgroundSize = new BackgroundSize(600, 600, true, true, false, true);
-        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
-        Background background = new Background(backgroundImage);
-        gameLayout.setBackground(background);
+
     }
 }

@@ -11,7 +11,6 @@ public class SwitchingScenes {
 
     private static Scene menu, highscore, regularGame, machineDifficulty;
     private static Stage window;
-
     public static void creatingSceneSwitcher(Stage pStage, Scene pMenu, Scene pHighscore, Scene pRegularGame, Scene pMachineDifficulty) {
         window = pStage;
         menu = pMenu;
@@ -45,7 +44,6 @@ public class SwitchingScenes {
                     }
                     break;
                 default:
-                    //throw Exception("Wrong scene");
                     System.out.println("No such scene available");
             }
     }

@@ -23,7 +23,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-              <RadioButton fx:id="easy" mnemonicParsing="false" onAction="#onEasySelect" selected="true" text="Easy">
+              <RadioButton fx:id="easy" mnemonicParsing="false" onAction="#onEasySelect" text="Easy">
                <font>
                   <Font size="18.0" />
                </font>
