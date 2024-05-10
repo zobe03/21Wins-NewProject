@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="new">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/model/MachinePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/model/MachinePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/model/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/model/Position.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +118,7 @@
       <workItem from="1715227652161" duration="347000" />
       <workItem from="1715266591930" duration="6630000" />
       <workItem from="1715273236034" duration="12942000" />
-      <workItem from="1715325764150" duration="3401000" />
+      <workItem from="1715325764150" duration="4267000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -162,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715327242213</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="new">
+      <option name="closed" value="true" />
+      <created>1715329410139</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715329410139</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

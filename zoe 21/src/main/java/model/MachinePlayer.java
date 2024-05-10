@@ -10,17 +10,17 @@ public final class MachinePlayer extends Player {
         return "Computer";
     }
 
-    private int difficulty;
+    int depth;
     public void setDifficulty(int difficulty) {
-        this.difficulty = difficulty;
-    }
-    public int searchDepth() {
-        return switch (difficulty) {
-            case 1 -> 2;
-            case 2 -> 4;
-            case 3 -> 6;
-            default -> 1;
-        };
+        if (difficulty == 1) {
+            this.depth = 0;
+        } else if (difficulty == 2) {
+            this.depth = 3;
+        } else if (difficulty == 3) {
+            this.depth = 7;
+        } else {
+            this.depth = 10;
+        }
     }
 
     public int makeMove(int currentRoundNr, Stack<Integer> currentStack) {
@@ -33,10 +33,10 @@ public final class MachinePlayer extends Player {
 
         ArrayList<Integer> validMoves = new ArrayList<>();
 
-        int bestEval = minimax(root, searchDepth(), true);
+        int bestEval = minimax(root, depth, true);
         for (Position child : root.getChildren()) {
             if (child.getEvaluation() == bestEval) {
-                // System.out.println("child.getMoveMade() = " + child.getMoveMade());
+                System.out.println("child.getMoveMade() = " + child.getMoveMade());
                 validMoves.add(child.getMoveMade());
             }
         }
@@ -45,13 +45,12 @@ public final class MachinePlayer extends Player {
         if (!validMoves.isEmpty()) {
             return validMoves.get((int) (Math.random() * validMoves.size()));
         } else {
-            // System.out.println("Error: No move found. Returning Random.");
+            System.out.println("Error: No move found. Returning Random.");
             return (int) (Math.random() * 9 + 1);
         }
     }
 
     public int minimax(Position pos, int depth, boolean machinesMove) {
-        // machinesMove is somewhat equivalent to 'maximizingPlayer', since the COM is always maximizing
 
         int eval = pos.getEvaluation();
         if (depth == 0 || eval >= 1000 || eval <= -1000) {
