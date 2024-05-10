@@ -5,18 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="new">
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/RegularGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/RegularGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/model/MachinePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/model/MachinePlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Zoé" />
+        <entry key="$PROJECT_DIR$" value="skyler.ai-dev-3" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,25 +34,19 @@
     &quot;assignee&quot;: &quot;zobe03&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="recentNewPullRequestHead">
-      <RepoCoordinatesHolder>
-        <option name="owner" value="zobe03" />
-        <option name="repository" value="21Wins-NewProject" />
-      </RepoCoordinatesHolder>
-    </option>
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="db393521-902f-45e0-8f37-645439577bbb" />
-        <option name="url" value="https://github.com/zobe03/21Wins-NewProject.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/zobe03/21Wins-NewProject.git&quot;,
+    &quot;accountId&quot;: &quot;6f6b0d26-fafe-453a-a8b5-9e2e1830ed80&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2gCVvJMM3eBkhux0sMvFeSxneOy" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,16 +56,27 @@
     "Application.MainApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "skyler.ai-dev",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/ashe/sky-ash/1-projects/intellij/21Wins-NewProject/zoe 21/ai-testing",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/zoe 21/ai-testing" />
+      <recent name="$PROJECT_DIR$/zoe 21/ai-dev" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/zoe 21/ai-testing/src" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.zoe21.MainApplication" />
@@ -82,13 +94,15 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainApplication" />
+        <item itemvalue="Application.MainApplication" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-temurin-21.0.2-4caba194b151-767920ab" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
@@ -102,6 +116,9 @@
       <updated>1715201775838</updated>
       <workItem from="1715201777092" duration="10810000" />
       <workItem from="1715227652161" duration="347000" />
+      <workItem from="1715266591930" duration="6630000" />
+      <workItem from="1715273236034" duration="12942000" />
+      <workItem from="1715325764150" duration="4267000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -127,7 +144,31 @@
       <option name="project" value="LOCAL" />
       <updated>1715215048506</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="new">
+      <option name="closed" value="true" />
+      <created>1715267074749</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715267074749</updated>
+    </task>
+    <task id="LOCAL-00005" summary="new">
+      <option name="closed" value="true" />
+      <created>1715327242213</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715327242213</updated>
+    </task>
+    <task id="LOCAL-00006" summary="new">
+      <option name="closed" value="true" />
+      <created>1715329410139</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715329410139</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,5 +177,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new" />
     <option name="LAST_COMMIT_MESSAGE" value="new" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
