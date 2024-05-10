@@ -14,16 +14,12 @@ public class Game {
     private final Stack<Integer> gameStack = new Stack<>();
     private boolean stop = false;
     private static boolean SUM;
-    private static boolean ENTER;
     public String input;
     public static void setSum(){
         SUM = true;
         System.out.println("SUM: " + SUM);
     }
-    public static void setEnter(){
-        ENTER = true;
-        System.out.println("Enter: " + ENTER);
-    }
+
     public void askForInput(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
 
         System.out.println(Arrays.toString(playersList));
