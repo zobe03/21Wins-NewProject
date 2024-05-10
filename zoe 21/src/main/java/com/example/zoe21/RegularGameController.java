@@ -99,7 +99,7 @@ public class RegularGameController implements Initializable{
         } else if (!game.input.isEmpty()){
             play2();
         }
-        else {
+        else { // leere input zelle → verhält sich wie input==0
             play();
         }
     }
