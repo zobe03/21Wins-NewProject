@@ -43,15 +43,17 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label alignment="CENTER" prefHeight="17.0" prefWidth="97.0">
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="96.0" GridPane.rowIndex="6">
                <font>
                   <Font size="18.0" />
-               </font></Label>
-                <Label alignment="CENTER" prefHeight="17.0" prefWidth="98.0" GridPane.rowIndex="1">
+               </font>
+            </Label>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" GridPane.rowIndex="5">
                <font>
                   <Font size="18.0" />
-               </font></Label>
-                <Label alignment="CENTER" prefHeight="17.0" prefWidth="95.0" GridPane.rowIndex="2">
+               </font>
+            </Label>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="98.0" textAlignment="CENTER" GridPane.rowIndex="4">
                <font>
                   <Font size="18.0" />
                </font></Label>
@@ -59,20 +61,18 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-                <Label alignment="CENTER" prefHeight="17.0" prefWidth="98.0" textAlignment="CENTER" GridPane.rowIndex="4">
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="95.0" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font></Label>
-                <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" GridPane.rowIndex="5">
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="98.0" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="96.0" GridPane.rowIndex="6">
+               </font></Label>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="97.0">
                <font>
                   <Font size="18.0" />
-               </font>
-            </Label>
+               </font></Label>
             </children>
         </GridPane>
       <Button fx:id="backtomenu" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#setBacktomenu" text="Back to Menu" />

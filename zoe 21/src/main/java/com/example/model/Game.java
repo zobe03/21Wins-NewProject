@@ -1,4 +1,4 @@
-package model;
+package com.example.model;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -7,25 +7,31 @@ import javafx.scene.layout.GridPane;
 import java.util.Arrays;
 import java.util.Stack;
 
-import static com.example.zoe21.RegularGameController.SUM;
-import static com.example.zoe21.RegularGameController.ENTER;
-
 
 public class Game {
     public int roundNr = 1;
     private int currentPlayer = 1;
     private final Stack<Integer> gameStack = new Stack<>();
     private boolean stop = false;
+    private static boolean SUM;
+    private static boolean ENTER;
     public String input;
-
-    public void playTheGame(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
+    public static void setSum(){
+        SUM = true;
+        System.out.println("SUM: " + SUM);
+    }
+    public static void setEnter(){
+        ENTER = true;
+        System.out.println("Enter: " + ENTER);
+    }
+    public void askForInput(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
 
         System.out.println(Arrays.toString(playersList));
 
         if (playersList[0] instanceof HumanPlayer) {
             System.out.println("Human 1");
             input = inputField.getText();
-            checkTheRules(input, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+            playTheGame(input, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
 
             if(playersList[1] instanceof MachinePlayer) {
                 System.out.println("Machine");
@@ -33,22 +39,15 @@ public class Game {
                 int machineMove = MachinePlayer.makeMove(roundNr, gameStack);
                 inputField.setText(String.valueOf(machineMove));
                 input = String.valueOf(machineMove);
-            } else {
-                if(SUM || ENTER) {
-                    System.out.println("Human 2");
-                    input = inputField.getText();
-                }
-
-
+                playTheGame(input, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
             }
-            checkTheRules(input, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
         }
     }
 
-    public void checkTheRules(String input, Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
-        boolean inputValid = false;
-        int inputNr;
 
+
+    private void playTheGame(String input, Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
+        int inputNr;
         if (input.isEmpty()) {
             inputNr = 0;
             System.out.println("Input is empty");
@@ -56,26 +55,26 @@ public class Game {
             inputNr = Math.abs(Integer.parseInt(input));
             System.out.println("Nummer umformung");
         }
-        play(inputNr, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
 
-    }
-    private void play(Integer inputNr, Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
         System.out.println("Play 1");
         boolean inputValid = false;
+        System.out.println("inptnr in play " + inputNr);
         if(SUM){
-            SUM = false;
+            System.out.println("Sum");
             if (roundNr < 4 ) {
                 messageLabel.setText("Addition not allowed in first three rounds!");
             }
             else {
                 if (inputNr == 0) {
-                    int firstTopNr = gameStack.pop();
-                    int secTopNr = gameStack.pop();
-                    int number = firstTopNr + secTopNr;
-                    gameStack.push(number);
-                    updateGrid(gridPane);
-                    inputValid = true;
+                        int firstTopNr = gameStack.pop();
+                        int secTopNr = gameStack.pop();
+                        int number = firstTopNr + secTopNr;
+                        gameStack.push(number);
+                        updateGrid(gridPane);
+                        inputValid = true;
                 }
+
+
                 else {
                     int number = gameStack.pop() + inputNr;
                     gameStack.push(number);
@@ -85,9 +84,10 @@ public class Game {
             }
         }
         else {
-            ENTER= false;
+            System.out.println("Enter");
             if (inputNr < 10 && inputNr > 0) {
-                if (gameStack.size() < 6) {
+                System.out.println("0<x<10");
+                if (gameStack.size() >= 6) {
                     int number = gameStack.pop() + inputNr;
                     gameStack.push(number);
                     updateGrid(gridPane);
@@ -134,6 +134,8 @@ public class Game {
                 inputField.clear();
             }
         }
+        ENTER = false;
+        SUM = false;
     }
     private void updateGrid(GridPane gridPane) {
         System.out.println("update grid");
@@ -172,7 +174,6 @@ public class Game {
 
     private void checkWinner(Label messageLabel){
         if (gameStack.peek() >= 21) {
-            messageLabel.setText("\n!!!! We have a winner !!!! " + currentPlayer);
             System.out.println("Winner: " + currentPlayer);
             stop=true;
             System.out.println("Stop True? " + stop);
@@ -192,7 +193,7 @@ public class Game {
             playerLabel.setText(currentPlayerObject.getName());
             inputField.clear();
         } else {
-            messageLabel.setText("Spiel ist vorbei!");
+            messageLabel.setText("\n!!!! We have a winner !!!! Winner is " + currentPlayer);
             inputField.setEditable(false);
         }
     }

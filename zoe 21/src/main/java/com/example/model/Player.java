@@ -1,6 +1,4 @@
-package model;
-
-import java.util.Stack;
+package com.example.model;
 
 public abstract class Player {
     protected String name;

@@ -10,10 +10,10 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
-import model.Game;
-import model.Player;
-import model.HumanPlayer;
-import model.MachinePlayer;
+import com.example.model.Game;
+import com.example.model.Player;
+import com.example.model.HumanPlayer;
+import com.example.model.MachinePlayer;
 
 
 import java.net.URL;
@@ -36,8 +36,6 @@ public class RegularGameController implements Initializable{
     @FXML
     protected Button sumButton;
     public static boolean MACHINEMODE;
-    public static boolean SUM;
-    public static boolean ENTER;
     private final Player[] playersList = new Player[2];
     private final Game game = new Game();
 
@@ -90,21 +88,21 @@ public class RegularGameController implements Initializable{
     @FXML
     protected void onKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
-            ENTER = true;
+            Game.setEnter();
             play();
         }
     }
 
     @FXML
     protected void onSumSelect(){
-        SUM = true;
+        Game.setSum();
         play();
 
     }
 
 
     public void play() {
-        game.playTheGame(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+        game.askForInput(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
     }
 
 }
