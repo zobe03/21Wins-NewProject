@@ -181,7 +181,7 @@ public class Game {
             inputField.clear();
         } else {
             String winnerName = playersList[currentPlayer - 1].getName();
-            messageLabel.setText("\n!!!! We have a winner !!!! " + winnerName);
+            messageLabel.setText("\n!!!! We have a winner !!!! Winner is " + winnerName);
             inputField.setEditable(false);
         }
     }
