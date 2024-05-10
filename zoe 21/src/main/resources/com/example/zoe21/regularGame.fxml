@@ -26,9 +26,6 @@
             <font>
                 <Font size="18.0" />
             </font>
-            <textFormatter>
-                <TextFormatter filter="NUMERIC" />
-            </textFormatter>
         </TextField>
         <Button fx:id="sumButton" layoutX="34.0" layoutY="230.0" onAction="#onSumSelect" prefHeight="26.0" prefWidth="160.0" text="Sum">
             <font>
