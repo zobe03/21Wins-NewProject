@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 // von MachinePlayer können weitere Unterklassen mit unterschiedlichem Schwierigkeitsgrad/Eigenschaften erstellt werden (sonst final setzen)
@@ -15,9 +16,9 @@ public final class MachinePlayer extends Player {
     }
     public int searchDepth() {
         return switch (difficulty) {
-            case 1 -> 1;
-            case 2 -> 2;
-            case 3 -> 3;
+            case 1 -> 2;
+            case 2 -> 4;
+            case 3 -> 6;
             default -> 1;
         };
     }
@@ -25,14 +26,23 @@ public final class MachinePlayer extends Player {
     public int makeMove(int currentRoundNr, Stack<Integer> currentStack) {
 
         Position root = new Position(currentStack, currentRoundNr, true, -1);
+
+        ArrayList<Integer> validMoves = new ArrayList<>();
+
         int bestEval = minimax(root, searchDepth(), true);
         for (Position child : root.getChildren()) {
             if (child.getEvaluation() == bestEval) {
-                return child.getMoveMade();
+                validMoves.add(child.getMoveMade());
             }
         }
 
-        return -1;
+        root.setValidMoves(validMoves);
+        if (!validMoves.isEmpty()) {
+            return validMoves.get((int) (Math.random() * validMoves.size()));
+        } else {
+            System.out.println("Error: No move found. Returning 1.");
+            return 1;
+        }
     }
 
     public int minimax(Position pos, int depth, boolean machinesMove) {
@@ -62,5 +72,3 @@ public final class MachinePlayer extends Player {
         }
     }
 }
-
-

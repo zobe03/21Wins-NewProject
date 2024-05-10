@@ -1,14 +1,24 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
 
 public class Position {
 
-    private final Stack<Integer> positionStack;
-    private final int positionRoundNr;
-    private final boolean machinesMove;
+    private ArrayList<Integer> validMoves = new ArrayList<>();
+    public ArrayList<Integer> getValidMoves() {
+        return validMoves;
+    }
+    public void setValidMoves(ArrayList<Integer> validMoves) {
+        this.validMoves = validMoves;
+    }
+
+    private final Set<Position> children = new HashSet<>();
+    public Set<Position> getChildren() {
+        return children;
+    }
 
     private final int moveMade;
     public int getMoveMade() {
@@ -20,57 +30,36 @@ public class Position {
         return evaluation;
     }
 
-    public Position(Stack<Integer> currentStack, int roundNr, boolean machinesMove, int moveMade) {
+    private final Stack<Integer> positionStack;
+    private final int positionRoundNr;
+    private final boolean computersTurn;
+
+    public Position(Stack<Integer> currentStack, int roundNr, boolean computersTurn, int moveMade) {
         this.positionStack = currentStack;
         this.positionRoundNr = roundNr;
-        this.machinesMove = machinesMove;
+        this.computersTurn = computersTurn;
         this.moveMade = moveMade;
 
-        int nr1 = currentStack.pop();
-        int nr2 = currentStack.pop();
-        boolean stackFull = currentStack.size() >= 6;
-        boolean canCombine = roundNr >= 4 && currentStack.size() > 1;
-
-        if (nr1 >= 12 && stackFull || nr1 + nr2 >= 21 && canCombine) {
-            this.evaluation = 1000;
-        } else if (nr1 == 11 && stackFull && nr1 + nr2 < 21 || nr1 + nr2 == 20 && stackFull) {
-            this.evaluation = -1000;
-        } else {
-            this.evaluation = 0;
-        }
+        if (!currentStack.isEmpty()) {
+            if (currentStack.peek() >= 21) {
+                if (computersTurn) {
+                    this.evaluation = -1000;
+                } else {
+                    this.evaluation = 1000;
+                }
+            } else this.evaluation = 0;
+        } else this.evaluation = 0;
     }
-
-    private final Set<Position> children = new HashSet<>();
-    public Set<Position> getChildren() {
-        return children;
-    }
-
-//    public Position generateChild(int move, Position parent) {
-//
-//        Stack<Integer> childStack = parent.positionStack;
-//        int childRound = parent.machinesMove ? parent.positionRoundNr + 1: parent.positionRoundNr;
-//
-//        if (move == 0 && childStack.size() > 1 && childRound >= 4) {
-//            childStack.push(childStack.pop() + childStack.pop());
-//        } else if (move <= 9 && move >= 1) {
-//            if (childStack.size() == 6) {
-//                int stackNr1 = childStack.pop();
-//                childStack.push(stackNr1 + move);
-//            } else if (!childStack.isEmpty() && childStack.size() < 6) {
-//                childStack.push(move);
-//            }
-//        }
-//
-//        return new Position(childStack, childRound, !parent.machinesMove, move);
-//    }
 
     public void generateChildren() {
         for (int move = 0; move < 10; move++) {
             Stack<Integer> childStack = this.positionStack;
-            int childRound = this.machinesMove ? this.positionRoundNr + 1: this.positionRoundNr;
+            int childRound = this.computersTurn ? this.positionRoundNr + 1: this.positionRoundNr;
 
             if (move == 0 && childStack.size() > 1 && childRound >= 4) {
                 childStack.push(childStack.pop() + childStack.pop());
+                Position child = new Position(childStack, childRound, !this.computersTurn, move);
+                children.add(child);
             } else if (move >= 1) {
                 if (childStack.size() == 6) {
                     int stackNr1 = childStack.pop();
@@ -78,12 +67,9 @@ public class Position {
                 } else if (!childStack.isEmpty() && childStack.size() < 6) {
                     childStack.push(move);
                 }
-            }
-
-            Position child = new Position(childStack, childRound, !this.machinesMove, move);
+            Position child = new Position(childStack, childRound, !this.computersTurn, move);
             children.add(child);
+            }
         }
     }
-
-
 }
