@@ -36,6 +36,8 @@ public class RegularGameController implements Initializable{
     @FXML
     protected Button sumButton;
     public static boolean MACHINEMODE;
+    public static boolean SUM;
+    public static boolean ENTER;
     private final Player[] playersList = new Player[2];
     private final Game game = new Game();
 
@@ -88,28 +90,21 @@ public class RegularGameController implements Initializable{
     @FXML
     protected void onKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
+            ENTER = true;
             play();
         }
     }
 
     @FXML
     protected void onSumSelect(){
-        if (game.roundNr < 4){
-            messageLabel.setText("Addition not allowed in first three rounds!");
-        } else if (!game.input.isEmpty()){
-            play2();
-        }
-        else { // leere input zelle → verhält sich wie input==0
-            play();
-        }
+        SUM = true;
+        play();
+
     }
 
 
     public void play() {
         game.playTheGame(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
-    }
-    public void play2() {
-        game.playTheGame2(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
     }
 
 }
