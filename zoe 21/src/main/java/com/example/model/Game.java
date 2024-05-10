@@ -29,12 +29,10 @@ public class Game {
         System.out.println(Arrays.toString(playersList));
 
         if (playersList[0] instanceof HumanPlayer) {
-            System.out.println("Human 1");
             input = inputField.getText();
             playTheGame(input, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
 
             if(playersList[1] instanceof MachinePlayer) {
-                System.out.println("Machine");
                 //Verzögerug um 2-3 Sekunden
                 int machineMove = MachinePlayer.makeMove(roundNr, gameStack);
                 inputField.setText(String.valueOf(machineMove));
@@ -50,15 +48,12 @@ public class Game {
         int inputNr;
         if (input.isEmpty()) {
             inputNr = 0;
-            System.out.println("Input is empty");
         } else {
             inputNr = Math.abs(Integer.parseInt(input));
-            System.out.println("Nummer umformung");
         }
 
         System.out.println("Play 1");
         boolean inputValid = false;
-        System.out.println("inptnr in play " + inputNr);
         if(SUM){
             System.out.println("Sum");
             if (roundNr < 4 ) {
@@ -92,20 +87,17 @@ public class Game {
                     gameStack.push(number);
                     updateGrid(gridPane);
                     inputValid = true;
-                    System.out.println("game stack 2" + gameStack);
 
                 }
                 else {
                     gameStack.push(inputNr);
                     updateGrid(gridPane);
-                    System.out.println("game stack 1" + gameStack);
                     inputValid = true;
                 }
             }
             else if (inputNr == 0) {
                 if (roundNr < 4) {
                     messageLabel.setText("Addition not allowed in first three rounds!");
-                    System.out.println("game stack 3" + gameStack);
                 }
                 else {
 
@@ -116,49 +108,40 @@ public class Game {
                         gameStack.push(number);
                         updateGrid(gridPane);
                         inputValid = true;
-                        System.out.println("game stack 4" + gameStack);
                     }
                     else {
                         messageLabel.setText("Not enough numbers in Stack!");
-                        System.out.println("game stack 5" + gameStack);
                     }
                 }
             }
             else {
                 messageLabel.setText("Invalid input, Please enter a number between 1-9.");
-                System.out.println("game stack 6" + gameStack);
             }
-            if (inputValid) {
-                checkWinner(messageLabel);
-                switchPlayer(roundLabel, playerLabel, messageLabel, inputField, playersList);
-                inputField.clear();
-            }
+        }
+        if (inputValid) {
+            checkWinner();
+            switchPlayer(roundLabel, playerLabel, messageLabel, inputField, playersList);
+            inputField.clear();
         }
         ENTER = false;
         SUM = false;
     }
     private void updateGrid(GridPane gridPane) {
-        System.out.println("update grid");
         int stackSize = gameStack.size();
-        System.out.println("Stacksize: " + stackSize);
 
         // Starte von der untersten Reihe des Grids
         int gridRowIndex = gridPane.getRowCount() - 1;
-        System.out.println("gridrowindex" + gridRowIndex);
 
         // Index für das Iterieren durch den Stapel
         int stackIndex = stackSize -1;
-        System.out.println("stackindex:" + stackIndex);
 
         // Durchlaufe das GridPane von unten nach oben und aktualisiere die Labels entsprechend
         while (gridRowIndex >= 0) {
             Label label = (Label) gridPane.getChildren().get(gridRowIndex);
 
-
             if (stackIndex >= 0) {
                 // Es gibt noch Werte im Stapel, aktualisiere das Label entsprechend
                 label.setText(String.valueOf(gameStack.get(stackIndex)));
-                System.out.println("Label: " + label);
             } else {
                 // Der Stapel hat keine weiteren Werte, setze das Label auf 0
                 label.setText(" ");
@@ -172,19 +155,16 @@ public class Game {
     }
 
 
-    private void checkWinner(Label messageLabel){
+    private void checkWinner(){
         if (gameStack.peek() >= 21) {
-            System.out.println("Winner: " + currentPlayer);
             stop=true;
-            System.out.println("Stop True? " + stop);
+
         }
     }
     private void switchPlayer(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, Player[] playersList){
-        System.out.println("switchPlayer");
         if(!stop){
             int nrPlayers = 2;
             currentPlayer = (currentPlayer % nrPlayers) + 1;
-            System.out.println("SwitchPlayer currentplayer: " + currentPlayer);
             Player currentPlayerObject = playersList[currentPlayer - 1];
             if (currentPlayer == 1) {
                 roundNr++;

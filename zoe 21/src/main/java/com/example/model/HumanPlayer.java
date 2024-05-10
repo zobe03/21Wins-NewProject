@@ -1,6 +1,6 @@
 package com.example.model;
 
-import java.util.Stack;
+
 
 // es können keine weiteren Unterklassen erstellt werden
 public final class HumanPlayer extends Player {
@@ -16,8 +16,5 @@ public final class HumanPlayer extends Player {
         return name;
     }
 
-    public static int makeMove(int currentRoundNr, Stack<Integer> currentStack) {
-        return 0;
-    }
 }
 
