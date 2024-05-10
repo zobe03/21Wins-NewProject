@@ -28,12 +28,13 @@ public class Game {
     }
 
     public void askForInput(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
-        boolean inputValid = false;
+        boolean inputValid;
         System.out.println(Arrays.toString(playersList));
 
         if (playersList[0] instanceof HumanPlayer) {
             input = inputField.getText();
             inputValid = playTheGame(input, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+            System.out.println("input is valid: " + inputValid);
             if (inputValid) {
                 if (playersList[1] instanceof MachinePlayer) {
                     //Verzögerug um 2-3 Sekunden
@@ -55,7 +56,12 @@ public class Game {
         if (input.isEmpty()) {
             inputNr = 0;
         } else {
-            inputNr = Math.abs(Integer.parseInt(input));
+            try {
+                inputNr = Math.abs(Integer.parseInt(input));
+            } catch (NumberFormatException e){
+                messageLabel.setText("Invalid input. Please enter a number between 1 & 9!");
+                inputField.clear();
+            }
         }
 
         System.out.println("Play 1");
@@ -181,7 +187,7 @@ public class Game {
             inputField.clear();
         } else {
             String winnerName = playersList[currentPlayer - 1].getName();
-            messageLabel.setText("\n!!!! We have a winner !!!! " + winnerName);
+            messageLabel.setText("\n!!!! We have a winner !!!! Winner is" + winnerName);
             inputField.setEditable(false);
         }
     }
