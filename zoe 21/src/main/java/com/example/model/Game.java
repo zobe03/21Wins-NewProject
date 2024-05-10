@@ -67,12 +67,12 @@ public class Game {
             }
             else {
                 if (inputNr == 0) {
-                        int firstTopNr = gameStack.pop();
-                        int secTopNr = gameStack.pop();
-                        int number = firstTopNr + secTopNr;
-                        gameStack.push(number);
-                        updateGrid(gridPane);
-                        inputValid = true;
+                    int firstTopNr = gameStack.pop();
+                    int secTopNr = gameStack.pop();
+                    int number = firstTopNr + secTopNr;
+                    gameStack.push(number);
+                    updateGrid(gridPane);
+                    inputValid = true;
                 }
 
 

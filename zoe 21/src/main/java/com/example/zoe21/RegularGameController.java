@@ -10,10 +10,10 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
-import model.Game;
-import model.Player;
-import model.HumanPlayer;
-import model.MachinePlayer;
+import com.example.model.Game;
+import com.example.model.Player;
+import com.example.model.HumanPlayer;
+import com.example.model.MachinePlayer;
 
 
 import java.net.URL;
@@ -22,86 +22,87 @@ import java.util.Optional;
 
 public class RegularGameController implements Initializable{
     @FXML
-    private Label roundLabel;
+    private  Label roundLabel;
     @FXML
-    private Label playerLabel;
+    private  Label playerLabel;
     @FXML
-    private Label messageLabel;
+    private  Label messageLabel;
     @FXML
-    private TextField inputField;
+    private  TextField inputField;
     @FXML
-    private Button sumButton;
-    @FXML
-    private GridPane gridPane;
+    private  GridPane gridPane;
     @FXML
     protected Button backtomenu;
     @FXML
-    protected void setBacktomenu(){
-        SwitchingScenes.setScene(0);
-    }
-
+    protected Button sumButton;
     public static boolean MACHINEMODE;
-
-    private Player[] playersList = new Player[2]; //0 und 1
-    private Game game = new Game();
+    private final Player[] playersList = new Player[2];
+    private final Game game = new Game();
 
     @FXML
     public void initialize(URL location, ResourceBundle resources){
         roundLabel.setText("Round 1");
         messageLabel.setText("Enter a Number between 1 & 9 and press ENTER to add the Number to the Stack");
 
-        // Laden Sie das Bild
-        String imagePath = "file:resources/grün.jpeg";// Bild oder Gif im ressource hochladen
+        String imagePath = "file:resources/grün.jpeg";
         Image image = new Image(imagePath);
-        // Erstellen Sie ein BackgroundImage-Objekt
-        BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, false, true);
+        BackgroundSize backgroundSize = new BackgroundSize(600, 600, true, true, false, true);
         BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
 
-        // Setzen Sie das Hintergrundbild
         gameLayout.setBackground(new Background(backgroundImage));
     }
+    public static void setMachineMode() {
+        MACHINEMODE = true;
+        System.out.println("setMachinemode: " + MACHINEMODE);
+    }
     public void addNames(){
-        if (MACHINEMODE) {
-            String playerName = askForPlayerName("Player 1");
-            playersList[0] = new HumanPlayer(playerName);
-            playersList[1] = new MachinePlayer();
-        } else {
+        if (!MACHINEMODE) {
+            System.out.println("Maschinemode false");
             String playerName1 = askForPlayerName("Player 1");
             playersList[0] = new HumanPlayer(playerName1);
             String playerName2 = askForPlayerName("Player 2");
             playersList[1] = new HumanPlayer(playerName2);
+        } else {
+            System.out.println("Maschinemode true");
+            String playerName = askForPlayerName("Player 1");
+            playersList[0] = new HumanPlayer(playerName);
+            playersList[1] = new MachinePlayer();
         }
         playerLabel.setText(playersList[0].getName());
     }
 
     @FXML
     private AnchorPane gameLayout;
-    private void play() {
-        if (MACHINEMODE) {
-            game.playWithMachine( roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
-        } else {
-            game.playWithPlayer( roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
-        }
-    }
     private String askForPlayerName(String defaultName){
         TextInputDialog dialog = new TextInputDialog(defaultName);
-        dialog.setTitle("Spielername eingeben");
-        dialog.setHeaderText("Bitte geben Sie Ihren Namen ein:");
+        dialog.setTitle("Enter your Name");
+        dialog.setHeaderText("Please enter your Name: ");
         dialog.setContentText("Name:");
         Optional<String> result = dialog.showAndWait();
         return result.orElse(defaultName);
     }
-
+    @FXML
+    protected void setBacktomenu(){
+        SwitchingScenes.setScene(0);
+    }
     @FXML
     protected void onKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
+            Game.setEnter();
             play();
         }
     }
 
     @FXML
     protected void onSumSelect(){
+        Game.setSum();
         play();
+
+    }
+
+
+    public void play() {
+        game.askForInput(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
     }
 
 }
