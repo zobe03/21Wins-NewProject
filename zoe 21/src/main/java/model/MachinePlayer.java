@@ -25,6 +25,10 @@ public final class MachinePlayer extends Player {
 
     public int makeMove(int currentRoundNr, Stack<Integer> currentStack) {
 
+        if (currentRoundNr < 3) {
+            return ((int) (Math.random() * 9 + 1));
+        }
+
         Position root = new Position(currentStack, currentRoundNr, true, -1);
 
         ArrayList<Integer> validMoves = new ArrayList<>();
@@ -32,6 +36,7 @@ public final class MachinePlayer extends Player {
         int bestEval = minimax(root, searchDepth(), true);
         for (Position child : root.getChildren()) {
             if (child.getEvaluation() == bestEval) {
+                // System.out.println("child.getMoveMade() = " + child.getMoveMade());
                 validMoves.add(child.getMoveMade());
             }
         }
@@ -40,13 +45,13 @@ public final class MachinePlayer extends Player {
         if (!validMoves.isEmpty()) {
             return validMoves.get((int) (Math.random() * validMoves.size()));
         } else {
-            System.out.println("Error: No move found. Returning 1.");
-            return 1;
+            // System.out.println("Error: No move found. Returning Random.");
+            return (int) (Math.random() * 9 + 1);
         }
     }
 
     public int minimax(Position pos, int depth, boolean machinesMove) {
-    // machinesMove is somewhat equivalent to 'maximizingPlayer', since the COM is always maximizing
+        // machinesMove is somewhat equivalent to 'maximizingPlayer', since the COM is always maximizing
 
         int eval = pos.getEvaluation();
         if (depth == 0 || eval >= 1000 || eval <= -1000) {

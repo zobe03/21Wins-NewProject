@@ -53,7 +53,7 @@ public class Position {
 
     public void generateChildren() {
         for (int move = 0; move < 10; move++) {
-            Stack<Integer> childStack = this.positionStack;
+            Stack<Integer> childStack = (Stack<Integer>) this.positionStack.clone();
             int childRound = this.computersTurn ? this.positionRoundNr + 1: this.positionRoundNr;
 
             if (move == 0 && childStack.size() > 1 && childRound >= 4) {
