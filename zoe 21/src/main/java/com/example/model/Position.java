@@ -7,133 +7,95 @@ import java.util.Stack;
 
 public class Position {
 
-    private final Stack<Integer> positionStack;
-    private final int positionRoundNr;
-    private final boolean activePlayerIsMachine;
-    private final int moveMade;
-    private final int positionEvaluation;
+    private final Stack<Integer> currentStack;
+    private final int roundNumber;
+    private final boolean isMaximizingPlayer;
+    private final int lastMoveMade;
+    private final int positionScore;
+
+    public int getLastMoveMade() {
+        return lastMoveMade;
+    }
+    public int getPositionScore() {
+        return positionScore;
+    }
+    
     public Position(Stack<Integer> currentStack, int roundNr, boolean activePlayerIsMachine, int lastMoveMade) {
-        this.positionStack = currentStack;
-        this.positionRoundNr = roundNr;
-        this.activePlayerIsMachine = activePlayerIsMachine;
-        this.moveMade = lastMoveMade;
-        this.positionEvaluation = positionEvaluation(currentStack, !activePlayerIsMachine);
+        this.currentStack = currentStack;
+        this.roundNumber = roundNr;
+        this.isMaximizingPlayer = activePlayerIsMachine;
+        this.lastMoveMade = lastMoveMade; // move made (by opponent) leading to this position
+        this.positionScore = calculateScore_heuristic(currentStack, !activePlayerIsMachine);
     }
 
-    private int positionEvaluation(Stack<Integer> s, boolean max) {
-        // +/-1000 = winning/losing position within one turn
-        // +/-500  = winning/losing position within two turns
+    // calculates score of current position
+    // if it inevitably & heuristically predictably leads to a win/loss:
+    //  - MAX/MIN if game is already in end-position
+    //  - +/-1000 if game will end after one move
+    //  - +/-500 if game will end after two moves
+    // positive numbers indicate the maximizing player has advantage (and the opposite)
+    // if no heuristic evaluation is possible, return 0 as a neutral rating
+    private int calculateScore_heuristic(Stack<Integer> s, boolean max) {
 
-        if (s.isEmpty()) return 0;
+        if (s.isEmpty()) return 0; // check if stack is empty, return 0 as neutral score if so
+        int top = s.peek(); // since stack has been verified as not empty, get stack's top number
 
-        int top = s.peek();
         if (top >= 21) {
             // check if position is already final (already >= 21)
-            return max ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            return max ? 9999 : -9999;
         }
 
-        if (s.size() >= 2 && this.positionRoundNr >= 4) {
-            // check if stack has at least 2 elements and is at least round 4 to create sum
-            int sum = top + s.get(s.size() - 2);
+        if (s.size() >= 2 && this.roundNumber >= 4) {
+            int sum = top + s.get(s.size() - 2); // since stack has at least 2 elements and is at least round 4, create sum from top two numbers
+
             if (sum >= 21) {
-                return max ? 1000 : -1000;
                 // win by combining the two top elements to sum
+                return max ? 1000 : -1000;
             }
 
+            // check if stack is full
             if (s.size() >= 6) {
-                // check if stack is full
                 if (top >= 12) {
-                    return max ? 1000 : -1000;
                     // win by adding large enough number on top
+                    return max ? 1000 : -1000;
                 }
                 if (top == 11) {
-                    return max ? -500 : 500;
                     // cannot prevent enemy from winning on their next turn
+                    return max ? -500 : 500;
                 }
                 if (sum == 20) {
-                    return max ? -500 : 500;
                     // cannot prevent enemy from winning on their next turn
+                    return max ? -500 : 500;
                 }
             }
-            // otherwise return 0 (neutral rating)
         }
+        // otherwise return 0 (neutral rating)
         return 0;
     }
-
-//    private int positionEvaluation(Stack<Integer> stack, boolean max) {
-//        if (!stack.isEmpty()) {
-//            if (stack.peek() >= 21) {
-//                if (max) {
-//                    return Integer.MAX_VALUE;
-//                } else {
-//                    return Integer.MIN_VALUE;
-//                }
-//
-//            } else if (stack.size() >= 2) {
-//
-//                if (stack.peek() + stack.get(stack.size() - 2) >= 21) {
-//                    if (max) {
-//                        return 1000;
-//                    } else {
-//                        return -1000;
-//                    }
-//                }
-//
-//                if (stack.size() >= 6) {
-//
-//                    if (stack.peek() >= 12) {
-//                        if (max) {
-//                            return 1000;
-//                        } else {
-//                            return -1000;
-//                        }
-//                    }
-//
-//                    if (stack.peek() == 11 && stack.peek() + stack.get(stack.size() - 2) < 21) {
-//                        if (max) {
-//                            return -500;
-//                        } else {
-//                            return 500;
-//                        }
-//                    }
-//
-//                    if (stack.peek() + stack.get(stack.size() - 2) == 20) {
-//                        if (max) {
-//                            return -500;
-//                        } else {
-//                            return 500;
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        return 0;
-//    }
 
     private final ArrayList<Integer> validMoves = new ArrayList<>();
     private final Set<Position> children = new HashSet<>();
 
-    public ArrayList<Integer> getValidMoves() {
+    public ArrayList<Integer> getHighestRatedMoves() {
         return validMoves;
     }
-    public Set<Position> getChildren() {
+    public Set<Position> getPossibleNextPositions() {
         return children;
     }
-    public int getMoveMade() {
-        return moveMade;
-    }
-    public int getPositionEvaluation() {
-        return positionEvaluation;
-    }
 
-    public void generateChildren() {
-        int newRoundNr = this.activePlayerIsMachine ? this.positionRoundNr + 1: this.positionRoundNr;
+
+    public void simulatePossibleMoves() {
+        // if current player is not maximizing player (if it is player two) increment the round number for next position
+        int newRoundNr = this.isMaximizingPlayer ? this.roundNumber + 1: this.roundNumber;
+
         for (int move = 0; move < 10; move++) {
-            Stack<Integer> newStack = (Stack<Integer>) this.positionStack.clone();
+            // clone current stack before making changes
+            Stack<Integer> newStack = (Stack<Integer>) this.currentStack.clone();
 
-            if (move == 0 && newStack.size() > 1 && this.positionRoundNr >= 4) {
+            // simulate changes to stack depending on move made
+            if (move == 0 && newStack.size() > 1 && this.roundNumber >= 4) {
                 newStack.push(newStack.pop() + newStack.pop());
-                Position child = new Position(newStack, newRoundNr, !this.activePlayerIsMachine, move);
+                Position child = new Position(newStack, newRoundNr, !this.isMaximizingPlayer, move);
                 children.add(child);
 
             } else if (move >= 1) {
@@ -142,9 +104,9 @@ public class Position {
                     newStack.push(stackNr1 + move);
                 } else if (!newStack.isEmpty() && newStack.size() < 6) {
                     newStack.push(move);
-                }
+                } // else { continue; }
 
-            Position child = new Position(newStack, newRoundNr, !this.activePlayerIsMachine, move);
+            Position child = new Position(newStack, newRoundNr, !this.isMaximizingPlayer, move);
             children.add(child);
 
             }
