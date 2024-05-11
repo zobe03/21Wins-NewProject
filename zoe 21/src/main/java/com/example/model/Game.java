@@ -33,7 +33,8 @@ public class Game {
 
         if (playersList[0] instanceof HumanPlayer) {
             input = inputField.getText();
-            inputValid = playTheGame(input, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+            int inputNr = stringToInteger(input, messageLabel);
+            inputValid = playTheGame(inputNr, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
             if (inputValid) {
                 if (playersList[1] instanceof MachinePlayer) {
                     //Verzögerug um 2-3 Sekunden
@@ -41,31 +42,36 @@ public class Game {
                     inputField.setText(String.valueOf(machineMove));
                     input = String.valueOf(machineMove);
                     System.out.println("Machine number: " + input);
-                    playTheGame(input, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+                    inputNr = stringToInteger(input, messageLabel);
+                    playTheGame(inputNr, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
                 }
             }
         }
     }
-
-
-
-
-    private boolean playTheGame(String input, Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
-        int inputNr;
-        if (input.isEmpty()) {
-            inputNr = 0;
-        } else {
-            inputNr = Math.abs(Integer.parseInt(input));
+    private int stringToInteger(String input, Label messagelabel) {
+        int inputNr = 0;
+        try {
+            if (!input.isEmpty()) {
+                inputNr = Math.abs(Integer.parseInt(input));
+            }
+        } catch(NumberFormatException e){
+                messagelabel.setText("Input invalid! Please enter a number between 1 & 9!");
+            }
+            return inputNr;
         }
+
+
+
+
+    private boolean playTheGame(Integer inputNr, Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
 
         System.out.println("Play 1");
         boolean inputValid = false;
-        if(SUM){
+        if(SUM) {
             System.out.println("Sum");
-            if (roundNr < 4 ) {
+            if (roundNr < 4) {
                 messageLabel.setText("Addition not allowed in first three rounds!");
-            }
-            else {
+            } else {
                 if (inputNr == 0) {
                     int firstTopNr = gameStack.pop();
                     int secTopNr = gameStack.pop();
@@ -73,10 +79,7 @@ public class Game {
                     gameStack.push(number);
                     updateGrid(gridPane);
                     inputValid = true;
-                }
-
-
-                else {
+                } else {
                     int number = gameStack.pop() + inputNr;
                     gameStack.push(number);
                     updateGrid(gridPane);
@@ -106,7 +109,6 @@ public class Game {
                     messageLabel.setText("Addition not allowed in first three rounds!");
                 }
                 else {
-
                     if (gameStack.size() > 1) {
                         int firstTopNr = gameStack.pop();
                         int secTopNr = gameStack.pop();
