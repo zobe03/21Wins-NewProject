@@ -16,7 +16,7 @@ public final class MachinePlayer extends Player {
         } else if (difficulty == 2) {
             depth = 4;
         } else if (difficulty == 3) {
-            depth = 6;
+            depth = 8;
         } else {
             depth = 4;
         }
@@ -32,7 +32,7 @@ public final class MachinePlayer extends Player {
 
         // initialize current position as root-node for algorithm
         Position root = new Position(currentStack, currentRoundNr, true, -1);
-        int highestPossibleScore = minimaxEvaluation(root, depth, false);
+        int highestPossibleScore = minimaxEvaluation(root, depth, Integer.MIN_VALUE, Integer.MAX_VALUE, true);
 
         // iterating over all possible next positions
         for (Position p : root.getPossibleNextPositions()) {
@@ -57,7 +57,7 @@ public final class MachinePlayer extends Player {
         }
     }
 
-    public static int minimaxEvaluation(Position pos, int depth, boolean maximizingPlayer) {
+    public static int minimaxEvaluation(Position pos, int depth, int alphaPruning, int betaPruning, boolean maximizingPlayer) {
         // Position pos:                current game-state as position object
         // int depth:                   search depth in moves (2 moves = 1 round)
         // boolean maximizingPlayer:    whether the current player aims to maximize or minimize the position's evaluation
@@ -77,17 +77,25 @@ public final class MachinePlayer extends Player {
         // iterate over all generated possible next positions
         // recursively call minimax until score is returned
         if (maximizingPlayer) {
-            int scoreMax = -9999;
+            int scoreMax = Integer.MIN_VALUE;
             for (Position child : pos.getPossibleNextPositions()) {
-                score = minimaxEvaluation(child, depth - 1, false);
+                score = minimaxEvaluation(child, depth - 1, alphaPruning, betaPruning, false);
                 scoreMax = Math.max(scoreMax, score);
+                alphaPruning = Math.max(alphaPruning, score);
+                if (betaPruning <= alphaPruning) {
+                    break;
+                }
             }
             return scoreMax;
         } else {
-            int scoreMin = 9999;
+            int scoreMin = Integer.MAX_VALUE;
             for (Position child : pos.getPossibleNextPositions()) {
-                score = minimaxEvaluation(child, depth - 1, true);
+                score = minimaxEvaluation(child, depth - 1, alphaPruning, betaPruning, true);
                 scoreMin = Math.min(scoreMin, score);
+                betaPruning = Math.max(betaPruning, score);
+                if (alphaPruning <= betaPruning) {
+                    break;
+                }
             }
             return scoreMin;
         }

@@ -29,7 +29,7 @@ public class Position {
     }
 
     // calculates score of current position
-    // if it inevitably & heuristically predictably leads to a win/loss:
+    // if it inevitably/heuristically-predictably leads to a win/loss:
     //  - MAX/MIN if game is already in end-position
     //  - +/-1000 if game will end after one move
     //  - +/-500 if game will end after two moves
@@ -42,7 +42,7 @@ public class Position {
 
         if (top >= 21) {
             // check if position is already final (already >= 21)
-            return max ? 9999 : -9999;
+            return max ? 1 : -1;
         }
 
         if (s.size() >= 2 && this.roundNumber >= 4) {
@@ -50,22 +50,22 @@ public class Position {
 
             if (sum >= 21) {
                 // win by combining the two top elements to sum
-                return max ? 1000 : -1000;
+                return max ? 1 : -1;
             }
 
             // check if stack is full
             if (s.size() >= 6) {
                 if (top >= 12) {
                     // win by adding large enough number on top
-                    return max ? 1000 : -1000;
+                    return max ? 1 : -1;
                 }
                 if (top == 11) {
                     // cannot prevent enemy from winning on their next turn
-                    return max ? -500 : 500;
+                    return max ? -1 : 1;
                 }
                 if (sum == 20) {
                     // cannot prevent enemy from winning on their next turn
-                    return max ? -500 : 500;
+                    return max ? -1 : 1;
                 }
             }
         }
