@@ -40,7 +40,6 @@ public final class MachinePlayer extends Player {
             }
         }
 
-
         if (!root.getValidMoves().isEmpty()) {
             return root.getValidMoves().get((int) (Math.random() * root.getValidMoves().size()));
         } else {
