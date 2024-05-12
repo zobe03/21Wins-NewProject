@@ -15,13 +15,14 @@ public final class MachinePlayer extends Player {
     private static int depth;
     private static int difficulty;
     public static void setDifficulty(int diff) {
-        // easy (1) AI plays random
-        // medium (2) & hard (3) AI doesn't simulate moves, only checks for winning moves in the current round
-        // expert (4) AI simulates moves using minimax-algorithm with alpha-beta branch-pruning (depth 11) (changes in depth hardly made a different in strength, which is why we only have one difficulty using it)
-        // impossible (5) AI uses unbeatable strategy without simulating moves
+        // easy (1) & medium (2) AI doesn't simulate moves, only checks for winning moves in the current round
+        // hard (3) & expert (4) AI simulates moves using minimax-algorithm with alpha-beta branch-pruning
+        // impossible (5) AI uses set opening strategy on top of that
         System.out.println("Difficulty: " + diff);
         difficulty = diff;
-        if (diff == 4) {
+        if (diff == 3) {
+            depth = 5;
+        } else if (diff >= 4) {
             depth = 11;
         } else {
             depth = 0;
@@ -31,18 +32,21 @@ public final class MachinePlayer extends Player {
     public static int makeMove(int currentRoundNr, Stack<Integer> currentStack) {
         // looking for appropriate reactions (based on difficulty) before simulating moves and evaluating future game-states
         if (currentRoundNr <= 3) {
-            if (difficulty == 5 && currentRoundNr == 3) {
-                return 1; // the unbeatable move!
+            if (difficulty == 5) {
+                // strategy moves
+                if (currentRoundNr == 3) {
+                    return 1;
+                } else if (currentRoundNr == 2) {
+                    return 9;
+                }
             }
             // on other difficulties the AI just plays random moves in the first three rounds
             return (int) (Math.random() * 9 + 1);
         } else if (difficulty == 1) {
-            // easy AI (1) always plays a random number
-            return (int) (Math.random() * 10);
-        } else if (difficulty == 2) {
-            // medium AI (2) has a 70% chance of just outputting a random number and therefore missing a win.
+            // easy AI (1) has a 70% chance of just outputting a random number and therefore missing a win.
             if ((int) (Math.random() * 100) <= 70) {
-                return (int) (Math.random() * 10);
+                if (currentStack.size() > 1) return (int) (Math.random() * 10);
+                return (int) (Math.random() * 9 + 1);
             }
         } else if (currentStack.size() >= 2) {
             // next: looks for inevitable win/loss in the next move and/or round (2 moves) and reacts accordingly
