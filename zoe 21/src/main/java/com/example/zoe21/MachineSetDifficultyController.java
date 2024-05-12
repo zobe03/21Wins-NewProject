@@ -21,6 +21,10 @@ public class MachineSetDifficultyController implements Initializable {
     protected RadioButton medium;
     @FXML
     protected RadioButton hard;
+    @FXML
+    protected RadioButton expert;
+    @FXML
+    protected RadioButton impossible;
 
     @FXML
     protected void setBacktomenu(){
@@ -40,6 +44,16 @@ public class MachineSetDifficultyController implements Initializable {
     protected void onHardSelected(){
         MachinePlayer.setDifficulty(3);
         System.out.println("on hard selected");
+    }
+    @FXML
+    protected void onExpertSelected() {
+        MachinePlayer.setDifficulty(4);
+        System.out.println("on expert selected");
+    }
+    @FXML
+    protected void onImpossibleSelected(){
+        MachinePlayer.setDifficulty(5);
+        System.out.println("on impossible selected");
     }
     @FXML
     protected void nextToRegularGame(){
