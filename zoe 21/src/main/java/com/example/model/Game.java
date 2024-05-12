@@ -1,8 +1,10 @@
 package com.example.model;
 
+import javafx.animation.PauseTransition;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.util.Duration;
 
 import java.util.Arrays;
 import java.util.Stack;
@@ -33,30 +35,35 @@ public class Game {
 
         if (playersList[0] instanceof HumanPlayer) {
             input = inputField.getText();
-            int inputNr = stringToInteger(input, messageLabel);
-            inputValid = playTheGame(inputNr, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+            final int[] inputNr = {stringToInteger(input, messageLabel)};
+            inputValid = playTheGame(inputNr[0], roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
             if (inputValid) {
                 if (playersList[1] instanceof MachinePlayer) {
-                    //Verzögerug um 2-3 Sekunden
-                    int machineMove = MachinePlayer.makeMove(roundNr, gameStack);
-                    inputField.setText(String.valueOf(machineMove));
-                    input = String.valueOf(machineMove);
-                    System.out.println("Machine number: " + input);
-                    inputNr = stringToInteger(input, messageLabel);
-                    playTheGame(inputNr, roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+                    PauseTransition delay = new PauseTransition(Duration.seconds(3));
+                    delay.setOnFinished(event -> {
+                        int machineMove = MachinePlayer.makeMove(roundNr, gameStack);
+                        inputField.setText(String.valueOf(machineMove));
+                        input = String.valueOf(machineMove);
+                        System.out.println("Machine number: " + input);
+                        inputNr[0] = stringToInteger(input, messageLabel);
+                        playTheGame(inputNr[0], roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+                    });
+                    delay.play();
                 }
             }
         }
     }
-    private int stringToInteger(String input, Label messagelabel) {
+    private int stringToInteger(String input, Label messageLabel) {
         int inputNr = 0;
         try {
             if (!input.isEmpty()) {
                 inputNr = Math.abs(Integer.parseInt(input));
+                messageLabel.setText("Entered Number: " + inputNr);
             }
         } catch(NumberFormatException e){
-                messagelabel.setText("Input invalid! Please enter a number between 1 & 9!");
+                messageLabel.setText("Input invalid! Please enter a number between 1 & 9!");
             }
+
             return inputNr;
         }
 
