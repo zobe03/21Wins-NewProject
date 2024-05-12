@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="new">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/MachinePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/MachinePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/MachinePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/MachinePlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/Position.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ai-dev.alpha-beta.no-win-fix" />
+        <entry key="$PROJECT_DIR$" value="ai-dev.TEMP-FIX" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,12 +33,33 @@
     &quot;assignee&quot;: &quot;zobe03&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/zobe03/21Wins-NewProject.git&quot;,
-    &quot;accountId&quot;: &quot;6f6b0d26-fafe-453a-a8b5-9e2e1830ed80&quot;
+  <component name="GitHubPullRequestState"><![CDATA[{
+  "prStates": [
+    {
+      "id": {
+        "id": "PR_kwDOL44DJs5vLxkm",
+        "number": 3
+      },
+      "lastSeen": 1715530978889
+    }
+  ]
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/zobe03/21Wins-NewProject.git",
+    "accountId": "6f6b0d26-fafe-453a-a8b5-9e2e1830ed80"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "zobe03",
+    "repository": "21Wins-NewProject"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -59,7 +76,7 @@
     "Application.MainApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "ai-dev.alpha-beta",
+    "git-widget-placeholder": "#3 on ai-dev.ready.v1",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/ashe/sky-ash/1-projects/intellij/21Wins-NewProject/zoe 21/ai-testing",
     "node.js.detected.package.eslint": "true",
@@ -131,6 +148,7 @@
       <workItem from="1715435970196" duration="394000" />
       <workItem from="1715436548775" duration="3133000" />
       <workItem from="1715439693845" duration="10932000" />
+      <workItem from="1715515905235" duration="13960000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -196,7 +214,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715468763605</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="new">
+      <option name="closed" value="true" />
+      <created>1715470130338</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715470130339</updated>
+    </task>
+    <task id="LOCAL-00010" summary="new">
+      <option name="closed" value="true" />
+      <created>1715530444746</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715530444746</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +250,62 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new" />
     <option name="LAST_COMMIT_MESSAGE" value="new" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/MachinePlayer.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/MachinePlayer.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/MachinePlayer.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/MachinePlayer.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/MachinePlayer.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/MachinePlayer.java</url>
+          <line>113</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/MachinePlayer.java</url>
+          <line>116</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/MachinePlayer.java</url>
+          <line>126</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/MachinePlayer.java</url>
+          <line>130</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/MachinePlayer.java</url>
+          <line>132</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
