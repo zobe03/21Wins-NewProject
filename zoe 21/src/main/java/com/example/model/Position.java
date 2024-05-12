@@ -5,70 +5,97 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
 
+// THIS CODE WAS WRITTEN WITH EXPANDABILITY IN MIND
+// IT CAN BE SIMPLIFIED MUCH MORE AND BE DESIGNED MORE ELEGANTLY AT THIS STAGE
+// HOWEVER, THE WAY IT IS WRITTEN IS FULLY FUNCTIONAL AND LEAVES SPACE FOR LARGER IMPROVEMENTS TO BE IMPLEMENTED EASIER
+
 public class Position {
 
-    private ArrayList<Integer> validMoves = new ArrayList<>();
-    public ArrayList<Integer> getValidMoves() {
-        return validMoves;
+    private final Stack<Integer> currentStack;
+    private final int roundNumber;
+    private final boolean isMaximizingPlayer;
+    private final int lastMoveMade;
+    private final int positionScore;
+
+    public int getLastMoveMade() {
+        return lastMoveMade;
     }
-    public void setValidMoves(ArrayList<Integer> validMoves) {
-        this.validMoves = validMoves;
+    public int getPositionScore() {
+        return positionScore;
     }
 
+    private final ArrayList<Integer> validMoves = new ArrayList<>();
     private final Set<Position> children = new HashSet<>();
-    public Set<Position> getChildren() {
+
+    public ArrayList<Integer> getHighestRatedMoves() {
+        return validMoves;
+    }
+    public Set<Position> getPossibleNextPositions() {
         return children;
     }
 
-    private final int moveMade;
-    public int getMoveMade() {
-        return moveMade;
+    public Position(Stack<Integer> currentStack, int roundNr, boolean activePlayerIsMachine, int lastMoveMade) {
+        this.currentStack = currentStack;
+        this.roundNumber = roundNr;
+        this.isMaximizingPlayer = activePlayerIsMachine;
+        this.lastMoveMade = lastMoveMade; // move made (by opponent) leading to this position
+        this.positionScore = calculateScore_absolute(currentStack, activePlayerIsMachine);
     }
 
-    private final int evaluation;
-    public int getEvaluation() {
-        return evaluation;
-    }
-
-    private final Stack<Integer> positionStack;
-    private final int positionRoundNr;
-    private final boolean computersTurn;
-
-    public Position(Stack<Integer> currentStack, int roundNr, boolean computersTurn, int moveMade) {
-        this.positionStack = currentStack;
-        this.positionRoundNr = roundNr;
-        this.computersTurn = computersTurn;
-        this.moveMade = moveMade;
-
-        if (!currentStack.isEmpty()) {
-            if (currentStack.peek() >= 21) {
-                if (computersTurn) {
-                    this.evaluation = -1000;
-                } else {
-                    this.evaluation = 1000;
+    // calculates score of current position if it inevitably/heuristically-predictably [i hope that even is a word] leads to a win/loss
+    // positive numbers indicate the maximizing player has advantage (and the opposite)
+    // if no heuristic evaluation is possible, return 0 as a neutral rating
+    private int calculateScore_absolute(Stack<Integer> s, boolean isMaximizingPlayersTurn) {
+        int top;
+        if (!s.isEmpty()) {
+            top = s.peek();
+            if (top >= 21) {
+                // check if position is already final (already >= 21)
+                return isMaximizingPlayersTurn ? -1000 : 1000;
+            }
+            if (s.size() >= 2 && this.roundNumber >= 4) {
+                // since stack has at least 2 elements and is at least round 4, create sum from top two numbers
+                int sum = top + s.get(s.size() - 2);
+                if (sum >= 21) {
+                    // win by combining the two top elements to sum
+                    return isMaximizingPlayersTurn ? 100 : -100;
                 }
-            } else this.evaluation = 0;
-        } else this.evaluation = 0;
+                // check if stack is full
+                if (currentStack.size() >= 6) {
+                    if (top >= 12) {
+                        // win by adding large enough number on top
+                        return isMaximizingPlayersTurn ? 100 : -100;
+                    }
+                    if (top == 11 || sum == 20) {
+                        // cannot prevent enemy from winning on their next turn
+                        return isMaximizingPlayersTurn ? -10 : 10;
+                    }
+                }
+            }
+        }
+        // otherwise return 0 (neutral rating)
+        return 0;
     }
 
-    public void generateChildren() {
+    public void simulatePossibleMoves() {
+        // if current player is maximizing player (if it is player two, the AI) increment the round number for next position
+        int newRoundNr = this.isMaximizingPlayer ? this.roundNumber + 1: this.roundNumber;
+        // iterate over all potentially possible moves
         for (int move = 0; move < 10; move++) {
-            Stack<Integer> childStack = (Stack<Integer>) this.positionStack.clone();
-            int childRound = this.computersTurn ? this.positionRoundNr + 1: this.positionRoundNr;
-
-            if (move == 0 && childStack.size() > 1 && childRound >= 4) {
-                childStack.push(childStack.pop() + childStack.pop());
-                Position child = new Position(childStack, childRound, !this.computersTurn, move);
-                children.add(child);
+            // clone current stack before making changes
+            Stack<Integer> newStack = (Stack<Integer>) this.currentStack.clone();
+            // simulate changes to stack depending on move made
+            if (move == 0 && newStack.size() > 1 && this.roundNumber >= 4) {
+                newStack.push(newStack.pop() + newStack.pop());
+                children.add(new Position(newStack, newRoundNr, !this.isMaximizingPlayer, move));
             } else if (move >= 1) {
-                if (childStack.size() == 6) {
-                    int stackNr1 = childStack.pop();
-                    childStack.push(stackNr1 + move);
-                } else if (!childStack.isEmpty() && childStack.size() < 6) {
-                    childStack.push(move);
+                if (newStack.size() == 6) {
+                    int stackNr1 = newStack.pop();
+                    newStack.push(stackNr1 + move);
+                } else if (!newStack.isEmpty() && newStack.size() < 6) {
+                    newStack.push(move);
                 }
-            Position child = new Position(childStack, childRound, !this.computersTurn, move);
-            children.add(child);
+                children.add(new Position(newStack, newRoundNr, !this.isMaximizingPlayer, move));
             }
         }
     }
