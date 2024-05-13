@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="gameLayout" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoe21.MainController">
+<AnchorPane fx:id="gameLayout" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoe21.MainController">
 
     <children>
         <Button fx:id="highscoreButton" layoutX="158.0" layoutY="336.0" onAction="#onHighScoreButtonClick" prefHeight="39.0" prefWidth="283.0" text="Highscore" textAlignment="CENTER" />

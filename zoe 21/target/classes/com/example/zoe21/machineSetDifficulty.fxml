@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="gameLayout" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoe21.MachineSetDifficultyController">
+<AnchorPane fx:id="gameLayout" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoe21.MachineSetDifficultyController">
     <children>
         <Button fx:id="next" layoutX="507.0" layoutY="346.0" mnemonicParsing="false" onAction="#nextToRegularGame" prefHeight="42.0" prefWidth="79.0" text="Next" />
         <Button fx:id="backtomenu" layoutX="14.0" layoutY="346.0" mnemonicParsing="false" onAction="#setBacktomenu" prefHeight="42.0" prefWidth="113.0" text="Back " />
