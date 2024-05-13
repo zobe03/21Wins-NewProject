@@ -10,7 +10,7 @@
         <Button fx:id="highscoreButton" layoutX="265.0" layoutY="241.0" onAction="#onHighScoreButtonClick" text="Highscore" textAlignment="CENTER" />
         <Button fx:id="regularGameButton" layoutX="254.0" layoutY="134.0" onAction="#onRegularGameButtonClick" text="Regular Game" />
         <Button fx:id="machineGameButton" layoutX="252.0" layoutY="188.0" onAction="#onMachineGameButtonClick" text="Machine Game" />
-        <Label fx:id="welcomeText" layoutX="18.0" layoutY="37.0" prefHeight="109.0" prefWidth="563.0" text="Welcome to 21 Wins! The Game where friendship ends..." textAlignment="CENTER" wrapText="true">
+        <Label fx:id="welcomeText" layoutX="18.0" layoutY="37.0" prefHeight="109.0" prefWidth="563.0" text="Welcome to 21 Wins! The Game where friendship ends..." textAlignment="CENTER" textFill="WHITE" wrapText="true">
             <font>
                 <Font name="PressStart2P-Regular" size="12.0" />
             </font>
