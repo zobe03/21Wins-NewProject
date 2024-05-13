@@ -1,17 +1,15 @@
 package com.example.model;
 
-import com.example.model.leaderboard.LeaderBoard;
-import com.example.model.leaderboard.LeaderBoardItem;
-import com.example.model.leaderboard.ScoreTracker;
-import com.example.zoe21.RegularGameController;
-import com.example.zoe21.SwitchingScenes;
+import com.example.zoe21.MainController;
 import javafx.animation.PauseTransition;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 import javafx.util.Duration;
 
+import java.io.InputStream;
 import java.util.Arrays;
-import java.util.Optional;
 import java.util.Stack;
 
 
@@ -23,12 +21,6 @@ public class Game {
     private static boolean SUM;
     private static boolean ENTER;
     public String input;
-
-    public static LeaderBoard leaderBoard;
-
-    public Game(LeaderBoard leaderBoard) {
-        this.leaderBoard = leaderBoard;
-    }
 
     public static void setSum() {
         SUM = true;
@@ -43,7 +35,8 @@ public class Game {
     public void askForInput(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
         boolean inputValid = false;
         System.out.println(Arrays.toString(playersList));
-        if (playersList[0] instanceof HumanPlayer humanPlayer) {
+
+        if (playersList[0] instanceof HumanPlayer) {
             input = inputField.getText();
             final int[] inputNr = {stringToInteger(input, messageLabel)};
             inputValid = playTheGame(inputNr[0], roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
@@ -63,7 +56,6 @@ public class Game {
             }
         }
     }
-
     private int stringToInteger(String input, Label messageLabel) {
         int inputNr = 0;
         try {
@@ -74,6 +66,7 @@ public class Game {
         } catch(NumberFormatException e){
                 messageLabel.setText("Input invalid! Please enter a number between 1 & 9!");
             }
+
             return inputNr;
         }
 
@@ -144,7 +137,7 @@ public class Game {
             }
         }
         if (inputValid) {
-            checkWinner(playersList);
+            checkWinner();
             switchPlayer(roundLabel, playerLabel, messageLabel, inputField, playersList);
             inputField.clear();
         }
@@ -164,6 +157,10 @@ public class Game {
         // Durchlaufe das GridPane von unten nach oben und aktualisiere die Labels entsprechend
         while (gridRowIndex >= 0) {
             Label label = (Label) gridPane.getChildren().get(gridRowIndex);
+            // Thorsten: Hier wird die Schriftart für das Label gesetzt
+            InputStream is18 = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
+            Font fontstack = Font.loadFont(is18, 18);
+            label.setFont(fontstack);
 
             if (stackIndex >= 0) {
                 // Es gibt noch Werte im Stapel, aktualisiere das Label entsprechend
@@ -180,26 +177,11 @@ public class Game {
 
     }
 
-    private void checkWinner(Player[] playersList){
+
+    private void checkWinner(){
         if (gameStack.peek() >= 21) {
             stop=true;
-            Player winningPlayer = playersList[currentPlayer - 1];
-            String winnerName = winningPlayer.getName();
-            showWinnerPopup(winnerName);
-        }
-    }
-    private void showWinnerPopup(String winnerName) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Congratulations!");
-        alert.setHeaderText("The winner is " + winnerName + "!");
-        alert.setContentText("Click 'Next' to return to the main menu.");
 
-        ButtonType nextButtonType = new ButtonType("Next", ButtonBar.ButtonData.OK_DONE);
-        alert.getButtonTypes().setAll(nextButtonType);
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent() && result.get() == nextButtonType) {
-            SwitchingScenes.setScene(0);
         }
     }
     private void switchPlayer(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, Player[] playersList){
@@ -210,38 +192,14 @@ public class Game {
             if (currentPlayer == 1) {
                 roundNr++;
                 roundLabel.setText("Round " + roundNr);
-                if (roundNr == 4){
-                    messageLabel.setText("Addition is now allowed!");
-                }
             }
             playerLabel.setText(currentPlayerObject.getName());
             inputField.clear();
-            timeTracking(currentPlayerObject, playersList, currentPlayer);
         } else {
-            Player winningPlayer = playersList[currentPlayer - 1];
-            if (winningPlayer != null) {
-                ScoreTracker scoreTracker = winningPlayer.getScoreTracker();
-                if (scoreTracker != null) {
-                    scoreTracker.stopTimer();
-                    if (winningPlayer instanceof HumanPlayer) {
-                        LeaderBoardItem leaderBoardItem = scoreTracker.toLeaderBoardItem(winningPlayer.getName());
-                        System.out.println("Human player " + winningPlayer.getName() + " won with a score of: " + leaderBoardItem.getFormatedScore());
-                        leaderBoard.addItem(leaderBoardItem);
-                    }
-                }
-            }
+            String winnerName = playersList[currentPlayer - 1].getName();
+            messageLabel.setText("\n!!!! We have a winner !!!! Winner is " + winnerName);
+            inputField.setEditable(false);
         }
-    }
-
-    private static void timeTracking(Player currentPlayerObject, Player[] playersList, int currentPlayer) { // Parameter definieren
-        if(currentPlayer == 1) {
-            playersList[1].getScoreTracker().stopTimer();
-            System.out.println("Player1 :" + playersList[1].getScoreTracker().time);
-        }else{
-            playersList[0].getScoreTracker().stopTimer();
-            System.out.println("Player1 :" + playersList[0].getScoreTracker().time);
-        }
-        currentPlayerObject.getScoreTracker().startTimer();
     }
 }
 
