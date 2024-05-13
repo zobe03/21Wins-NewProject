@@ -41,22 +41,11 @@ public class Game {
     public void askForInput(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
         boolean inputValid = false;
         System.out.println(Arrays.toString(playersList));
-
         if (playersList[0] instanceof HumanPlayer humanPlayer) {
-            ScoreTracker scoreTracker = humanPlayer.getScoreTracker();
-
-            // Starting the players turn time, if it is not already started
-            if(!scoreTracker.isTimerRunning()) {
-                scoreTracker.startTimer();
-            }
-
             input = inputField.getText();
             final int[] inputNr = {stringToInteger(input, messageLabel)};
             inputValid = playTheGame(inputNr[0], roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
             if (inputValid) {
-                scoreTracker.stopTimer();
-                scoreTracker.incrementMoves();
-
                 if (playersList[1] instanceof MachinePlayer) {
                     PauseTransition delay = new PauseTransition(Duration.seconds(3));
                     delay.setOnFinished(event -> {
@@ -83,7 +72,6 @@ public class Game {
         } catch(NumberFormatException e){
                 messageLabel.setText("Input invalid! Please enter a number between 1 & 9!");
             }
-
             return inputNr;
         }
 
@@ -193,7 +181,6 @@ public class Game {
     private void checkWinner(){
         if (gameStack.peek() >= 21) {
             stop=true;
-
         }
     }
     private void switchPlayer(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, Player[] playersList){
@@ -204,13 +191,19 @@ public class Game {
             if (currentPlayer == 1) {
                 roundNr++;
                 roundLabel.setText("Round " + roundNr);
+                if (roundNr == 4){
+                    messageLabel.setText("Addition is now allowed!");
+                }
             }
             playerLabel.setText(currentPlayerObject.getName());
             inputField.clear();
+            timeTracking(currentPlayerObject, playersList, currentPlayer);
+
         } else {
             Player winningPlayer = playersList[currentPlayer - 1];
             String winnerName = winningPlayer.getName();
 
+            winningPlayer.getScoreTracker().stopTimer();
             // If a human player won, add their score to the leaderboard
             if(winningPlayer instanceof HumanPlayer humanPlayer) {
                 ScoreTracker scoreTracker = humanPlayer.getScoreTracker();
@@ -222,6 +215,16 @@ public class Game {
             messageLabel.setText("\n!!!! We have a winner !!!! Winner is " + winnerName);
             inputField.setEditable(false);
         }
+    }
+    private static void timeTracking(Player currentPlayerObject, Player[] playersList, int currentPlayer) { // Parameter definieren
+        if(currentPlayer == 1) {
+            playersList[1].getScoreTracker().stopTimer();
+            System.out.println("Player1 :" + playersList[1].getScoreTracker().time);
+        }else{
+            playersList[0].getScoreTracker().stopTimer();
+            System.out.println("Player1 :" + playersList[0].getScoreTracker().time);
+        }
+        currentPlayerObject.getScoreTracker().startTimer();
     }
 }
 

@@ -3,7 +3,7 @@ package com.example.model.leaderboard;
 public class ScoreTracker {
 
     private int moves;
-    private long time;
+    public long time;
     private long startTime;
 
     public ScoreTracker() {

@@ -15,8 +15,10 @@ import com.example.model.Game;
 import com.example.model.Player;
 import com.example.model.HumanPlayer;
 import com.example.model.MachinePlayer;
+import javafx.scene.text.Font;
 
 
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Optional;
@@ -42,23 +44,35 @@ public class RegularGameController implements Initializable{
     private Game game;
 
     @FXML
-    public void initialize(URL location, ResourceBundle resources){
-        leaderBoard = new LeaderBoard();
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            InputStream is20 = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
+            Font fontround = Font.loadFont(is20, 20);
 
-        // Load previous data from default file and enable autosaving
-        leaderBoard.initializeFileManager();
+            InputStream is14 = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
+            Font fontplayer = Font.loadFont(is14, 14);
 
-        game = new Game(leaderBoard);
+            InputStream is8 = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
+            Font fontmessage = Font.loadFont(is8, 8);
+
+            roundLabel.setFont(fontround);
+            playerLabel.setFont(fontplayer);
+            messageLabel.setFont(fontmessage);
+            inputField.setFont(fontround);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         roundLabel.setText("Round 1");
-        messageLabel.setText("Enter a Number between 1 & 9 and press ENTER to add the Number to the Stack");
+        messageLabel.setText("Enter a Number between 1 & 9 \nand press ENTER to add the Number to the Stack");
 
-        String imagePath = "file:resources/grün.jpeg";
-        Image image = new Image(imagePath);
-        BackgroundSize backgroundSize = new BackgroundSize(600, 600, true, true, false, true);
-        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
+        // String imagePath = "file:resources/grün.jpeg";
+        // Image image = new Image(imagePath);
+        // BackgroundSize backgroundSize = new BackgroundSize(600, 600, true, true, false, true);
+        // BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
 
-        gameLayout.setBackground(new Background(backgroundImage));
+        // gameLayout.setBackground(new Background(backgroundImage));
     }
     public static void setMachineMode() {
         MACHINEMODE = true;
@@ -78,6 +92,7 @@ public class RegularGameController implements Initializable{
             playersList[1] = new MachinePlayer();
         }
         playerLabel.setText(playersList[0].getName());
+        playersList[0].getScoreTracker().startTimer();
     }
 
     @FXML

@@ -15,7 +15,7 @@ public final class HumanPlayer extends Player {
         currentID++;
         this.scoreTracker = new ScoreTracker();
     }
-
+    @Override
     public ScoreTracker getScoreTracker() {
         return scoreTracker;
     }
