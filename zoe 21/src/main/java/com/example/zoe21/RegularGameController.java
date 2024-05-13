@@ -23,6 +23,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Optional;
 
+import static com.example.model.Game.leaderBoard;
+
 public class RegularGameController implements Initializable {
     @FXML
     private Label roundLabel;
@@ -40,27 +42,40 @@ public class RegularGameController implements Initializable {
     protected Button sumButton;
     public static boolean MACHINEMODE;
     private final Player[] playersList = new Player[2];
-    private LeaderBoard leaderBoard;
-    private Game game;
+    private final Game game = new Game(leaderBoard);
+
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
+        Font fontround = Font.getDefault(); // Fallback-Schriftart verwenden
+        Font fontplayer = Font.getDefault();
+        Font fontmessage = Font.getDefault();
         try {
-            InputStream is20 = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
-            Font fontround = Font.loadFont(is20, 20);
+            InputStream is20 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
+            if (is20 != null) {
+                fontround = Font.loadFont(is20, 20);
+            }
 
-            InputStream is14 = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
-            Font fontplayer = Font.loadFont(is14, 14);
+            InputStream is14 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
+            if (is14 != null) {
+                fontplayer = Font.loadFont(is14, 14);
+            }
 
-            InputStream is8 = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
-            Font fontmessage = Font.loadFont(is8, 8);
-
+            InputStream is8 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
+            if (is8 != null) {
+                fontmessage = Font.loadFont(is8, 8);
+            }
+            else{
+                System.err.println("Font file not found, using default font.");
+            }
             roundLabel.setFont(fontround);
             playerLabel.setFont(fontplayer);
             messageLabel.setFont(fontmessage);
             inputField.setFont(fontround);
-
+            backtomenu.setFont(fontplayer);
+            sumButton.setFont(fontplayer);
         } catch (Exception e) {
+            System.err.println("Error loading font, using default font: " + e.getMessage());
             e.printStackTrace();
         }
 
@@ -93,8 +108,9 @@ public class RegularGameController implements Initializable {
             playersList[0] = new HumanPlayer(playerName);
             playersList[1] = new MachinePlayer();
         }
-        playerLabel.setText(playersList[0].getName());
         playersList[0].getScoreTracker().startTimer();
+        playerLabel.setText(playersList[0].getName());
+
     }
 
     @FXML

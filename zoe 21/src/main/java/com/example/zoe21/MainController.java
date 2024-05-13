@@ -8,14 +8,16 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 
+import java.awt.*;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.scene.text.Font;
 import java.io.InputStream;
 
 public class MainController implements Initializable {
-
     @FXML
     private Button highscoreButton;
     @FXML
@@ -44,19 +46,25 @@ public class MainController implements Initializable {
         System.out.println("Switching to Machine Set Difficulty");
         SwitchingScenes.setScene(3);
     }
-    @FXML
-    private AnchorPane gameLayout;
 
     @FXML
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Font font = Font.getDefault(); // Fallback-Schriftart verwenden
         try {
             InputStream is = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
-            Font font = Font.loadFont(is, 20);
+            if (is != null) {
+                font = Font.loadFont(is, 20);
+            } else {
+                System.err.println("Font file not found, using default font.");
+            }
             welcomeText.setFont(font);
         } catch (Exception e) {
+            System.err.println("Error loading font, using default font: " + e.getMessage());
             e.printStackTrace();
         }
+
+
     }
 }
 

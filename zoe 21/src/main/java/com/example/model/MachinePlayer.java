@@ -15,8 +15,13 @@ public final class MachinePlayer extends Player {
     }
     @Override
     public ScoreTracker getScoreTracker() {
-        return super.getScoreTracker();
+        if (scoreTracker == null) {
+            scoreTracker = new ScoreTracker();
+        }
+        return scoreTracker;
+
     }
+
     private static int depth;
     private static int difficulty;
     public static void setDifficulty(int diff) {

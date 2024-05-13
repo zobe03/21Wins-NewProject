@@ -17,7 +17,11 @@ public class ScoreTracker {
     }
 
     public void incrementMoves() {
-        moves++;
+        if (startTime != 0) { // Überprüfen, ob der Timer läuft, d.h. ob ein gültiger Zug gemacht wurde
+            moves++;
+        } else {
+            throw new IllegalStateException("Timer was not started. Make sure to start the timer before incrementing moves.");
+        }
     }
 
     // Should be called when player begins turn
@@ -35,6 +39,7 @@ public class ScoreTracker {
         }
         time += System.currentTimeMillis() - startTime;
         startTime = 0;
+        incrementMoves();
     }
 
     public boolean isTimerRunning() {

@@ -1,5 +1,6 @@
 package com.example.model.leaderboard;
 
+
 public class LeaderBoardItem {
     public static final int SCORE_MOVES_MULTIPLYER = 1000;
 
@@ -47,3 +48,4 @@ public class LeaderBoardItem {
     }
 
 }
+
