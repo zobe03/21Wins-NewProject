@@ -86,9 +86,9 @@ public class MachineSetDifficultyController implements Initializable {
             expert.setFont(fontmachine);
             impossible.setFont(fontmachine);
         }catch (Exception e){
-                System.err.println("Error loading font, using default font: " + e.getMessage());
-                e.printStackTrace();
-            }
+            System.err.println("Error loading font, using default font: " + e.getMessage());
+            e.printStackTrace();
+        }
 
 
     }

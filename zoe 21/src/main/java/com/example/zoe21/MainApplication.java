@@ -15,7 +15,7 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         window = stage;
-
+        
         FXMLLoader fxmlLoaderMenu = new FXMLLoader(MainApplication.class.getResource("mainmenu.fxml"));
         mainMenuScene = new Scene(fxmlLoaderMenu.load(), 600, 600);
 

@@ -7,6 +7,7 @@ public abstract class Player {
     protected ScoreTracker scoreTracker;
 
     public abstract String getName();
+
     public ScoreTracker getScoreTracker() {
         return scoreTracker;
     }
