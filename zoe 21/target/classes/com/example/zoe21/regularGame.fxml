@@ -37,7 +37,44 @@
             </font>
         </Button>
         <GridPane fx:id="gridPane" layoutX="404.0" layoutY="110.0">
-            <!-- Definitionen für die GridPane-Zellen -->
+            <children>
+                <!-- Labels für den Stack-Inhalt -->
+                <Label fx:id="stackLabel0" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" GridPane.rowIndex="6">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="stackLabel1" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" GridPane.rowIndex="5">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="stackLabel2" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" textAlignment="CENTER" GridPane.rowIndex="4">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="stackLabel3" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" textAlignment="CENTER" GridPane.rowIndex="3">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="stackLabel4" alignment="CENTER" prefHeight="27.0" prefWidth="108.0" textAlignment="CENTER" GridPane.rowIndex="2">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="stackLabel5" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="stackLabel6" alignment="CENTER" prefHeight="17.0" prefWidth="97.0">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+            </children>
         </GridPane>
         <Button fx:id="backtomenu" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#setBacktomenu" text="Back to Menu" />
     </children>
