@@ -56,9 +56,11 @@ public class MainApplication extends Application {
         FXMLLoader regularGameFxmlLoader = new FXMLLoader(MainApplication.class.getResource("regularGame.fxml"));
         regularGameScene = new Scene(regularGameFxmlLoader.load(), 600, 600);
 
+
         // machineGame (human against player)
         FXMLLoader machineSetDifficultyFxmlLoader = new FXMLLoader(MainApplication.class.getResource("machineSetDifficulty.fxml"));
         machineSetDifficulty = new Scene(machineSetDifficultyFxmlLoader.load(), 600, 600);
+
 
         SwitchingScenes.creatingSceneSwitcher(window, mainMenuScene, highscoreScene, regularGameScene,machineSetDifficulty);
         window.setScene(mainMenuScene);

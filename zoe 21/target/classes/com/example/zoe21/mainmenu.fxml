@@ -7,9 +7,9 @@
 <AnchorPane fx:id="gameLayout" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoe21.MainController">
 
     <children>
-        <Button fx:id="highscoreButton" layoutX="265.0" layoutY="241.0" onAction="#onHighScoreButtonClick" text="Highscore" textAlignment="CENTER" />
-        <Button fx:id="regularGameButton" layoutX="254.0" layoutY="134.0" onAction="#onRegularGameButtonClick" text="Regular Game" />
-        <Button fx:id="machineGameButton" layoutX="252.0" layoutY="188.0" onAction="#onMachineGameButtonClick" text="Machine Game" />
+        <Button fx:id="highscoreButton" layoutX="158.0" layoutY="336.0" onAction="#onHighScoreButtonClick" prefHeight="39.0" prefWidth="283.0" text="Highscore" textAlignment="CENTER" />
+        <Button fx:id="regularGameButton" layoutX="159.0" layoutY="215.0" onAction="#onRegularGameButtonClick" prefHeight="39.0" prefWidth="283.0" text="Regular Game" textAlignment="CENTER" />
+        <Button fx:id="machineGameButton" layoutX="158.0" layoutY="277.0" onAction="#onMachineGameButtonClick" prefHeight="39.0" prefWidth="283.0" text="Machine Game" textAlignment="CENTER" />
         <Label fx:id="welcomeText" layoutX="18.0" layoutY="37.0" prefHeight="109.0" prefWidth="563.0" text="Welcome to 21 Wins! The Game where friendship ends..." textAlignment="CENTER" textFill="WHITE" wrapText="true">
             <font>
                 <Font name="PressStart2P-Regular" size="12.0" />
