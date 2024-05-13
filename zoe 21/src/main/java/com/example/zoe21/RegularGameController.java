@@ -1,5 +1,6 @@
 package com.example.zoe21;
 
+import com.example.model.leaderboard.LeaderBoard;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -22,6 +23,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Optional;
 
+import static com.example.model.Game.leaderBoard;
+
 public class RegularGameController implements Initializable {
     @FXML
     private Label roundLabel;
@@ -39,7 +42,7 @@ public class RegularGameController implements Initializable {
     protected Button sumButton;
     public static boolean MACHINEMODE;
     private final Player[] playersList = new Player[2];
-    private final Game game = new Game();
+    private final Game game = new Game(leaderBoard);
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
@@ -50,7 +53,7 @@ public class RegularGameController implements Initializable {
             InputStream is14 = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
             Font fontplayer = Font.loadFont(is14, 14);
 
-            InputStream is8 = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
+            InputStream is8 = MainController.class.getResourceAsStream("schriftart.html");
             Font fontmessage = Font.loadFont(is8, 8);
 
             roundLabel.setFont(fontround);
