@@ -1,12 +1,16 @@
 package com.example.zoe21;
 
+import com.example.model.leaderboard.LeaderBoard;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 // main program
 public class MainApplication extends Application {
+    public static LeaderBoard leaderBoard;
+
     Stage window;
     Scene mainMenuScene;
     Scene highscoreScene, regularGameScene, machineSetDifficulty;
@@ -14,6 +18,9 @@ public class MainApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        leaderBoard = new LeaderBoard();
+        leaderBoard.initializeFileManager();
+
         window = stage;
 
         FXMLLoader fxmlLoaderMenu = new FXMLLoader(MainApplication.class.getResource("mainmenu.fxml"));

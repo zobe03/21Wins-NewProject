@@ -34,8 +34,6 @@ public class HighscoreController implements Initializable {
     @FXML
     private TableColumn<LeaderBoardItem, Double> scoreColumn;
 
-    private LeaderBoard leaderboard;
-
     @Override
     public void initialize(URL location, ResourceBundle resources){
         String imagePath = "file:resources/bücher3.jpeg";
@@ -44,17 +42,18 @@ public class HighscoreController implements Initializable {
         BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
         gameLayout.setBackground(new Background(backgroundImage));
 
-        // Leaderboard Setup and Data Loading
-        leaderboard = new LeaderBoard();
-
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         movesColumn.setCellValueFactory(new PropertyValueFactory<>("moves"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
         scoreColumn.setCellValueFactory(new PropertyValueFactory<>("score"));
 
         // Populate TableView
-        ObservableList<LeaderBoardItem> data = FXCollections.observableArrayList(leaderboard.getItems());
+        ObservableList<LeaderBoardItem> data = FXCollections.observableArrayList(MainApplication.leaderBoard.getItems());
         leaderboardTable.setItems(data);
+
+
+        @Override
+        public void initialize(URL location, ResourceBundle resources) {}
     }
     @FXML
     protected void setBacktomenu(){
