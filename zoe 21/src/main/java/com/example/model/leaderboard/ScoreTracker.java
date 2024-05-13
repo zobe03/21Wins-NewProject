@@ -39,6 +39,7 @@ public class ScoreTracker {
         }
         time += System.currentTimeMillis() - startTime;
         startTime = 0;
+        incrementMoves();
     }
 
     public boolean isTimerRunning() {

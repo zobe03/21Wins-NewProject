@@ -1,6 +1,7 @@
 package com.example.model;
 
 
+import com.example.model.leaderboard.ScoreTracker;
 
 // es können keine weiteren Unterklassen erstellt werden
 public final class HumanPlayer extends Player {
@@ -10,10 +11,16 @@ public final class HumanPlayer extends Player {
         super();
         this.name = name;
         currentID++;
+        this.scoreTracker = new ScoreTracker();
     }
     @Override
     public String getName() {
         return name;
+    }
+    @Override
+    public ScoreTracker getScoreTracker() {
+        return scoreTracker;
+
     }
 
 }

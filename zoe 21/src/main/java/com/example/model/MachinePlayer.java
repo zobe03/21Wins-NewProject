@@ -15,7 +15,11 @@ public final class MachinePlayer extends Player {
     }
     @Override
     public ScoreTracker getScoreTracker() {
-        return super.getScoreTracker();
+        if (scoreTracker == null) {
+            scoreTracker = new ScoreTracker();
+        }
+        return scoreTracker;
+
     }
 
     private static int depth;
