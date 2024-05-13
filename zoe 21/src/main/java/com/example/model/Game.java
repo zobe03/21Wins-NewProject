@@ -7,6 +7,7 @@ import com.example.zoe21.MainController;
 import com.example.zoe21.RegularGameController;
 import com.example.zoe21.SwitchingScenes;
 import javafx.animation.PauseTransition;
+import javafx.application.Platform;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
@@ -212,20 +213,24 @@ public class Game {
         }
     }
     private void showWinnerPopup(String winnerName) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Congratulations!");
-        alert.setHeaderText("The winner is " + winnerName + "!");
-        alert.setContentText("Click 'Next' to return to the main menu.");
+        Platform.runLater(() -> {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Congratulations!");
+            alert.setHeaderText("The winner is " + winnerName + "!");
+            alert.setContentText("Click 'Next' to return to the main menu.");
 
-        ButtonType nextButtonType = new ButtonType("Next", ButtonBar.ButtonData.OK_DONE);
-        alert.getButtonTypes().setAll(nextButtonType);
+            ButtonType nextButtonType = new ButtonType("Next", ButtonBar.ButtonData.OK_DONE);
+            alert.getButtonTypes().setAll(nextButtonType);
 
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent() && result.get() == nextButtonType) {
-            SwitchingScenes.setScene(0);
-            RegularGameController.setHumanMode();
-        }
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == nextButtonType) {
+                SwitchingScenes.setScene(0);
+                RegularGameController.setHumanMode(); // Setze MACHINEMODE auf false
+            }
+        });
     }
+
+
     private void switchPlayer(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, Player[] playersList){
         if(!stop){
             int nrPlayers = 2;
