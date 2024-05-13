@@ -71,15 +71,15 @@ public class MachineSetDifficultyController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             InputStream is = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
-            Font fontround = Font.loadFont(is, 14);
+            Font fontmachine = Font.loadFont(is, 12);
 
-            next.setFont(fontround);
-            backtomenu.setFont(fontround);
-            easy.setFont(fontround);
-            medium.setFont(fontround);
-            hard.setFont(fontround);
-            expert.setFont(fontround);
-            impossible.setFont(fontround);
+            next.setFont(fontmachine);
+            backtomenu.setFont(fontmachine);
+            easy.setFont(fontmachine);
+            medium.setFont(fontmachine);
+            hard.setFont(fontmachine);
+            expert.setFont(fontmachine);
+            impossible.setFont(fontmachine);
 
 
         } catch (Exception e) {
