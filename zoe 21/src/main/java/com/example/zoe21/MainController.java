@@ -65,14 +65,21 @@ public class MainController implements Initializable {
     @FXML
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Font font = Font.getDefault();
         try {
             InputStream is = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
-            Font font = Font.loadFont(is, 20);
+            if(is != null){
+                font = Font.loadFont(is, 20);
+            }
+            else{
+                System.err.println("Font file not found, using default font.");
+            }
             welcomeText.setFont(font);
             highscoreButton.setFont(font);
             regularGameButton.setFont(font);
             machineGameButton.setFont(font);
         } catch (Exception e) {
+            System.err.println("Error loading font, using default font:" + e.getMessage());
             e.printStackTrace();
         }
     }
