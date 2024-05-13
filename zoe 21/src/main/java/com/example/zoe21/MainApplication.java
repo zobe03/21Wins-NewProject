@@ -5,22 +5,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import com.example.model.leaderboard.LeaderBoard;
 import java.io.IOException;
 
 // main program
 public class MainApplication extends Application {
 
+    public static LeaderBoard leaderBoard;
     private Stage window;
     private Scene mainMenuScene, highscoreScene, regularGameScene, machineSetDifficultyScene;
 
     @Override
     public void start(Stage stage) {
+        leaderBoard = new LeaderBoard();
+        leaderBoard.initializeFileManager();
         window = stage;
 
         // Erstelle die Szenen

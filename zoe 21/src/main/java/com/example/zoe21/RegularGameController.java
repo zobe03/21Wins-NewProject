@@ -40,7 +40,7 @@ public class RegularGameController implements Initializable {
     protected Button sumButton;
     public static boolean MACHINEMODE;
     private final Player[] playersList = new Player[2];
-    private final Game game = new Game(leaderBoard);
+    Game game = new Game(MainApplication.leaderBoard);
 
 
     @FXML
