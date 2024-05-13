@@ -160,6 +160,9 @@ public class MainController implements Initializable {
             InputStream is = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
             Font font = Font.loadFont(is, 20);
             welcomeText.setFont(font);
+            highscoreButton.setFont(font);
+            regularGameButton.setFont(font);
+            machineGameButton.setFont(font);
         } catch (Exception e) {
             e.printStackTrace();
         }
