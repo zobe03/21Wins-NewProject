@@ -1,5 +1,8 @@
 package com.example.model;
 
+import com.example.model.leaderboard.LeaderBoard;
+import com.example.model.leaderboard.LeaderBoardItem;
+import com.example.model.leaderboard.ScoreTracker;
 import javafx.animation.PauseTransition;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -19,6 +22,12 @@ public class Game {
     private static boolean ENTER;
     public String input;
 
+    private final LeaderBoard leaderBoard;
+
+    public Game(LeaderBoard leaderBoard) {
+        this.leaderBoard = leaderBoard;
+    }
+
     public static void setSum() {
         SUM = true;
         System.out.println("SUM: " + SUM);
@@ -33,11 +42,21 @@ public class Game {
         boolean inputValid = false;
         System.out.println(Arrays.toString(playersList));
 
-        if (playersList[0] instanceof HumanPlayer) {
+        if (playersList[0] instanceof HumanPlayer humanPlayer) {
+            ScoreTracker scoreTracker = humanPlayer.getScoreTracker();
+
+            // Starting the players turn time, if it is not already started
+            if(!scoreTracker.isTimerRunning()) {
+                scoreTracker.startTimer();
+            }
+
             input = inputField.getText();
             final int[] inputNr = {stringToInteger(input, messageLabel)};
             inputValid = playTheGame(inputNr[0], roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
             if (inputValid) {
+                scoreTracker.stopTimer();
+                scoreTracker.incrementMoves();
+
                 if (playersList[1] instanceof MachinePlayer) {
                     PauseTransition delay = new PauseTransition(Duration.seconds(3));
                     delay.setOnFinished(event -> {
@@ -53,6 +72,7 @@ public class Game {
             }
         }
     }
+
     private int stringToInteger(String input, Label messageLabel) {
         int inputNr = 0;
         try {
@@ -170,7 +190,6 @@ public class Game {
 
     }
 
-
     private void checkWinner(){
         if (gameStack.peek() >= 21) {
             stop=true;
@@ -189,7 +208,17 @@ public class Game {
             playerLabel.setText(currentPlayerObject.getName());
             inputField.clear();
         } else {
-            String winnerName = playersList[currentPlayer - 1].getName();
+            Player winningPlayer = playersList[currentPlayer - 1];
+            String winnerName = winningPlayer.getName();
+
+            // If a human player won, add their score to the leaderboard
+            if(winningPlayer instanceof HumanPlayer humanPlayer) {
+                ScoreTracker scoreTracker = humanPlayer.getScoreTracker();
+                LeaderBoardItem leaderBoardItem = scoreTracker.toLeaderBoardItem(humanPlayer.getName());
+                System.out.println("Human player " + humanPlayer.getName() + " won with a score of: " + leaderBoardItem.getFormatedScore());
+                leaderBoard.addItem(leaderBoardItem);
+            }
+
             messageLabel.setText("\n!!!! We have a winner !!!! Winner is " + winnerName);
             inputField.setEditable(false);
         }
