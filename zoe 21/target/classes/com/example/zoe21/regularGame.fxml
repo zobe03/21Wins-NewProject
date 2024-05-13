@@ -7,19 +7,20 @@
 <AnchorPane fx:id="gameLayout" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoe21.RegularGameController">
 
     <children>
-        <Label fx:id="roundLabel" layoutX="34.0" layoutY="32.0" prefHeight="53.0" prefWidth="201.0">
+        <Label fx:id="roundLabel" layoutX="34.0" layoutY="32.0" prefHeight="53.0" prefWidth="201.0" textFill="#eaff00">
             <font>
                 <Font size="43.0" />
             </font></Label>
-        <Label fx:id="playerLabel" layoutX="34.0" layoutY="83.0" prefHeight="35.0" prefWidth="128.0">
+        <Label fx:id="playerLabel" layoutX="34.0" layoutY="83.0" prefHeight="35.0" prefWidth="128.0" textFill="#eaff00">
             <font>
                 <Font name="PressStart2P-Regular" size="24.0" />
             </font>
         </Label>
-        <Label fx:id="messageLabel" layoutX="34.0" layoutY="282.0" prefHeight="57.0" prefWidth="299.0" wrapText="true">
+        <Label fx:id="messageLabel" layoutX="34.0" layoutY="282.0" prefHeight="57.0" prefWidth="299.0" textFill="#eaff00" wrapText="true">
          <font>
              <Font name="PressStart2P-Regular" size="12.0" />
-         </font></Label>
+         </font>
+        </Label>
         <TextField fx:id="inputField" alignment="CENTER" layoutX="34.0" layoutY="176.0" onKeyPressed="#onKeyPressed">
             <font>
                 <Font size="18.0" />
