@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="adding background plus scene in main menu scene">
+    <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="probleme mit timetracking">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/HighscoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/HighscoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/leaderboard/ScoreTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/leaderboard/ScoreTracker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/RegularGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/RegularGameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/HighscoreController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/HighscoreController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/leaderboard/ScoreTracker.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/leaderboard/ScoreTracker.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Thorsten" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,7 +60,7 @@
     "Application.MainApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "KeinBockMehr",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/JanaC/Documents/Uni/WI-Programmierung_II/21Wins-NewProject/zoe 21/src/main/java/com/example/model",
     "node.js.detected.package.eslint": "true",
@@ -230,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715617779087</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="probleme mit timetracking">
+      <option name="closed" value="true" />
+      <created>1715623590461</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715623590461</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,7 +257,8 @@
     <MESSAGE value="new" />
     <MESSAGE value="adding Font in Game scene" />
     <MESSAGE value="adding background plus scene in main menu scene" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding background plus scene in main menu scene" />
+    <MESSAGE value="probleme mit timetracking" />
+    <option name="LAST_COMMIT_MESSAGE" value="probleme mit timetracking" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

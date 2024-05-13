@@ -106,8 +106,8 @@ public class RegularGameController implements Initializable {
             playersList[0] = new HumanPlayer(playerName);
             playersList[1] = new MachinePlayer();
         }
-        playersList[0].getScoreTracker().startTimer();
         playerLabel.setText(playersList[0].getName());
+        playersList[0].getScoreTracker().startTimer();
 
     }
 

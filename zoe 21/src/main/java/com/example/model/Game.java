@@ -27,10 +27,10 @@ public class Game {
     private static boolean ENTER;
     public String input;
 
-    public static LeaderBoard leaderBoard;
+    public static LeaderBoard leaderBoard = new LeaderBoard();
 
     public Game(LeaderBoard leaderBoard) {
-        this.leaderBoard = leaderBoard;
+        Game.leaderBoard = leaderBoard;
     }
 
     public static void setSum() {
@@ -46,7 +46,8 @@ public class Game {
     public void askForInput(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
         boolean inputValid = false;
         System.out.println(Arrays.toString(playersList));
-        if (playersList[0] instanceof HumanPlayer humanPlayer) {
+
+        if (playersList[0] instanceof HumanPlayer) {
             input = inputField.getText();
             final int[] inputNr = {stringToInteger(input, messageLabel)};
             inputValid = playTheGame(inputNr[0], roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
@@ -150,6 +151,9 @@ public class Game {
             checkWinner(playersList);
             switchPlayer(roundLabel, playerLabel, messageLabel, inputField, playersList);
             inputField.clear();
+            if (playersList[currentPlayer - 1].getScoreTracker().isTimerRunning()) {
+                playersList[currentPlayer - 1].getScoreTracker().incrementMoves();
+            }
         }
         ENTER = false;
         SUM = false;
@@ -242,7 +246,7 @@ public class Game {
                     scoreTracker.stopTimer();
                     if (winningPlayer instanceof HumanPlayer) {
                         LeaderBoardItem leaderBoardItem = scoreTracker.toLeaderBoardItem(winningPlayer.getName());
-                        System.out.println("Human player " + winningPlayer.getName() + " won with a score of: " + leaderBoardItem.getFormatedScore());
+                        System.out.println(winningPlayer.getName() + " won with a score of: " + leaderBoardItem.getFormatedScore());
                         leaderBoard.addItem(leaderBoardItem);
                     }
                 }
