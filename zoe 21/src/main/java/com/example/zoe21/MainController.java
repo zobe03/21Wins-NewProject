@@ -6,9 +6,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.text.Font;
+import java.io.InputStream;
 
 public class MainController implements Initializable {
 
@@ -44,13 +48,15 @@ public class MainController implements Initializable {
     private AnchorPane gameLayout;
 
     @FXML
-    public void initialize(URL location, ResourceBundle resources) {
-        String imagePath = "file:resources/bücher3.jpeg";
-        Image image = new Image(imagePath);
-        BackgroundSize backgroundSize = new BackgroundSize(600, 600, true, true, false, true);
-        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
-        Background background = new Background(backgroundImage);
-        gameLayout.setBackground(background);
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            InputStream is = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
+            Font font = Font.loadFont(is, 20);
+            welcomeText.setFont(font);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
 }
+

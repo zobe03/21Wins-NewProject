@@ -6,7 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.*;
 import com.example.model.MachinePlayer;
+import javafx.scene.text.Font;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -67,6 +69,22 @@ public class MachineSetDifficultyController implements Initializable {
     private AnchorPane gameLayout;
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
+        try {
+            InputStream is = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
+            Font fontround = Font.loadFont(is, 14);
+
+            next.setFont(fontround);
+            backtomenu.setFont(fontround);
+            easy.setFont(fontround);
+            medium.setFont(fontround);
+            hard.setFont(fontround);
+            expert.setFont(fontround);
+            impossible.setFont(fontround);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }

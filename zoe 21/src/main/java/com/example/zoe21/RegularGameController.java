@@ -14,23 +14,25 @@ import com.example.model.Game;
 import com.example.model.Player;
 import com.example.model.HumanPlayer;
 import com.example.model.MachinePlayer;
+import javafx.scene.text.Font;
 
 
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Optional;
 
-public class RegularGameController implements Initializable{
+public class RegularGameController implements Initializable {
     @FXML
-    private  Label roundLabel;
+    private Label roundLabel;
     @FXML
-    private  Label playerLabel;
+    private Label playerLabel;
     @FXML
-    private  Label messageLabel;
+    private Label messageLabel;
     @FXML
-    private  TextField inputField;
+    private TextField inputField;
     @FXML
-    private  GridPane gridPane;
+    private GridPane gridPane;
     @FXML
     protected Button backtomenu;
     @FXML
@@ -40,22 +42,43 @@ public class RegularGameController implements Initializable{
     private final Game game = new Game();
 
     @FXML
-    public void initialize(URL location, ResourceBundle resources){
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            InputStream is20 = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
+            Font fontround = Font.loadFont(is20, 20);
+
+            InputStream is14 = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
+            Font fontplayer = Font.loadFont(is14, 14);
+
+            InputStream is8 = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
+            Font fontmessage = Font.loadFont(is8, 8);
+
+            roundLabel.setFont(fontround);
+            playerLabel.setFont(fontplayer);
+            messageLabel.setFont(fontmessage);
+            inputField.setFont(fontround);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         roundLabel.setText("Round 1");
-        messageLabel.setText("Enter a Number between 1 & 9 and press ENTER to add the Number to the Stack");
+        messageLabel.setText("Enter a Number between 1 & 9 \nand press ENTER to add the Number to the Stack");
 
-        String imagePath = "file:resources/grün.jpeg";
-        Image image = new Image(imagePath);
-        BackgroundSize backgroundSize = new BackgroundSize(600, 600, true, true, false, true);
-        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
+        // String imagePath = "file:resources/grün.jpeg";
+        // Image image = new Image(imagePath);
+        // BackgroundSize backgroundSize = new BackgroundSize(600, 600, true, true, false, true);
+        // BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
 
-        gameLayout.setBackground(new Background(backgroundImage));
+        // gameLayout.setBackground(new Background(backgroundImage));
     }
+
     public static void setMachineMode() {
         MACHINEMODE = true;
         System.out.println("setMachinemode: " + MACHINEMODE);
     }
-    public void addNames(){
+
+    public void addNames() {
         if (!MACHINEMODE) {
             System.out.println("Maschinemode false");
             String playerName1 = askForPlayerName("Player 1");
@@ -73,7 +96,8 @@ public class RegularGameController implements Initializable{
 
     @FXML
     private AnchorPane gameLayout;
-    private String askForPlayerName(String defaultName){
+
+    private String askForPlayerName(String defaultName) {
         TextInputDialog dialog = new TextInputDialog(defaultName);
         dialog.setTitle("Enter your Name");
         dialog.setHeaderText("Please enter your Name: ");
@@ -81,10 +105,12 @@ public class RegularGameController implements Initializable{
         Optional<String> result = dialog.showAndWait();
         return result.orElse(defaultName);
     }
+
     @FXML
-    protected void setBacktomenu(){
+    protected void setBacktomenu() {
         SwitchingScenes.setScene(0);
     }
+
     @FXML
     protected void onKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
@@ -94,7 +120,7 @@ public class RegularGameController implements Initializable{
     }
 
     @FXML
-    protected void onSumSelect(){
+    protected void onSumSelect() {
         Game.setSum();
         play();
 
@@ -104,6 +130,7 @@ public class RegularGameController implements Initializable{
     public void play() {
         game.askForInput(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
     }
-
 }
+
+
 
