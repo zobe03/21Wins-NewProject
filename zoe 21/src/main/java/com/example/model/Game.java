@@ -1,11 +1,14 @@
 package com.example.model;
 
+import com.example.zoe21.MainController;
 import javafx.animation.PauseTransition;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 import javafx.util.Duration;
 
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Stack;
 
@@ -154,6 +157,10 @@ public class Game {
         // Durchlaufe das GridPane von unten nach oben und aktualisiere die Labels entsprechend
         while (gridRowIndex >= 0) {
             Label label = (Label) gridPane.getChildren().get(gridRowIndex);
+            // Thorsten: Hier wird die Schriftart für das Label gesetzt
+            InputStream is18 = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
+            Font fontstack = Font.loadFont(is18, 18);
+            label.setFont(fontstack);
 
             if (stackIndex >= 0) {
                 // Es gibt noch Werte im Stapel, aktualisiere das Label entsprechend

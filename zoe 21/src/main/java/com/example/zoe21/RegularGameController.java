@@ -57,6 +57,8 @@ public class RegularGameController implements Initializable {
             playerLabel.setFont(fontplayer);
             messageLabel.setFont(fontmessage);
             inputField.setFont(fontround);
+            backtomenu.setFont(fontplayer);
+            sumButton.setFont(fontplayer);
 
         } catch (Exception e) {
             e.printStackTrace();
