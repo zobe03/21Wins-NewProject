@@ -1,5 +1,7 @@
 package com.example.model;
 
+import com.example.model.leaderboard.ScoreTracker;
+
 import java.util.Stack;
 
 // THIS CODE WAS WRITTEN WITH EXPANDABILITY IN MIND
@@ -11,7 +13,10 @@ public final class MachinePlayer extends Player {
     public String getName() {
         return "Computer";
     }
-
+    @Override
+    public ScoreTracker getScoreTracker() {
+        return super.getScoreTracker();
+    }
     private static int depth;
     private static int difficulty;
     public static void setDifficulty(int diff) {

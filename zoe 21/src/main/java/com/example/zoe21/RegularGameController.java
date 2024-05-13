@@ -1,5 +1,6 @@
 package com.example.zoe21;
 
+import com.example.model.leaderboard.LeaderBoard;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -39,7 +40,8 @@ public class RegularGameController implements Initializable {
     protected Button sumButton;
     public static boolean MACHINEMODE;
     private final Player[] playersList = new Player[2];
-    private final Game game = new Game();
+    private LeaderBoard leaderBoard;
+    private Game game;
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
@@ -92,6 +94,7 @@ public class RegularGameController implements Initializable {
             playersList[1] = new MachinePlayer();
         }
         playerLabel.setText(playersList[0].getName());
+        playersList[0].getScoreTracker().startTimer();
     }
 
     @FXML
