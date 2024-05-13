@@ -43,7 +43,7 @@ public class RegularGameController implements Initializable {
     protected Pane backgroundPane;
     public static boolean MACHINEMODE;
     private final Player[] playersList = new Player[2];
-    private final Game game = new Game(leaderBoard);
+    Game game = new Game(MainApplication.leaderBoard);
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
