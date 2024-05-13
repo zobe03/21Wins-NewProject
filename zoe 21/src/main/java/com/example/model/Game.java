@@ -3,13 +3,16 @@ package com.example.model;
 import com.example.model.leaderboard.LeaderBoard;
 import com.example.model.leaderboard.LeaderBoardItem;
 import com.example.model.leaderboard.ScoreTracker;
+import com.example.zoe21.MainController;
 import com.example.zoe21.RegularGameController;
 import com.example.zoe21.SwitchingScenes;
 import javafx.animation.PauseTransition;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 import javafx.util.Duration;
 
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.Stack;
@@ -164,10 +167,24 @@ public class Game {
         // Durchlaufe das GridPane von unten nach oben und aktualisiere die Labels entsprechend
         while (gridRowIndex >= 0) {
             Label label = (Label) gridPane.getChildren().get(gridRowIndex);
+            Font fontstack = Font.getDefault();
+            try {
+                InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
+                if (is != null) {
+                    fontstack = Font.loadFont(is, 12);
+                } else {
+                    System.err.println("Font file not found, using default font.");
+                }
+                label.setFont(fontstack);
+            }catch (Exception e){
+                System.err.println("Error loading font, using default font: " + e.getMessage());
+                e.printStackTrace();
+            }
 
             if (stackIndex >= 0) {
                 // Es gibt noch Werte im Stapel, aktualisiere das Label entsprechend
                 label.setText(String.valueOf(gameStack.get(stackIndex)));
+
             } else {
                 // Der Stapel hat keine weiteren Werte, setze das Label auf 0
                 label.setText(" ");

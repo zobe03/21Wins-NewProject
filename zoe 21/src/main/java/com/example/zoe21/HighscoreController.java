@@ -3,7 +3,6 @@ package com.example.zoe21;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 
@@ -33,7 +32,7 @@ public class HighscoreController implements Initializable {
 
          */
           try {
-              InputStream is20 = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
+              InputStream is20 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
               Font font = Font.loadFont(is20, 20);
               backtomenu.setFont(font);
           } catch (Exception e) {

@@ -4,28 +4,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.scene.text.Font;
-import java.io.InputStream;
 
-import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -67,7 +60,7 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Font font = Font.getDefault();
         try {
-            InputStream is = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
+            InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
             if(is != null){
                 font = Font.loadFont(is, 20);
             }
