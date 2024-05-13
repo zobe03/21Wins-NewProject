@@ -69,10 +69,15 @@ public class MachineSetDifficultyController implements Initializable {
     private AnchorPane gameLayout;
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            InputStream is = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
-            Font fontmachine = Font.loadFont(is, 12);
 
+        Font fontmachine = Font.getDefault();
+        try {
+            InputStream is = MainController.class.getResourceAsStream("src/main/resources/font/PressStart2P-vaV7.ttf");
+            if (is != null) {
+                fontmachine = Font.loadFont(is, 12);
+            } else {
+                System.err.println("Font file not found, using default font.");
+            }
             next.setFont(fontmachine);
             backtomenu.setFont(fontmachine);
             easy.setFont(fontmachine);
@@ -80,11 +85,11 @@ public class MachineSetDifficultyController implements Initializable {
             hard.setFont(fontmachine);
             expert.setFont(fontmachine);
             impossible.setFont(fontmachine);
+        }catch (Exception e){
+                System.err.println("Error loading font, using default font: " + e.getMessage());
+                e.printStackTrace();
+            }
 
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
     }
 }

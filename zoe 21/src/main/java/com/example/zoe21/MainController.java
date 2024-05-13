@@ -50,13 +50,21 @@ public class MainController implements Initializable {
     @FXML
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Font font = Font.getDefault(); // Fallback-Schriftart verwenden
         try {
-            InputStream is = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
-            Font font = Font.loadFont(is, 20);
+            InputStream is = MainController.class.getResourceAsStream("font/PressStart2P-vaV7.ttf");
+            if (is != null) {
+                font = Font.loadFont(is, 20);
+            } else {
+                System.err.println("Font file not found, using default font.");
+            }
             welcomeText.setFont(font);
         } catch (Exception e) {
+            System.err.println("Error loading font, using default font: " + e.getMessage());
             e.printStackTrace();
         }
+
+
     }
 }
 
