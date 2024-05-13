@@ -45,7 +45,7 @@ public class MainApplication extends Application {
     private Scene createSceneWithBackground(Parent root, MainController.SpaceBackground background) {
         StackPane stackPane = new StackPane();
         stackPane.getChildren().addAll(background, root);
-        Scene scene = new Scene(stackPane, 1000, 1000);
+        Scene scene = new Scene(stackPane, 800, 800);
         return scene;
     }
 

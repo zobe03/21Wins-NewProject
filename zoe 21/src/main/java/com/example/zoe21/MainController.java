@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static com.example.zoe21.RegularGameController.setHumanMode;
+
 public class MainController implements Initializable {
     @FXML
     private Button highscoreButton;
@@ -45,6 +47,7 @@ public class MainController implements Initializable {
     public void onRegularGameButtonClick() { // Thorsten
         System.out.println("Switching to Regular Game");
         SwitchingScenes.setScene(2);
+        setHumanMode();
     }
 
     @FXML

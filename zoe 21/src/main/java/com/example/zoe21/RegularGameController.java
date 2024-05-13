@@ -84,7 +84,7 @@ public class RegularGameController implements Initializable {
         }
 
         // Set background
-        MainController.SpaceBackground spaceBackground = new MainController.SpaceBackground(1000, 1000);
+        MainController.SpaceBackground spaceBackground = new MainController.SpaceBackground(800, 800);
         backgroundPane.getChildren().add(spaceBackground);
         AnchorPane.setTopAnchor(spaceBackground, 0.0);
         AnchorPane.setLeftAnchor(spaceBackground, 0.0);
@@ -97,6 +97,10 @@ public class RegularGameController implements Initializable {
 
     public static void setMachineMode() {
         MACHINEMODE = true;
+        System.out.println("setMachinemode: " + MACHINEMODE);
+    }
+    public static void setHumanMode() {
+        MACHINEMODE = false;
         System.out.println("setMachinemode: " + MACHINEMODE);
     }
 
@@ -128,6 +132,7 @@ public class RegularGameController implements Initializable {
 
     @FXML
     protected void setBacktomenu() {
+        setHumanMode();
         SwitchingScenes.setScene(0);
     }
 

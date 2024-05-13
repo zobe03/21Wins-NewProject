@@ -6,15 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="hintergrund">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/RegularGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/RegularGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/resources/com/example/zoe21/highscore.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/resources/com/example/zoe21/highscore.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/src/main/resources/com/example/zoe21/machineSetDifficulty.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/resources/com/example/zoe21/machineSetDifficulty.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/resources/com/example/zoe21/mainmenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/resources/com/example/zoe21/mainmenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/resources/com/example/zoe21/regularGame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/resources/com/example/zoe21/regularGame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground$Star.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground$Star.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/RegularGameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/RegularGameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/regularGame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/regularGame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/machineSetDifficulty.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/machineSetDifficulty.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715629839116</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="hintergrund">
+      <option name="closed" value="true" />
+      <created>1715631336170</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1715631336172</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

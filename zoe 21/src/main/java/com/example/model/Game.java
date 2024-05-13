@@ -17,6 +17,8 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.Stack;
 
+import static com.example.zoe21.RegularGameController.setHumanMode;
+
 
 public class Game {
     public int roundNr = 1;
@@ -221,6 +223,7 @@ public class Game {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == nextButtonType) {
             SwitchingScenes.setScene(0);
+            RegularGameController.setHumanMode();
         }
     }
     private void switchPlayer(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, Player[] playersList){
