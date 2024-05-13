@@ -39,6 +39,7 @@ public class RegularGameController implements Initializable {
     protected Button sumButton;
     public static boolean MACHINEMODE;
     private final Player[] playersList = new Player[2];
+   // private LeaderBoard leaderBoard;
     private final Game game = new Game();
 
     @FXML
@@ -94,6 +95,7 @@ public class RegularGameController implements Initializable {
             playersList[1] = new MachinePlayer();
         }
         playerLabel.setText(playersList[0].getName());
+        //playersList[0].getScoreTracker().startTimer();
     }
 
     @FXML
