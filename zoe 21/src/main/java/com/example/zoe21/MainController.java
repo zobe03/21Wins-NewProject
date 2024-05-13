@@ -31,6 +31,52 @@ import java.util.List;
 import java.util.Random;
 
 public class MainController implements Initializable {
+    @FXML
+    private Button highscoreButton;
+    @FXML
+    private Button regularGameButton;
+    @FXML
+    private Button machineGameButton;
+
+
+    @FXML
+    private Label welcomeText; // tbd
+
+    @FXML
+    public void onHighScoreButtonClick() { // Thorsten
+        System.out.println("Switching to Highscore");
+        SwitchingScenes.setScene(1);
+    }
+
+    @FXML
+    public void onRegularGameButtonClick() { // Thorsten
+        System.out.println("Switching to Regular Game");
+        SwitchingScenes.setScene(2);
+    }
+
+    @FXML
+    public void onMachineGameButtonClick() { // Thorsten
+        System.out.println("Switching to Machine Set Difficulty");
+        SwitchingScenes.setScene(3);
+    }
+    @FXML
+    private AnchorPane gameLayout;
+
+    @FXML
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            InputStream is = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
+            Font font = Font.loadFont(is, 20);
+            welcomeText.setFont(font);
+            highscoreButton.setFont(font);
+            regularGameButton.setFont(font);
+            machineGameButton.setFont(font);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     static class SpaceBackground extends Canvas {
 
 
@@ -117,54 +163,6 @@ public class MainController implements Initializable {
                     x = random.nextDouble() * getWidth();
                 }
             }
-        }
-    }
-
-
-
-@FXML
-    private Button highscoreButton;
-    @FXML
-    private Button regularGameButton;
-    @FXML
-    private Button machineGameButton;
-
-
-    @FXML
-    private Label welcomeText; // tbd
-
-    @FXML
-    public void onHighScoreButtonClick() { // Thorsten
-        System.out.println("Switching to Highscore");
-        SwitchingScenes.setScene(1);
-    }
-
-    @FXML
-    public void onRegularGameButtonClick() { // Thorsten
-        System.out.println("Switching to Regular Game");
-        SwitchingScenes.setScene(2);
-    }
-
-    @FXML
-    public void onMachineGameButtonClick() { // Thorsten
-        System.out.println("Switching to Machine Set Difficulty");
-        SwitchingScenes.setScene(3);
-    }
-    @FXML
-    private AnchorPane gameLayout;
-
-    @FXML
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            InputStream is = MainController.class.getResourceAsStream("/fonts/PressStart2P-vaV7.ttf");
-            Font font = Font.loadFont(is, 20);
-            welcomeText.setFont(font);
-            highscoreButton.setFont(font);
-            regularGameButton.setFont(font);
-            machineGameButton.setFont(font);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }
