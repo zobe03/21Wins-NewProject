@@ -214,17 +214,9 @@ public class Game {
                     messageLabel.setText("Addition is now allowed!");
                 }
             }
-            if(currentPlayer == 1) {
-                playersList[1].getScoreTracker().stopTimer();
-                System.out.println("Player1 :" + playersList[1].getScoreTracker().time);
-            }else{
-                playersList[0].getScoreTracker().stopTimer();
-                System.out.println("Player1 :" + playersList[0].getScoreTracker().time);
-            }
-            currentPlayerObject.getScoreTracker().startTimer();
             playerLabel.setText(currentPlayerObject.getName());
             inputField.clear();
-
+            timeTracking(currentPlayerObject, playersList, currentPlayer);
         } else {
             Player winningPlayer = playersList[currentPlayer - 1];
             if (winningPlayer != null) {
@@ -239,6 +231,17 @@ public class Game {
                 }
             }
         }
+    }
+
+    private static void timeTracking(Player currentPlayerObject, Player[] playersList, int currentPlayer) { // Parameter definieren
+        if(currentPlayer == 1) {
+            playersList[1].getScoreTracker().stopTimer();
+            System.out.println("Player1 :" + playersList[1].getScoreTracker().time);
+        }else{
+            playersList[0].getScoreTracker().stopTimer();
+            System.out.println("Player1 :" + playersList[0].getScoreTracker().time);
+        }
+        currentPlayerObject.getScoreTracker().startTimer();
     }
 }
 

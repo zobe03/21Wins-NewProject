@@ -100,16 +100,13 @@ public class RegularGameController implements Initializable {
             playersList[0] = new HumanPlayer(playerName1);
             String playerName2 = askForPlayerName("Player 2");
             playersList[1] = new HumanPlayer(playerName2);
-            playersList[0].getScoreTracker().startTimer();
-            playersList[1].getScoreTracker().startTimer();
         } else {
             System.out.println("Maschinemode true");
             String playerName = askForPlayerName("Player 1");
             playersList[0] = new HumanPlayer(playerName);
             playersList[1] = new MachinePlayer();
-            playerLabel.setText(playersList[0].getName());
         }
-
+        playersList[0].getScoreTracker().startTimer();
         playerLabel.setText(playersList[0].getName());
 
     }
