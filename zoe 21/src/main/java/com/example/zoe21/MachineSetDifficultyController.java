@@ -72,7 +72,7 @@ public class MachineSetDifficultyController implements Initializable {
 
         Font fontmachine = Font.getDefault();
         try {
-            InputStream is = MainController.class.getResourceAsStream("src/main/resources/font/PressStart2P-vaV7.ttf");
+            InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
             if (is != null) {
                 fontmachine = Font.loadFont(is, 12);
             } else {

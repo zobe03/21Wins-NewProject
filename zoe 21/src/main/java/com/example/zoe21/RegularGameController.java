@@ -51,17 +51,17 @@ public class RegularGameController implements Initializable {
         Font fontplayer = Font.getDefault();
         Font fontmessage = Font.getDefault();
         try {
-            InputStream is20 = MainController.class.getResourceAsStream("src/main/resources/font/PressStart2P-vaV7.ttf");
+            InputStream is20 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
             if (is20 != null) {
                 fontround = Font.loadFont(is20, 20);
             }
 
-            InputStream is14 = MainController.class.getResourceAsStream("src/main/resources/font/PressStart2P-vaV7.ttf");
+            InputStream is14 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
             if (is14 != null) {
                 fontplayer = Font.loadFont(is14, 14);
             }
 
-            InputStream is8 = MainController.class.getResourceAsStream("src/main/resources/font/PressStart2P-vaV7.ttf");
+            InputStream is8 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
             if (is8 != null) {
                 fontmessage = Font.loadFont(is8, 8);
             }

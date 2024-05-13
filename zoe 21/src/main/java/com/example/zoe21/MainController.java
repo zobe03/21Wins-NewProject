@@ -52,7 +52,7 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Font font = Font.getDefault(); // Fallback-Schriftart verwenden
         try {
-            InputStream is = MainController.class.getResourceAsStream("font/PressStart2P-vaV7.ttf");
+            InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
             if (is != null) {
                 font = Font.loadFont(is, 20);
             } else {

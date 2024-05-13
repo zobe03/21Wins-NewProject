@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="new">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/MachineSetDifficultyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/MachineSetDifficultyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/RegularGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/RegularGameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/RegularGameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/RegularGameController.class" afterDir="false" />
     </list>
@@ -64,7 +67,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -103,8 +106,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="jdk-21.0.2-temurin-21.0.2-4caba194b151-767920ab" />
       </set>
     </attachedChunks>
   </component>
@@ -125,6 +127,7 @@
       <workItem from="1715531941707" duration="422000" />
       <workItem from="1715557497982" duration="1188000" />
       <workItem from="1715558701230" duration="1430000" />
+      <workItem from="1715612199679" duration="387000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
