@@ -2,8 +2,6 @@ package com.example.zoe21;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -43,7 +41,7 @@ public class RegularGameController implements Initializable {
     protected Pane backgroundPane;
     public static boolean MACHINEMODE;
     private final Player[] playersList = new Player[2];
-    Game game = new Game(MainApplication.leaderBoard);
+    Game game = new Game(leaderBoard);
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {

@@ -1,5 +1,6 @@
 package com.example.zoe21;
 
+import com.example.model.leaderboard.LeaderBoard;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,6 +17,7 @@ public class MainApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
         window = stage;
         createScenes();
         window.setScene(mainMenuScene);

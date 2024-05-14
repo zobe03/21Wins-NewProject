@@ -31,7 +31,7 @@ public class Game {
     public static LeaderBoard leaderBoard = new LeaderBoard();
 
     public Game(LeaderBoard leaderBoard) {
-        Game.leaderBoard = leaderBoard;
+        Game.leaderBoard = Game.leaderBoard;
     }
 
     public static void setSum() {

@@ -1,5 +1,6 @@
 package com.example.zoe21;
 
+import com.example.model.leaderboard.LeaderBoard;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static com.example.model.Game.leaderBoard;
 import static com.example.zoe21.RegularGameController.setHumanMode;
 
 public class MainController implements Initializable {
@@ -35,29 +37,26 @@ public class MainController implements Initializable {
 
 
     @FXML
-    private Label welcomeText; // tbd
+    private Label welcomeText;
 
     @FXML
-    public void onHighScoreButtonClick() { // Thorsten
+    public void onHighScoreButtonClick() {
         System.out.println("Switching to Highscore");
         SwitchingScenes.setScene(1);
     }
 
     @FXML
-    public void onRegularGameButtonClick() { // Thorsten
+    public void onRegularGameButtonClick() {
         System.out.println("Switching to Regular Game");
         SwitchingScenes.setScene(2);
         setHumanMode();
     }
 
     @FXML
-    public void onMachineGameButtonClick() { // Thorsten
+    public void onMachineGameButtonClick() {
         System.out.println("Switching to Machine Set Difficulty");
         SwitchingScenes.setScene(3);
     }
-    @FXML
-    private AnchorPane gameLayout;
-
     @FXML
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
