@@ -6,4 +6,7 @@ module com.example.zoe21 {
 
     opens com.example.zoe21 to javafx.fxml;
     exports com.example.zoe21;
+    opens com.example.model.leaderboard to javafx.base;
+
+
 }

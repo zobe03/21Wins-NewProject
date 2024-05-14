@@ -46,9 +46,6 @@ public class RegularGameController implements Initializable {
     private final Game game = new Game(leaderBoard);
 
     @FXML
-    private AnchorPane gameLayout;
-
-    @FXML
     public void initialize(URL location, ResourceBundle resources) {
         // Set fonts
         Font fontround = Font.getDefault();

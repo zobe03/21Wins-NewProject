@@ -254,7 +254,7 @@ public class Game {
                     scoreTracker.stopTimer();
                     if (winningPlayer instanceof HumanPlayer) {
                         LeaderBoardItem leaderBoardItem = scoreTracker.toLeaderBoardItem(winningPlayer.getName());
-                        System.out.println(winningPlayer.getName() + " won with a score of: " + leaderBoardItem.getFormatedScore());
+                        System.out.println(winningPlayer.getName() + " won with a score of: " + LeaderBoardItem.getFormatedScore());
                         leaderBoard.addItem(leaderBoardItem);
                     }
                 }

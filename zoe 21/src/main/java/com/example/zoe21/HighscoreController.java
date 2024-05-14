@@ -2,55 +2,51 @@ package com.example.zoe21;
 
 import com.example.model.leaderboard.LeaderBoard;
 import com.example.model.leaderboard.LeaderBoardItem;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Font;
 
-import java.io.InputStream;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import com.example.model.leaderboard.LeaderBoard;
 
 public class HighscoreController implements Initializable {
     @FXML
-    protected Button backtomenu;
-    @FXML
     private AnchorPane gameLayout;
     @FXML
-    private Label highscoreLabel;
+    private TableView<LeaderBoardItem> highscoreTable;
+    @FXML
+    private TableColumn<LeaderBoardItem, Integer> placeColumn;
+    @FXML
+    private TableColumn<LeaderBoardItem, String> nameColumn;
+    @FXML
+    private TableColumn<LeaderBoardItem, String> scoreColumn;
+    @FXML
+    protected Button backToMainMenuButton;
 
     @FXML
-    protected void setBacktomenu() {
+    protected void setBacktomenu(){
         SwitchingScenes.setScene(0);
     }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Laden der Schriftart für den Button
-        try {
-            InputStream fontStream = getClass().getResourceAsStream("/font/PressStart2P-vaV7.ttf");
-            Font font = Font.loadFont(fontStream, 20);
-            backtomenu.setFont(font);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        // Setze die Zellenwerte für die Spalten
+        placeColumn.setCellValueFactory(new PropertyValueFactory<>("place"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        scoreColumn.setCellValueFactory(new PropertyValueFactory<>("formattedScore"));
 
-        // Laden des Highscores
-        displayHighscore();
-    }
-
-    // Methode zur Anzeige des Highscores
-    private void displayHighscore() {
+        // Lade den Leaderboard und setze die Daten in die Tabelle
         LeaderBoard leaderBoard = new LeaderBoard();
-        leaderBoard.initializeFileManager(); // Laden des Leaderboards
-        StringBuilder highscoreText = new StringBuilder("Highscore:\n");
-        int rank = 1;
-        for (LeaderBoardItem item : leaderBoard.getItems()) {
-            highscoreText.append(rank).append(". ").append(item.getName()).append(": ").append(item.getFormatedScore()).append("\n");
-            rank++;
-        }
-        highscoreLabel.setText(highscoreText.toString());
-    }
+        leaderBoard.initializeFileManager();
+        List<LeaderBoardItem> items = leaderBoard.getItems();
+        highscoreTable.getItems().addAll(items);
+
+}
 }

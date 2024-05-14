@@ -1,5 +1,7 @@
 package com.example.model.leaderboard;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 public class LeaderBoardItem {
     public static final int SCORE_MOVES_MULTIPLYER = 1000;
@@ -11,10 +13,19 @@ public class LeaderBoardItem {
     }
 
     private String name;
-    private int moves;
-    private long time;
+    private static int moves;
+    private static long time;
+
+    private IntegerProperty place;
 
     public LeaderBoardItem(String name, int moves, long time) {
+        this.name = name;
+        this.moves = moves;
+        this.time = time;
+    }
+
+    public LeaderBoardItem(int place, String name, int moves, long time) {
+        this.place = new SimpleIntegerProperty(place);
         this.name = name;
         this.moves = moves;
         this.time = time;
@@ -32,12 +43,12 @@ public class LeaderBoardItem {
         return time;
     }
 
-    public double getScore() {
+    public static double getScore() {
         return (double) (moves * SCORE_MOVES_MULTIPLYER) / time;
     }
 
     // Return the score as a string with 2 decimal places
-    public String getFormatedScore() {
+    public static String getFormatedScore() {
         return String.format("%.2f", getScore());
     }
 
@@ -47,5 +58,15 @@ public class LeaderBoardItem {
         return name + "," + moves + "," + time + "\n";
     }
 
-}
+    public int getPlace() {
+        return place.get();
+    }
 
+    public void setPlace(int place) {
+        this.place.set(place);
+    }
+
+    public IntegerProperty placeProperty() {
+        return place;
+    }
+}
