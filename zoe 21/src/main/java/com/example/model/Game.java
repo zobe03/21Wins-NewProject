@@ -176,7 +176,7 @@ public class Game {
             try {
                 InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
                 if (is != null) {
-                    fontstack = Font.loadFont(is, 12);
+                    fontstack = Font.loadFont(is, 36);
                 } else {
                     System.err.println("Font file not found, using default font.");
                 }
