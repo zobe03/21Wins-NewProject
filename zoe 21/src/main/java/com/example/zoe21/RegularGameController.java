@@ -21,8 +21,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Optional;
 
-import static com.example.model.Game.leaderBoard;
-
 public class RegularGameController implements Initializable {
     @FXML
     private Label roundLabel;
@@ -40,7 +38,7 @@ public class RegularGameController implements Initializable {
     protected Button sumButton;
     public static boolean MACHINEMODE;
     private final Player[] playersList = new Player[2];
-    private final Game game = new Game(leaderBoard);
+    private final Game game = new Game();
 
 
     @FXML

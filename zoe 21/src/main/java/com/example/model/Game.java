@@ -3,6 +3,7 @@ package com.example.model;
 import com.example.model.leaderboard.LeaderBoard;
 import com.example.model.leaderboard.LeaderBoardItem;
 import com.example.model.leaderboard.ScoreTracker;
+import com.example.model.leaderboard.StaticLeaderboard;
 import com.example.zoe21.MainController;
 import com.example.zoe21.RegularGameController;
 import com.example.zoe21.SwitchingScenes;
@@ -25,12 +26,11 @@ public class Game {
     private boolean stop = false;
     private static boolean SUM;
     private static boolean ENTER;
+    private final LeaderBoard leaderBoard;
     public String input;
 
-    public static LeaderBoard leaderBoard = new LeaderBoard();
-
-    public Game(LeaderBoard leaderBoard) {
-        Game.leaderBoard = leaderBoard;
+    public Game() {
+        leaderBoard = StaticLeaderboard.get();
     }
 
     public static void setSum() {

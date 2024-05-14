@@ -2,6 +2,7 @@ package com.example.zoe21;
 
 import com.example.model.leaderboard.LeaderBoard;
 import com.example.model.leaderboard.LeaderBoardItem;
+import com.example.model.leaderboard.StaticLeaderboard;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,6 +15,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HighscoreController implements Initializable {
+    private static Label currentHighscoreLabel = null;
+
     @FXML
     protected Button backtomenu;
     @FXML
@@ -28,6 +31,8 @@ public class HighscoreController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        currentHighscoreLabel = highscoreLabel;
+
         // Laden der Schriftart für den Button
         try {
             InputStream fontStream = getClass().getResourceAsStream("/font/PressStart2P-vaV7.ttf");
@@ -37,20 +42,20 @@ public class HighscoreController implements Initializable {
             e.printStackTrace();
         }
 
-        // Laden des Highscores
-        displayHighscore();
     }
 
     // Methode zur Anzeige des Highscores
-    private void displayHighscore() {
-        LeaderBoard leaderBoard = new LeaderBoard();
-        leaderBoard.initializeFileManager(); // Laden des Leaderboards
+    public static void updateHighscore() {
+        if(currentHighscoreLabel == null) {
+            return;
+        }
+        LeaderBoard leaderBoard = StaticLeaderboard.get();
         StringBuilder highscoreText = new StringBuilder("Highscore:\n");
         int rank = 1;
         for (LeaderBoardItem item : leaderBoard.getItems()) {
             highscoreText.append(rank).append(". ").append(item.getName()).append(": ").append(item.getFormatedScore()).append("\n");
             rank++;
         }
-        highscoreLabel.setText(highscoreText.toString());
+        currentHighscoreLabel.setText(highscoreText.toString());
     }
 }

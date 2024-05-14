@@ -1,5 +1,6 @@
 package com.example.zoe21;
 
+import com.example.model.leaderboard.StaticLeaderboard;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
@@ -66,6 +67,9 @@ public class MainApplication extends Application {
     }
 
     public static void main(String[] args) {
+        // Initializes the default leaderboard and loads highscores
+        StaticLeaderboard.init();
+
         launch(args);
     }
 }
