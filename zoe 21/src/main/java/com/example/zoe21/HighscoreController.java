@@ -43,14 +43,13 @@ public class HighscoreController implements Initializable {
 
     // Methode zur Anzeige des Highscores
     private void displayHighscore() {
-        LeaderBoard leaderBoard = new LeaderBoard();
-        leaderBoard.initializeFileManager(); // Laden des Leaderboards
-        StringBuilder highscoreText = new StringBuilder("Highscore:\n");
-        int rank = 1;
+        LeaderBoard leaderBoard = MainApplication.leaderBoard; // Use the shared leaderboard instance
+        StringBuilder highscoreText = new StringBuilder("Highscores:\n\n");
+
         for (LeaderBoardItem item : leaderBoard.getItems()) {
-            highscoreText.append(rank).append(". ").append(item.getName()).append(": ").append(item.getFormatedScore()).append("\n");
-            rank++;
+            highscoreText.append(item.getName()).append(": ").append(item.getFormatedScore()).append("\n");
         }
+
         highscoreLabel.setText(highscoreText.toString());
     }
 }
