@@ -15,7 +15,8 @@
                 <Font size="64.0" />
             </font>
         </Label>
-        <Button fx:id="backToMainMenuButton" layoutX="316.0" layoutY="715.0" mnemonicParsing="false" onAction="#setBackToMenu" text="Back to Main Menu" />
+        <Button fx:id="backToMainMenuButton" layoutX="250.0" layoutY="715.0" mnemonicParsing="false" onAction="#setBackToMenu" text="Back to Main Menu" />
+        <Button fx:id="updateButton" layoutX="500.0" layoutY="715.0" mnemonicParsing="false" onAction="#setUpdate" text="Update" />
       <Label fx:id="rankLabel" layoutX="280.0" layoutY="254.0" text="Rank" textFill="#eaff00">
          <font>
             <Font size="18.0" />

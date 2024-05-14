@@ -4,6 +4,7 @@ import com.example.model.leaderboard.LeaderBoard;
 import com.example.model.leaderboard.LeaderBoardItem;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -17,9 +18,11 @@ import java.util.ResourceBundle;
 
 public class HighscoreController implements Initializable {
     @FXML
-    private static Label highscoreLabel;
+    private Label highscoreLabel;
     @FXML
     protected Button backToMainMenuButton;
+    @FXML
+    protected Button updateButton;
     @FXML
     private Label rankLabel;
     @FXML
@@ -31,6 +34,10 @@ public class HighscoreController implements Initializable {
     @FXML
     protected void setBackToMenu() {
         SwitchingScenes.setScene(0);
+    }
+    @FXML
+    protected void setUpdate() {
+        updateGrid();
     }
 
     @Override
@@ -45,7 +52,11 @@ public class HighscoreController implements Initializable {
                 System.err.println("Font file not found, using default font.");
             }
             backToMainMenuButton.setFont(fontmachine);// Anpassung des Labels
-            highscoreLabel.setFont(fontmachine);
+            updateButton.setFont(fontmachine);
+            rankLabel.setFont(fontmachine);
+            nameLabel.setFont(fontmachine);
+            scoreLabel.setFont(fontmachine);
+
         } catch (Exception e) {
             System.err.println("Error loading font, using default font: " + e.getMessage());
             e.printStackTrace();
@@ -56,9 +67,18 @@ public class HighscoreController implements Initializable {
         updateGrid();
     }
 
-    protected static void updateGrid() {
+    protected void updateGrid() {
         AnchorPane parentPane = (AnchorPane) highscoreLabel.getParent();
-        GridPane gridPane = (GridPane) parentPane.getChildren().get(5);
+        GridPane gridPane = (GridPane) parentPane.getChildren().get(6);
+
+        for (Node node : gridPane.getChildren()) {
+            if (node instanceof Label) {
+                Label label = (Label) node;
+                if (!label.getText().isEmpty()) {
+                    label.setText(" ");
+                }
+            }
+        }
 
         LeaderBoard leaderBoard = new LeaderBoard();
         leaderBoard.initializeFileManager(); // Laden des Leaderboards
@@ -80,6 +100,20 @@ public class HighscoreController implements Initializable {
                 // Anpassen der Reihenfolge der Teile entsprechend der gewünschten Spaltenanordnung
                 int columnToInsert = (columnIndex == 0) ? 1 : (columnIndex == 1) ? 0 : 2;
                 Label label = new Label(parts[columnToInsert]);
+                Font font = Font.getDefault();
+                try {
+                    InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
+                    if (is != null) {
+                        font = Font.loadFont(is, 12);
+                    } else {
+                        System.err.println("Font file not found, using default font.");
+                    }
+                    label.setFont(font);
+                } catch (Exception e) {
+                    System.err.println("Error loading font, using default font: " + e.getMessage());
+                    e.printStackTrace();
+                }
+                label.setStyle("-fx-text-fill: #eaff00;");
                 gridPane.add(label, columnIndex, rowIndex);
             }
         }
