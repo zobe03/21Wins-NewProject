@@ -6,18 +6,23 @@ import java.nio.file.Path;
 
 public class LeaderBoardFileManager {
 
-    private Path path;
-    private LeaderBoard leaderBoard;
+    // Path to the file storing leaderboard data
+    private static Path path;
+    // Reference to the LeaderBoard instance
+    private final LeaderBoard leaderBoard;
 
+    // Constructor to initialize the LeaderBoardFileManager with a filename and LeaderBoard instance
     public LeaderBoardFileManager(String filename, LeaderBoard leaderBoard) {
-        this.path = Path.of(filename);
+        path = Path.of(filename);
         this.leaderBoard = leaderBoard;
     }
 
-    public Path getPath() {
+    // Getter method for the file path
+    public static Path getPath() {
         return path;
     }
 
+    // Save the leaderboard data to the file
     public void save() {
         try {
             Files.writeString(path, leaderBoard.toString());
@@ -26,15 +31,17 @@ public class LeaderBoardFileManager {
         }
     }
 
+    // Load leaderboard data from the file
     public void load() {
         try {
             String data = Files.readString(path);
             LeaderBoard newLeaderBoard = LeaderBoard.fromString(data);
             leaderBoard.setItems(newLeaderBoard.getItems());
-        } catch (Exception  e) {
-            // If the file can not be found, or contains invalid data, ignore it quietly and continue with an empty leaderboard
+        } catch (Exception e) {
+            System.out.println("Could not load leaderboard data");
         }
     }
 
 }
+
 

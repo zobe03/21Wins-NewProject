@@ -1,8 +1,5 @@
 package com.example.model.leaderboard;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-
 public class LeaderBoardItem {
     // Multiplier to calculate score based on moves
     public static final int SCORE_MOVES_MULTIPLYER = 1000;

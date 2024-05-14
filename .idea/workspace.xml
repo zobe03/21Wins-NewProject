@@ -6,9 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="keine&#10;ressources">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/leaderboard/LeaderBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/leaderboard/LeaderBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/leaderboard/LeaderBoardFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/leaderboard/LeaderBoardFileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/leaderboard/LeaderBoardItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/leaderboard/LeaderBoardItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/leaderboard/ScoreTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/leaderboard/ScoreTracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/HighscoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/HighscoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/leaderboard/LeaderBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/leaderboard/LeaderBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/leaderboard/LeaderBoardFileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/leaderboard/LeaderBoardFileManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/leaderboard/LeaderBoardItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/leaderboard/LeaderBoardItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/leaderboard/ScoreTracker.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/leaderboard/ScoreTracker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/HighscoreController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/HighscoreController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -306,7 +313,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715667928241</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="keine&#10;ressources">
+      <option name="closed" value="true" />
+      <created>1715668708294</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1715668708294</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

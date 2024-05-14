@@ -22,7 +22,7 @@ public class LeaderBoard {
     private LeaderBoardFileManager fileManager;
 
     public LeaderBoard() {
-        this.items = new ArrayList<LeaderBoardItem>(MAX_SIZE + 1);
+        this.items = new ArrayList<>(MAX_SIZE + 1);
         this.fileManager = null;
     }
 
@@ -62,13 +62,13 @@ public class LeaderBoard {
 
     // Sorts the items based on score
     private void sort() {
-        items.sort((a, b) -> Double.compare(b.getScore(), a.getScore()));
+        items.sort((LeaderBoardItem a, LeaderBoardItem b) -> Double.compare(b.getScore(), a.getScore()));
     }
 
     // Removes the last item, if the list is too long
     private void removeLast() {
         if (items.size() > MAX_SIZE) {
-            items.remove(items.size() - 1);
+            items.removeLast();
         }
     }
 
