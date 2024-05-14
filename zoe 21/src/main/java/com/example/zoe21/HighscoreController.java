@@ -11,35 +11,29 @@ import javafx.scene.text.Font;
 
 import java.io.InputStream;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class HighscoreController implements Initializable {
     @FXML
-    private Label highscoreLabel;
+    protected Button backtomenu;
     @FXML
-    protected Button backToMainMenuButton;
+    private AnchorPane gameLayout;
+    @FXML
+    private Label highscoreLabel;
 
     @FXML
-    protected void setBackToMenu() {
+    protected void setBacktomenu() {
         SwitchingScenes.setScene(0);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Laden der Schriftart für den Button
-        Font fontmachine = Font.getDefault();
         try {
-            InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
-            if (is != null) {
-                fontmachine = Font.loadFont(is, 12);
-            } else {
-                System.err.println("Font file not found, using default font.");
-            }
-            backToMainMenuButton.setFont(fontmachine);
-            highscoreLabel.setFont(fontmachine);
-        }catch (Exception e){
-            System.err.println("Error loading font, using default font: " + e.getMessage());
+            InputStream fontStream = getClass().getResourceAsStream("/font/PressStart2P-vaV7.ttf");
+            Font font = Font.loadFont(fontStream, 20);
+            backtomenu.setFont(font);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -49,16 +43,13 @@ public class HighscoreController implements Initializable {
 
     // Methode zur Anzeige des Highscores
     private void displayHighscore() {
-        LeaderBoard leaderBoard = new LeaderBoard();
-        leaderBoard.initializeFileManager(); // Laden des Leaderboards
-        StringBuilder highscoreText = new StringBuilder("Highscore:\n");
-        int rank = 1;
+        LeaderBoard leaderBoard = MainApplication.leaderBoard; // Use the shared leaderboard instance
+        StringBuilder highscoreText = new StringBuilder("Highscores:\n\n");
+
         for (LeaderBoardItem item : leaderBoard.getItems()) {
-            highscoreText.append(rank).append(". ").append(item.getName()).append(": ").append(item.getFormattedScore()).append("\n");
-            rank++;
+            highscoreText.append(item.getName()).append(": ").append(item.getFormatedScore()).append("\n");
         }
+
         highscoreLabel.setText(highscoreText.toString());
+    }
 }
-}
-
-
