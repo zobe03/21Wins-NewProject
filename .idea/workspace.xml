@@ -7,7 +7,9 @@
     <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="ganz okey">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/HighscoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/HighscoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/SwitchingScenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/SwitchingScenes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/src/main/resources/com/example/zoe21/highscore.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/resources/com/example/zoe21/highscore.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/SwitchingScenes.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/SwitchingScenes.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/highscore.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/highscore.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -346,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715694091347</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="ganz okey">
+      <option name="closed" value="true" />
+      <created>1715694836823</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1715694836823</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

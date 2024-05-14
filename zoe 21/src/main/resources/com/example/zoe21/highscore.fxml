@@ -75,17 +75,17 @@
             <Label prefHeight="30.0" prefWidth="10.0" textFill="#eaff00" GridPane.columnIndex="1" GridPane.rowIndex="10" />
             <Label prefHeight="30.0" prefWidth="10.0" textFill="#eaff00" GridPane.columnIndex="2" GridPane.rowIndex="10" />
         </GridPane>
-      <Label fx:id="ranklabel" layoutX="280.0" layoutY="254.0" text="Rank" textFill="#eaff00">
+      <Label layoutX="280.0" layoutY="254.0" text="Rank" textFill="#eaff00">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="nameLabel" layoutX="375.0" layoutY="255.0" text="Player" textFill="#eaff00">
+      <Label layoutX="375.0" layoutY="255.0" text="Player" textFill="#eaff00">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="scoreLabel" layoutX="479.0" layoutY="257.0" text="Score" textFill="#eaff00">
+      <Label layoutX="479.0" layoutY="257.0" text="Score" textFill="#eaff00">
          <font>
             <Font size="18.0" />
          </font>
