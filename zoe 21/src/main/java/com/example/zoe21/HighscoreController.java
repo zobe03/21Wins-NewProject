@@ -21,6 +21,12 @@ public class HighscoreController implements Initializable {
 
     @FXML
     protected Button backToMainMenuButton;
+    @FXML
+    protected Label ranklabel;
+    @FXML
+    protected Label nameLabel;
+    @FXML
+    protected Label scoreLabel;
 
     @FXML
     protected void setBackToMenu() {
@@ -31,14 +37,23 @@ public class HighscoreController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         // Laden der Schriftart für den Button
         Font fontmachine = Font.getDefault();
+        Font fontHighscore = Font.getDefault();
+        Font fontLabels = Font.getDefault();
         try {
             InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
             if (is != null) {
                 fontmachine = Font.loadFont(is, 12);
+                fontHighscore = Font.loadFont(is, 30);
+                fontLabels = Font.loadFont(is, 20);
             } else {
                 System.err.println("Font file not found, using default font.");
             }
             backToMainMenuButton.setFont(fontmachine);// Anpassung des Labels
+            highscoreLabel.setFont(fontHighscore);
+            ranklabel.setFont(fontLabels);
+            nameLabel.setFont(fontLabels);
+            scoreLabel.setFont(fontLabels);
+
         } catch (Exception e) {
             System.err.println("Error loading font, using default font: " + e.getMessage());
             e.printStackTrace();
@@ -68,7 +83,9 @@ public class HighscoreController implements Initializable {
 
             // Füge die Daten in die Labels ein
             for (int columnIndex = 0; columnIndex < 3; columnIndex++) {
-                Label label = new Label(parts[columnIndex]);
+                // Anpassen der Reihenfolge der Teile entsprechend der gewünschten Spaltenanordnung
+                int columnToInsert = (columnIndex == 0) ? 1 : (columnIndex == 1) ? 0 : 2;
+                Label label = new Label(parts[columnToInsert]);
                 gridPane.add(label, columnIndex, rowIndex);
             }
         }
