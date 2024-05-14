@@ -2,6 +2,7 @@ package com.example.zoe21;
 
 import com.example.model.leaderboard.LeaderBoard;
 import com.example.model.leaderboard.LeaderBoardItem;
+import com.example.model.leaderboard.StaticLeaderBoard;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -35,6 +36,7 @@ public class HighscoreController implements Initializable {
     protected void setBackToMenu() {
         SwitchingScenes.setScene(0);
     }
+
     @FXML
     protected void setUpdate() {
         updateGrid();
@@ -63,7 +65,7 @@ public class HighscoreController implements Initializable {
         }
 
         // Laden des Leaderboards
-         // Annahme, dass das GridPane das zweite Kind des AnchorPane ist
+        // Annahme, dass das GridPane das zweite Kind des AnchorPane ist
         updateGrid();
     }
 
@@ -71,6 +73,7 @@ public class HighscoreController implements Initializable {
         AnchorPane parentPane = (AnchorPane) highscoreLabel.getParent();
         GridPane gridPane = (GridPane) parentPane.getChildren().get(6);
 
+        // Clear existing labels in the grid
         for (Node node : gridPane.getChildren()) {
             if (node instanceof Label) {
                 Label label = (Label) node;
@@ -81,45 +84,51 @@ public class HighscoreController implements Initializable {
         }
 
         LeaderBoard leaderBoard = new LeaderBoard();
-        leaderBoard.initializeFileManager(); // Laden des Leaderboards
+        leaderBoard.initializeFileManager(); // Load the leaderboard
         List<LeaderBoardItem> items = leaderBoard.getItems();
 
-        // Durchlaufe das GridPane von oben nach unten und aktualisiere die Labels entsprechend
+        // Populate the grid with leaderboard data
         for (int rowIndex = 0; rowIndex < items.size(); rowIndex++) {
             LeaderBoardItem item = items.get(rowIndex);
-            String[] parts = item.toString().split(",");
+            // Adjusting rowIndex since ranks start from 1
+            int rank = rowIndex + 1;
+            // Get the name and score of the item
+            String name = item.getName();
+            String score = item.getFormattedScore();
 
-            // Überprüfen, ob die Zeile die maximale Anzahl von Spalten überschreitet
-            if (parts.length != 3) {
-                System.err.println("Invalid data format for leaderboard item: " + item.toString());
-                continue;
-            }
+            // Create labels for rank, name, and score
+            Label rankLabel = new Label(Integer.toString(rank));
+            Label nameLabel = new Label(name);
+            Label scoreLabel = new Label(String.format(score));
 
-            // Füge die Daten in die Labels ein
-            for (int columnIndex = 0; columnIndex < 3; columnIndex++) {
-                // Anpassen der Reihenfolge der Teile entsprechend der gewünschten Spaltenanordnung
-                int columnToInsert = (columnIndex == 0) ? 1 : (columnIndex == 1) ? 0 : 2;
-                Label label = new Label(parts[columnToInsert]);
-                Font font = Font.getDefault();
-                try {
-                    InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
-                    if (is != null) {
-                        font = Font.loadFont(is, 12);
-                    } else {
-                        System.err.println("Font file not found, using default font.");
-                    }
-                    label.setFont(font);
-                } catch (Exception e) {
-                    System.err.println("Error loading font, using default font: " + e.getMessage());
-                    e.printStackTrace();
+            // Apply font and style
+            Font font = Font.getDefault();
+            try {
+                InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
+                if (is != null) {
+                    font = Font.loadFont(is, 12);
+                } else {
+                    System.err.println("Font file not found, using default font.");
                 }
-                label.setStyle("-fx-text-fill: #eaff00;");
-                gridPane.add(label, columnIndex, rowIndex);
+            } catch (Exception e) {
+                System.err.println("Error loading font, using default font: " + e.getMessage());
+                e.printStackTrace();
             }
+            rankLabel.setFont(font);
+            nameLabel.setFont(font);
+            scoreLabel.setFont(font);
+            rankLabel.setStyle("-fx-text-fill: #eaff00;");
+            nameLabel.setStyle("-fx-text-fill: #eaff00;");
+            scoreLabel.setStyle("-fx-text-fill: #eaff00;");
+
+            // Add labels to grid
+            gridPane.add(rankLabel, 0, rowIndex);
+            gridPane.add(nameLabel, 1, rowIndex);
+            gridPane.add(scoreLabel, 2, rowIndex);
         }
 
-        // Wenn die Anzahl der Einträge kleiner als die maximale Anzahl von Zeilen ist,
-        // leere die restlichen Zeilen im GridPane
+        // If the number of entries is less than the maximum number of rows,
+        // fill the remaining rows with empty labels
         for (int rowIndex = items.size(); rowIndex < LeaderBoard.MAX_SIZE; rowIndex++) {
             for (int columnIndex = 0; columnIndex < 3; columnIndex++) {
                 Label emptyLabel = new Label("");
