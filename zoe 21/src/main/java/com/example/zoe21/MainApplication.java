@@ -1,6 +1,6 @@
 package com.example.zoe21;
 
-import com.example.model.leaderboard.LeaderBoard;
+
 import com.example.model.leaderboard.StaticLeaderBoard;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

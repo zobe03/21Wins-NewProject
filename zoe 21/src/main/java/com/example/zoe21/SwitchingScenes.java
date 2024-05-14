@@ -27,6 +27,7 @@ public class SwitchingScenes {
                     window.setScene(menu); // change to mainmenu
                     break;
                 case 1:
+                    HighscoreController.updateGrid();
                     window.setScene(highscore); // change to highscore
                     break;
                 case 3:

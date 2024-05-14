@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 
 public class HighscoreController implements Initializable {
     @FXML
-    private Label highscoreLabel;
+    private static Label highscoreLabel;
     @FXML
     protected Button backToMainMenuButton;
     @FXML
@@ -26,6 +26,7 @@ public class HighscoreController implements Initializable {
     private Label nameLabel;
     @FXML
     private Label scoreLabel;
+
 
     @FXML
     protected void setBackToMenu() {
@@ -51,12 +52,14 @@ public class HighscoreController implements Initializable {
         }
 
         // Laden des Leaderboards
-        AnchorPane parentPane = (AnchorPane) highscoreLabel.getParent();
-        GridPane gridPane = (GridPane) parentPane.getChildren().get(5); // Annahme, dass das GridPane das zweite Kind des AnchorPane ist
-        updateGrid(gridPane);
+         // Annahme, dass das GridPane das zweite Kind des AnchorPane ist
+        updateGrid();
     }
 
-    private void updateGrid(GridPane gridPane) {
+    protected static void updateGrid() {
+        AnchorPane parentPane = (AnchorPane) highscoreLabel.getParent();
+        GridPane gridPane = (GridPane) parentPane.getChildren().get(5);
+
         LeaderBoard leaderBoard = new LeaderBoard();
         leaderBoard.initializeFileManager(); // Laden des Leaderboards
         List<LeaderBoardItem> items = leaderBoard.getItems();
