@@ -8,7 +8,7 @@
 <AnchorPane fx:id="gameLayout" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoe21.MainController">
 
     <children>
-        <Button fx:id="highscoreButton" layoutX="260.0" layoutY="540.0" onAction="#onHighScoreButtonClick" prefHeight="39.0" prefWidth="283.0" text="Highscore" textAlignment="CENTER" />
+        <Button fx:id="highscoreButton" layoutX="260.0" layoutY="540.0" onAction="#onHighScoreButtonClick" prefHeight="39.0" prefWidth="283.0" text="Leaderboard" textAlignment="CENTER" />
         <Button fx:id="regularGameButton" layoutX="260.0" layoutY="460.0" onAction="#onRegularGameButtonClick" prefHeight="39.0" prefWidth="283.0" text="Regular Game" textAlignment="CENTER" />
         <Button fx:id="machineGameButton" layoutX="260.0" layoutY="380.0" onAction="#onMachineGameButtonClick" prefHeight="39.0" prefWidth="283.0" text="Machine Game" textAlignment="CENTER" />
         <Label fx:id="welcomeText" alignment="CENTER" layoutX="127.0" layoutY="172.0" prefHeight="109.0" prefWidth="563.0" text="Welcome to 21 Wins! The Game where friendship ends..." textAlignment="CENTER" textFill="#eaff00" wrapText="true">
