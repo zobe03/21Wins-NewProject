@@ -2,8 +2,6 @@ package com.example.zoe21;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -16,6 +14,7 @@ import com.example.model.Player;
 import com.example.model.HumanPlayer;
 import com.example.model.MachinePlayer;
 import javafx.scene.text.Font;
+
 
 import java.io.InputStream;
 import java.net.URL;
@@ -39,16 +38,14 @@ public class RegularGameController implements Initializable {
     protected Button backtomenu;
     @FXML
     protected Button sumButton;
-    @FXML
-    protected Pane backgroundPane;
     public static boolean MACHINEMODE;
     private final Player[] playersList = new Player[2];
     Game game = new Game(MainApplication.leaderBoard);
 
+
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        // Set fonts
-        Font fontround = Font.getDefault();
+        Font fontround = Font.getDefault(); // Fallback-Schriftart verwenden
         Font fontplayer = Font.getDefault();
         Font fontmessage = Font.getDefault();
         try {
@@ -65,10 +62,10 @@ public class RegularGameController implements Initializable {
             InputStream is8 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
             if (is8 != null) {
                 fontmessage = Font.loadFont(is8, 8);
-            } else {
+            }
+            else{
                 System.err.println("Font file not found, using default font.");
             }
-
             roundLabel.setFont(fontround);
             playerLabel.setFont(fontplayer);
             messageLabel.setFont(fontmessage);
@@ -80,24 +77,19 @@ public class RegularGameController implements Initializable {
             e.printStackTrace();
         }
 
-        // Set background
-        MainController.SpaceBackground spaceBackground = new MainController.SpaceBackground(800, 800);
-        backgroundPane.getChildren().add(spaceBackground);
-        AnchorPane.setTopAnchor(spaceBackground, 0.0);
-        AnchorPane.setLeftAnchor(spaceBackground, 0.0);
-        AnchorPane.setBottomAnchor(spaceBackground, 0.0);
-        AnchorPane.setRightAnchor(spaceBackground, 0.0);
-
         roundLabel.setText("Round 1");
         messageLabel.setText("Enter a Number between 1 & 9 \nand press ENTER to add the Number to the Stack");
+
+        // String imagePath = "file:resources/grün.jpeg";
+        // Image image = new Image(imagePath);
+        // BackgroundSize backgroundSize = new BackgroundSize(600, 600, true, true, false, true);
+        // BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
+
+        // gameLayout.setBackground(new Background(backgroundImage));
     }
 
     public static void setMachineMode() {
         MACHINEMODE = true;
-        System.out.println("setMachinemode: " + MACHINEMODE);
-    }
-    public static void setHumanMode() {
-        MACHINEMODE = false;
         System.out.println("setMachinemode: " + MACHINEMODE);
     }
 
@@ -116,7 +108,11 @@ public class RegularGameController implements Initializable {
         }
         playerLabel.setText(playersList[0].getName());
         playersList[0].getScoreTracker().startTimer();
+
     }
+
+    @FXML
+    private AnchorPane gameLayout;
 
     private String askForPlayerName(String defaultName) {
         TextInputDialog dialog = new TextInputDialog(defaultName);
@@ -129,7 +125,6 @@ public class RegularGameController implements Initializable {
 
     @FXML
     protected void setBacktomenu() {
-        setHumanMode();
         SwitchingScenes.setScene(0);
     }
 
@@ -145,9 +140,14 @@ public class RegularGameController implements Initializable {
     protected void onSumSelect() {
         Game.setSum();
         play();
+
     }
+
 
     public void play() {
         game.askForInput(roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
     }
 }
+
+
+
