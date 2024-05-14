@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoe21.HighscoreController">
     <children>
-        <Label fx:id="highscoreLabel" layoutX="267.0" layoutY="124.0" text="Highscore" textFill="#eaff00">
+        <Label fx:id="highscoreLabel" layoutX="220.0" layoutY="124.0" text="Leaderboard" textFill="#eaff00">
             <font>
                 <Font size="64.0" />
             </font>

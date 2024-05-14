@@ -1,6 +1,5 @@
 package com.example.zoe21;
 
-
 import com.example.model.leaderboard.StaticLeaderBoard;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,15 +10,29 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+// MainApplication is a subclass of Application and is the main class that starts the game
+
 public class MainApplication extends Application {
 
+    // main stage where the selected scene will be placed on
     private Stage window;
+
+    /* create different scenes for the game
+    - mainMenuScene: shows the main menu at the start of the game
+    - highscoreScene: shows the ranking of all players in the form of a table
+    - regularGameScene: is where the game happens; either between two human players or
+    between the user and a machine, if he previously selected the machine difficulty mode in
+    the scene 'machineSetDifficultyScene'
+    - machineSetDifficultyScene: where the user is able to select the difficulty level of the
+    machine he/she wants to play against
+     */
     private Scene mainMenuScene, highscoreScene, regularGameScene, machineSetDifficultyScene;
 
     @Override
     public void start(Stage stage) throws Exception {
 
-        window = stage;
+        window = stage; // set window as main stage where the respective scenes will be applied to
+        // create controller for every scene and
         createScenes();
         window.setScene(mainMenuScene);
         window.setTitle("21 Wins!!!");
