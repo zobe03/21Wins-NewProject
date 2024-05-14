@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 
 import java.io.InputStream;
@@ -17,6 +18,7 @@ import java.util.ResourceBundle;
 public class HighscoreController implements Initializable {
     @FXML
     private Label highscoreLabel;
+
     @FXML
     protected Button backToMainMenuButton;
 
@@ -36,29 +38,48 @@ public class HighscoreController implements Initializable {
             } else {
                 System.err.println("Font file not found, using default font.");
             }
-            backToMainMenuButton.setFont(fontmachine);
-            highscoreLabel.setFont(fontmachine);
-        }catch (Exception e){
+            backToMainMenuButton.setFont(fontmachine);// Anpassung des Labels
+        } catch (Exception e) {
             System.err.println("Error loading font, using default font: " + e.getMessage());
             e.printStackTrace();
         }
 
-        // Laden des Highscores
-        displayHighscore();
+        // Laden des Leaderboards
+        AnchorPane parentPane = (AnchorPane) highscoreLabel.getParent();
+        GridPane gridPane = (GridPane) parentPane.getChildren().get(2); // Annahme, dass das GridPane das zweite Kind des AnchorPane ist
+        updateGrid(gridPane);
     }
 
-    // Methode zur Anzeige des Highscores
-    private void displayHighscore() {
+    private void updateGrid(GridPane gridPane) {
         LeaderBoard leaderBoard = new LeaderBoard();
         leaderBoard.initializeFileManager(); // Laden des Leaderboards
-        StringBuilder highscoreText = new StringBuilder("Highscore:\n");
-        int rank = 1;
-        for (LeaderBoardItem item : leaderBoard.getItems()) {
-            highscoreText.append(rank).append(". ").append(item.getName()).append(": ").append(item.getFormattedScore()).append("\n");
-            rank++;
+        List<LeaderBoardItem> items = leaderBoard.getItems();
+
+        // Durchlaufe das GridPane von oben nach unten und aktualisiere die Labels entsprechend
+        for (int rowIndex = 0; rowIndex < items.size(); rowIndex++) {
+            LeaderBoardItem item = items.get(rowIndex);
+            String[] parts = item.toString().split(",");
+
+            // Überprüfen, ob die Zeile die maximale Anzahl von Spalten überschreitet
+            if (parts.length != 3) {
+                System.err.println("Invalid data format for leaderboard item: " + item.toString());
+                continue;
+            }
+
+            // Füge die Daten in die Labels ein
+            for (int columnIndex = 0; columnIndex < 3; columnIndex++) {
+                Label label = new Label(parts[columnIndex]);
+                gridPane.add(label, columnIndex, rowIndex);
+            }
         }
-        highscoreLabel.setText(highscoreText.toString());
-}
-}
 
-
+        // Wenn die Anzahl der Einträge kleiner als die maximale Anzahl von Zeilen ist,
+        // leere die restlichen Zeilen im GridPane
+        for (int rowIndex = items.size(); rowIndex < LeaderBoard.MAX_SIZE; rowIndex++) {
+            for (int columnIndex = 0; columnIndex < 3; columnIndex++) {
+                Label emptyLabel = new Label("");
+                gridPane.add(emptyLabel, columnIndex, rowIndex);
+            }
+        }
+    }
+}

@@ -68,7 +68,7 @@ public class LeaderBoard {
     // Removes the last item, if the list is too long
     private void removeLast() {
         if (items.size() > MAX_SIZE) {
-            items.removeLast();
+            items.remove(items.size() -1);
         }
     }
 
