@@ -11,24 +11,24 @@
 
 <AnchorPane fx:id="gameLayout" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoe21.MachineSetDifficultyController">
     <children>
-        <Button fx:id="next" layoutX="480.0" layoutY="465.0" mnemonicParsing="false" onAction="#nextToRegularGame" prefHeight="60.0" prefWidth="120.0" text="Next">
+        <Button fx:id="next" layoutX="560.0" layoutY="550.0" mnemonicParsing="false" onAction="#nextToRegularGame" prefHeight="60.0" prefWidth="120.0" text="Next">
          <font>
             <Font size="28.0" />
          </font></Button>
-        <Button fx:id="backtomenu" layoutX="199.0" layoutY="465.0" mnemonicParsing="false" onAction="#setBacktomenu" prefHeight="60.0" prefWidth="120.0" text="Back ">
+        <Button fx:id="backtomenu" layoutX="110.0" layoutY="550.0" mnemonicParsing="false" onAction="#setBacktomenu" prefHeight="60.0" prefWidth="234.0" text="Back to Menu">
          <font>
             <Font size="28.0" />
          </font></Button>
-      <GridPane layoutX="304.0" layoutY="199.0" prefHeight="247.0" prefWidth="193.0">
+      <GridPane layoutX="308.0" layoutY="133.0" prefHeight="350.0" prefWidth="193.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="50.0" minHeight="3.0" prefHeight="50.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="51.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
               <RadioButton fx:id="easy" mnemonicParsing="false" onAction="#onEasySelect" text="Easy" textFill="#eaff00">
