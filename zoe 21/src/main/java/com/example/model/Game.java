@@ -18,8 +18,6 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.Stack;
 
-import static com.example.zoe21.RegularGameController.setHumanMode;
-
 
 public class Game {
     public int roundNr = 1;
@@ -254,7 +252,7 @@ public class Game {
                     scoreTracker.stopTimer();
                     if (winningPlayer instanceof HumanPlayer) {
                         LeaderBoardItem leaderBoardItem = scoreTracker.toLeaderBoardItem(winningPlayer.getName());
-                        System.out.println(winningPlayer.getName() + " won with a score of: " + LeaderBoardItem.getFormatedScore());
+                        System.out.println(winningPlayer.getName() + " won with a score of: " + LeaderBoardItem.getFormattedScore());
                         leaderBoard.addItem(leaderBoardItem);
                     }
                 }
