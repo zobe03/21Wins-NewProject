@@ -16,6 +16,21 @@
             </font>
         </Label>
         <Button fx:id="backToMainMenuButton" layoutX="316.0" layoutY="715.0" mnemonicParsing="false" onAction="#setBackToMenu" text="Back to Main Menu" />
+      <Label fx:id="rankLabel" layoutX="280.0" layoutY="254.0" text="Rank" textFill="#eaff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="nameLabel" layoutX="375.0" layoutY="255.0" text="Player" textFill="#eaff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="scoreLabel" layoutX="479.0" layoutY="257.0" text="Score" textFill="#eaff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
         <GridPane layoutX="290.0" layoutY="298.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -75,20 +90,5 @@
             <Label prefHeight="30.0" prefWidth="10.0" textFill="#eaff00" GridPane.columnIndex="1" GridPane.rowIndex="10" />
             <Label prefHeight="30.0" prefWidth="10.0" textFill="#eaff00" GridPane.columnIndex="2" GridPane.rowIndex="10" />
         </GridPane>
-      <Label layoutX="280.0" layoutY="254.0" text="Rank" textFill="#eaff00">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="375.0" layoutY="255.0" text="Player" textFill="#eaff00">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="479.0" layoutY="257.0" text="Score" textFill="#eaff00">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
     </children>
 </AnchorPane>

@@ -18,9 +18,14 @@ import java.util.ResourceBundle;
 public class HighscoreController implements Initializable {
     @FXML
     private Label highscoreLabel;
-
     @FXML
     protected Button backToMainMenuButton;
+    @FXML
+    private Label rankLabel;
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private Label scoreLabel;
 
     @FXML
     protected void setBackToMenu() {
@@ -31,7 +36,6 @@ public class HighscoreController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         // Laden der Schriftart für den Button
         Font fontmachine = Font.getDefault();
-
         try {
             InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
             if (is != null) {
@@ -40,6 +44,7 @@ public class HighscoreController implements Initializable {
                 System.err.println("Font file not found, using default font.");
             }
             backToMainMenuButton.setFont(fontmachine);// Anpassung des Labels
+            highscoreLabel.setFont(fontmachine);
         } catch (Exception e) {
             System.err.println("Error loading font, using default font: " + e.getMessage());
             e.printStackTrace();
@@ -47,7 +52,7 @@ public class HighscoreController implements Initializable {
 
         // Laden des Leaderboards
         AnchorPane parentPane = (AnchorPane) highscoreLabel.getParent();
-        GridPane gridPane = (GridPane) parentPane.getChildren().get(2); // Annahme, dass das GridPane das zweite Kind des AnchorPane ist
+        GridPane gridPane = (GridPane) parentPane.getChildren().get(5); // Annahme, dass das GridPane das zweite Kind des AnchorPane ist
         updateGrid(gridPane);
     }
 

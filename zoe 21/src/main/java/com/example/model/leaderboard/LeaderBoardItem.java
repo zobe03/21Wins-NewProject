@@ -12,17 +12,18 @@ public class LeaderBoardItem {
     }
 
 
-    private final String name;
+    private String name;
     // Number of moves made by the player
-    private static int moves;
+    private int moves;
     // Total time spent by the player
-    private static long time;
+    private long time;
 
     // Constructor to initialize a LeaderBoardItem with name, moves, and time
     public LeaderBoardItem(String name, int moves, long time) {
         this.name = name;
-        LeaderBoardItem.moves = moves;
-        LeaderBoardItem.time = time;
+        this.moves = moves;
+        this.time = time;
+        System.out.println("LeaderBoardItem angekommen: " + name + moves + time);
     }
 
     // Getter method for the player's name
@@ -41,18 +42,19 @@ public class LeaderBoardItem {
     }
 
     // Calculate and return the score based on moves and time
-    public static double getScore() {
+    public double getScore() {
         return (double) (moves * SCORE_MOVES_MULTIPLYER) / time;
     }
 
     // Return the score as a formatted string with 2 decimal places
-    public static String getFormattedScore() {
+    public String getFormattedScore() {
         return String.format("%.2f", getScore());
     }
 
     // Convert the LeaderBoardItem to a CSV line
     @Override
     public String toString() {
+        System.out.println("LeaderBoardItem toString: " + name + " " + moves + " " + time);
         return name + "," + moves + "," + time + "\n";
     }
 

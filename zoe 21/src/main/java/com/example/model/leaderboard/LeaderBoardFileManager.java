@@ -7,25 +7,29 @@ import java.nio.file.Path;
 public class LeaderBoardFileManager {
 
     // Path to the file storing leaderboard data
-    private static Path path;
+    private Path path;
     // Reference to the LeaderBoard instance
-    private final LeaderBoard leaderBoard;
+    private LeaderBoard leaderBoard;
 
     // Constructor to initialize the LeaderBoardFileManager with a filename and LeaderBoard instance
     public LeaderBoardFileManager(String filename, LeaderBoard leaderBoard) {
-        path = Path.of(filename);
+        this.path = Path.of(filename);
+        System.out.println("LeaderBoardFileManager" + path);
         this.leaderBoard = leaderBoard;
+        System.out.println("LeaderBoardFileManager" + leaderBoard);
     }
 
     // Getter method for the file path
-    public static Path getPath() {
+    public Path getPath() {
         return path;
     }
 
     // Save the leaderboard data to the file
     public void save() {
+        System.out.println("LeaderBoardFileManager save");
         try {
             Files.writeString(path, leaderBoard.toString());
+            System.out.println("LeaderBoardFileManager save" + leaderBoard.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }

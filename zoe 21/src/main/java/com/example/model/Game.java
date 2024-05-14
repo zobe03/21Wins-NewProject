@@ -3,6 +3,7 @@ package com.example.model;
 import com.example.model.leaderboard.LeaderBoard;
 import com.example.model.leaderboard.LeaderBoardItem;
 import com.example.model.leaderboard.ScoreTracker;
+import com.example.model.leaderboard.StaticLeaderBoard;
 import com.example.zoe21.MainController;
 import com.example.zoe21.RegularGameController;
 import com.example.zoe21.SwitchingScenes;
@@ -28,10 +29,9 @@ public class Game {
     private static boolean ENTER;
     public String input;
 
-    public static LeaderBoard leaderBoard = new LeaderBoard();
-
-    public Game(LeaderBoard leaderBoard) {
-        Game.leaderBoard = Game.leaderBoard;
+    private final LeaderBoard leaderBoard;
+    public Game() {
+        leaderBoard = StaticLeaderBoard.getLeaderBoard();
     }
 
     public static void setSum() {
@@ -54,7 +54,7 @@ public class Game {
             inputValid = playTheGame(inputNr[0], roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
             if (inputValid) {
                 if (playersList[1] instanceof MachinePlayer) {
-                    PauseTransition delay = new PauseTransition(Duration.seconds(3));
+                    PauseTransition delay = new PauseTransition(Duration.seconds(1.5));
                     delay.setOnFinished(event -> {
                         int machineMove = MachinePlayer.makeMove(roundNr, gameStack);
                         inputField.setText(String.valueOf(machineMove));
@@ -87,7 +87,6 @@ public class Game {
 
     private boolean playTheGame(Integer inputNr, Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
 
-        System.out.println("Play 1");
         boolean inputValid = false;
         if(SUM) {
             System.out.println("Sum");
@@ -163,13 +162,10 @@ public class Game {
     private void updateGrid(GridPane gridPane) {
         int stackSize = gameStack.size();
 
-        // Starte von der untersten Reihe des Grids
         int gridRowIndex = gridPane.getRowCount() - 1;
 
-        // Index für das Iterieren durch den Stapel
         int stackIndex = stackSize -1;
 
-        // Durchlaufe das GridPane von unten nach oben und aktualisiere die Labels entsprechend
         while (gridRowIndex >= 0) {
             Label label = (Label) gridPane.getChildren().get(gridRowIndex);
             Font fontstack = Font.getDefault();
@@ -252,7 +248,7 @@ public class Game {
                     scoreTracker.stopTimer();
                     if (winningPlayer instanceof HumanPlayer) {
                         LeaderBoardItem leaderBoardItem = scoreTracker.toLeaderBoardItem(winningPlayer.getName());
-                        System.out.println(winningPlayer.getName() + " won with a score of: " + LeaderBoardItem.getFormattedScore());
+                        System.out.println(winningPlayer.getName() + " won with a score of: " + leaderBoardItem.getFormattedScore());
                         leaderBoard.addItem(leaderBoardItem);
                     }
                 }
@@ -263,7 +259,7 @@ public class Game {
     private static void timeTracking(Player currentPlayerObject, Player[] playersList, int currentPlayer) { // Parameter definieren
         if(currentPlayer == 1) {
             playersList[1].getScoreTracker().stopTimer();
-            System.out.println("Player1 :" + playersList[1].getScoreTracker().time);
+            System.out.println("Player2 :" + playersList[1].getScoreTracker().time);
         }else{
             playersList[0].getScoreTracker().stopTimer();
             System.out.println("Player1 :" + playersList[0].getScoreTracker().time);

@@ -20,7 +20,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Optional;
 
-import static com.example.model.Game.leaderBoard;
 
 public class RegularGameController implements Initializable {
     @FXML
@@ -41,7 +40,7 @@ public class RegularGameController implements Initializable {
     protected Pane backgroundPane;
     public static boolean MACHINEMODE;
     private final Player[] playersList = new Player[2];
-    Game game = new Game(leaderBoard);
+    private final Game game = new Game();
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {

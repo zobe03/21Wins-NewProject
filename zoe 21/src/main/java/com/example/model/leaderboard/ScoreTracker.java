@@ -59,10 +59,12 @@ public class ScoreTracker {
 
     // Method to convert the ScoreTracker data to a LeaderBoardItem with the given player name
     public LeaderBoardItem toLeaderBoardItem(String name) {
+
         // Check if the required data is available
         if (moves == 0 || time == 0 || name == null || name.isEmpty()) {
             throw new IllegalStateException("A name, time, and amount of moves are required to convert to LeaderBoardItem");
         }
+        System.out.println("toLeaderBoardItem" + name + " " + moves + " " + time);
         // Create and return a new LeaderBoardItem with the player's data
         return new LeaderBoardItem(name, moves, time);
     }
