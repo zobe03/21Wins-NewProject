@@ -54,17 +54,17 @@ public class RegularGameController implements Initializable {
         try {
             InputStream is20 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
             if (is20 != null) {
-                fontround = Font.loadFont(is20, 20);
+                fontround = Font.loadFont(is20, 28);
             }
 
             InputStream is14 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
             if (is14 != null) {
-                fontplayer = Font.loadFont(is14, 14);
+                fontplayer = Font.loadFont(is14, 20);
             }
 
             InputStream is8 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
             if (is8 != null) {
-                fontmessage = Font.loadFont(is8, 8);
+                fontmessage = Font.loadFont(is8, 16);
             } else {
                 System.err.println("Font file not found, using default font.");
             }
@@ -82,15 +82,17 @@ public class RegularGameController implements Initializable {
 
         // Set background
         MainController.SpaceBackground spaceBackground = new MainController.SpaceBackground(800, 800);
-        backgroundPane.getChildren().add(spaceBackground);
         AnchorPane.setTopAnchor(spaceBackground, 0.0);
         AnchorPane.setLeftAnchor(spaceBackground, 0.0);
         AnchorPane.setBottomAnchor(spaceBackground, 0.0);
         AnchorPane.setRightAnchor(spaceBackground, 0.0);
+        backgroundPane.getChildren().add(spaceBackground);
+        backgroundPane.toBack(); // Bring the background to the back
 
         roundLabel.setText("Round 1");
         messageLabel.setText("Enter a Number between 1 & 9 \nand press ENTER to add the Number to the Stack");
     }
+
 
     public static void setMachineMode() {
         MACHINEMODE = true;
