@@ -4,21 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="adding comments">
+    <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="FINAL FINAL FINAL">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leaderboard.csv" beforeDir="false" afterPath="$PROJECT_DIR$/leaderboard.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/HighscoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/HighscoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/MachineSetDifficultyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/MachineSetDifficultyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/HumanPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/HumanPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/HighscoreController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/HighscoreController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MachineSetDifficultyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MachineSetDifficultyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground$Star.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground$Star.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/RegularGameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/RegularGameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/SwitchingScenes.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/SwitchingScenes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/highscore.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/highscore.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +134,7 @@
       <workItem from="1715557497982" duration="1188000" />
       <workItem from="1715558701230" duration="1430000" />
       <workItem from="1715771989926" duration="192000" />
-      <workItem from="1715787287502" duration="1483000" />
+      <workItem from="1715787287502" duration="4158000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -430,7 +424,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715739788624</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="FINAL FINAL">
+      <option name="closed" value="true" />
+      <created>1715789001431</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1715789001431</updated>
+    </task>
+    <task id="LOCAL-00038" summary="FINAL FINAL FINAL">
+      <option name="closed" value="true" />
+      <created>1715789074753</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1715789074753</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +470,9 @@
     <MESSAGE value="ganz okey" />
     <MESSAGE value="fast fertig" />
     <MESSAGE value="adding comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding comments" />
+    <MESSAGE value="FINAL FINAL" />
+    <MESSAGE value="FINAL FINAL FINAL" />
+    <option name="LAST_COMMIT_MESSAGE" value="FINAL FINAL FINAL" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

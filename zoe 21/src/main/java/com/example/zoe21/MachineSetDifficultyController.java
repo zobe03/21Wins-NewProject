@@ -31,6 +31,12 @@ public class MachineSetDifficultyController implements Initializable {
     @FXML
     protected void setBacktomenu(){
         SwitchingScenes.setScene(0);
+        // reset difficulty mode to default false in order for the user to set its own wish difficulty
+        easy.setSelected(false);
+        medium.setSelected(false);
+        hard.setSelected(false);
+        expert.setSelected(false);
+        impossible.setSelected(false);
     }
     @FXML
     protected void onEasySelect(){
@@ -62,8 +68,13 @@ public class MachineSetDifficultyController implements Initializable {
         RegularGameController.setMachineMode();
         System.out.println("next to regular game2");
         SwitchingScenes.setScene(2);
+        // reset all machine modes to false in order for the user to be able to set its own wish difficulty
+        easy.setSelected(false);
+        medium.setSelected(false);
+        hard.setSelected(false);
+        expert.setSelected(false);
+        impossible.setSelected(false);
     }
-
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {

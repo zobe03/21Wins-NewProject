@@ -85,8 +85,9 @@ public class Game {
                 inputNr = Math.abs(Integer.parseInt(input));
                 messageLabel.setText("Entered Number: " + inputNr);
             }
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException e) { // when a user enters a symbol that is not a number
             messageLabel.setText("Input invalid! Please enter a number between 1 & 9!");
+            inputNr = -1; // default wrong (handled in playTheGame)
         }
         return inputNr;
     }
@@ -95,36 +96,38 @@ public class Game {
     private boolean playTheGame(Integer inputNr, Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
 
         boolean inputValid = false;
-        if (SUM) {
+        if (SUM) { // if sum is selected
             System.out.println("Sum");
-            if (roundNr < 4) {
+            if (roundNr < 4) { // addition is allowed at 4th round
                 messageLabel.setText("Addition not allowed in first three rounds!");
             } else {
-                if (inputNr == 0) {
+                if (inputNr == 0) { // 0 means create sum of two upper nrs
                     int firstTopNr = gameStack.pop();
                     int secTopNr = gameStack.pop();
                     int number = firstTopNr + secTopNr;
                     gameStack.push(number);
                     updateGrid(gridPane);
                     inputValid = true;
-                } else {
+                } else if (inputNr == -1) { // handling exception when input is not a number (NumberFormatException)
+                    messageLabel.setText("Invalid input! Please enter a number between 1-9!");
+                } else { // if the entered nr should be merged with upper nr
                     int number = gameStack.pop() + inputNr;
                     gameStack.push(number);
                     updateGrid(gridPane);
                     inputValid = true;
                 }
             }
-        } else {
+        } else { // if sum has not been pressed
             System.out.println("Enter");
             if (inputNr < 10 && inputNr > 0) {
                 System.out.println("0<x<10");
-                if (gameStack.size() >= 6) {
+                if (gameStack.size() >= 6) { // to limit the gamestack size to 6 elements
                     int number = gameStack.pop() + inputNr;
                     gameStack.push(number);
                     updateGrid(gridPane);
                     inputValid = true;
 
-                } else {
+                } else { // if the gamestack has less than 6 nrs
                     gameStack.push(inputNr);
                     updateGrid(gridPane);
                     inputValid = true;
@@ -132,7 +135,7 @@ public class Game {
             } else if (inputNr == 0) {
                 if (roundNr < 4) {
                     messageLabel.setText("Addition not allowed in first three rounds!");
-                } else {
+                } else { // addition is allowed after round 4
                     if (gameStack.size() > 1) {
                         int firstTopNr = gameStack.pop();
                         int secTopNr = gameStack.pop();
@@ -140,11 +143,11 @@ public class Game {
                         gameStack.push(number);
                         updateGrid(gridPane);
                         inputValid = true;
-                    } else {
+                    } else { // sum can only be created if there are two nrs in stack min.
                         messageLabel.setText("Not enough numbers in Stack!");
                     }
                 }
-            } else {
+            } else { // error message
                 messageLabel.setText("Invalid input, Please enter a number between 1-9.");
             }
         }
