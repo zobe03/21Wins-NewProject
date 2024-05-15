@@ -83,19 +83,17 @@ public class Game {
                 inputNr = Math.abs(Integer.parseInt(input));
                 messageLabel.setText("Entered Number: " + inputNr);
             }
-        } catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             messageLabel.setText("Input invalid! Please enter a number between 1 & 9!");
         }
         return inputNr;
     }
 
 
-
-
     private boolean playTheGame(Integer inputNr, Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, GridPane gridPane, Player[] playersList) {
 
         boolean inputValid = false;
-        if(SUM) {
+        if (SUM) {
             System.out.println("Sum");
             if (roundNr < 4) {
                 messageLabel.setText("Addition not allowed in first three rounds!");
@@ -114,8 +112,7 @@ public class Game {
                     inputValid = true;
                 }
             }
-        }
-        else {
+        } else {
             System.out.println("Enter");
             if (inputNr < 10 && inputNr > 0) {
                 System.out.println("0<x<10");
@@ -125,18 +122,15 @@ public class Game {
                     updateGrid(gridPane);
                     inputValid = true;
 
-                }
-                else {
+                } else {
                     gameStack.push(inputNr);
                     updateGrid(gridPane);
                     inputValid = true;
                 }
-            }
-            else if (inputNr == 0) {
+            } else if (inputNr == 0) {
                 if (roundNr < 4) {
                     messageLabel.setText("Addition not allowed in first three rounds!");
-                }
-                else {
+                } else {
                     if (gameStack.size() > 1) {
                         int firstTopNr = gameStack.pop();
                         int secTopNr = gameStack.pop();
@@ -144,13 +138,11 @@ public class Game {
                         gameStack.push(number);
                         updateGrid(gridPane);
                         inputValid = true;
-                    }
-                    else {
+                    } else {
                         messageLabel.setText("Not enough numbers in Stack!");
                     }
                 }
-            }
-            else {
+            } else {
                 messageLabel.setText("Invalid input, Please enter a number between 1-9.");
             }
         }
@@ -166,12 +158,13 @@ public class Game {
         SUM = false;
         return inputValid;
     }
+
     private void updateGrid(GridPane gridPane) {
         int stackSize = gameStack.size();
 
         int gridRowIndex = gridPane.getRowCount() - 1;
 
-        int stackIndex = stackSize -1;
+        int stackIndex = stackSize - 1;
 
         while (gridRowIndex >= 0) {
             Label label = (Label) gridPane.getChildren().get(gridRowIndex);
@@ -184,7 +177,7 @@ public class Game {
                     System.err.println("Font file not found, using default font.");
                 }
                 label.setFont(fontstack);
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.err.println("Error loading font, using default font: " + e.getMessage());
                 e.printStackTrace();
             }
@@ -205,14 +198,15 @@ public class Game {
 
     }
 
-    private void checkWinner(Player[] playersList){
+    private void checkWinner(Player[] playersList) {
         if (gameStack.peek() >= 21) {
-            stop=true;
+            stop = true;
             Player winningPlayer = playersList[currentPlayer - 1];
             String winnerName = winningPlayer.getName();
             showWinnerPopup(winnerName);
         }
     }
+
     private void showWinnerPopup(String winnerName) {
         Platform.runLater(() -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -232,15 +226,15 @@ public class Game {
     }
 
 
-    private void switchPlayer(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, Player[] playersList){
-        if(!stop){
+    private void switchPlayer(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, Player[] playersList) {
+        if (!stop) {
             int nrPlayers = 2;
             currentPlayer = (currentPlayer % nrPlayers) + 1;
             Player currentPlayerObject = playersList[currentPlayer - 1]; // subtract 1 to get to either 0 or 1 (not 1 or 2)
             if (currentPlayer == 1) {
                 roundNr++; // go to next round
                 roundLabel.setText("Round " + roundNr);
-                if (roundNr == 4){ // starting from round 4, users are allowed to use addition and therefore the sum button
+                if (roundNr == 4) { // starting from round 4, users are allowed to use addition and therefore the sum button
                     messageLabel.setText("Addition is now allowed!");
                 }
             }
@@ -266,10 +260,10 @@ public class Game {
 
     // stops the time tracking of the current player (and print the respective time)
     private static void timeTracking(Player currentPlayerObject, Player[] playersList, int currentPlayer) {
-        if(currentPlayer == 1) {
+        if (currentPlayer == 1) {
             playersList[1].getScoreTracker().stopTimer();
             System.out.println("Player2 :" + playersList[1].getScoreTracker().time);
-        }else{
+        } else {
             playersList[0].getScoreTracker().stopTimer();
             System.out.println("Player1 :" + playersList[0].getScoreTracker().time);
         }
