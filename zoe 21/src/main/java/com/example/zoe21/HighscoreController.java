@@ -46,14 +46,18 @@ public class HighscoreController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         // Laden der Schriftart für den Button
         Font fontmachine = Font.getDefault();
+        Font fontheading = Font.getDefault();
         try {
             InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
-            if (is != null) {
+            InputStream is20 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
+            if (is != null && is20 != null) {
                 fontmachine = Font.loadFont(is, 12);
+                fontheading = Font.loadFont(is20, 40);
             } else {
                 System.err.println("Font file not found, using default font.");
             }
             backToMainMenuButton.setFont(fontmachine);// Anpassung des Labels
+            highscoreLabel.setFont(fontheading);
             updateButton.setFont(fontmachine);
             rankLabel.setFont(fontmachine);
             nameLabel.setFont(fontmachine);
