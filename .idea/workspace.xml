@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="FINAL FINAL FINAL">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/vorlageCodeLaura/A21Gewinnt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leaderboard.csv" beforeDir="false" afterPath="$PROJECT_DIR$/leaderboard.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/MachineSetDifficultyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/MachineSetDifficultyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/HighscoreController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/HighscoreController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MachineSetDifficultyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MachineSetDifficultyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/highscore.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/highscore.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +128,7 @@
       <workItem from="1715557497982" duration="1188000" />
       <workItem from="1715558701230" duration="1430000" />
       <workItem from="1715771989926" duration="192000" />
-      <workItem from="1715787287502" duration="4158000" />
+      <workItem from="1715787287502" duration="4570000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -440,7 +434,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715789074753</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="FINAL FINAL FINAL">
+      <option name="closed" value="true" />
+      <created>1715800284231</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1715800284231</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
