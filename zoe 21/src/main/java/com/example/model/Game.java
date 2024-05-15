@@ -64,7 +64,7 @@ public class Game {
                     if (playersList[1] instanceof MachinePlayer) {
                         PauseTransition delay = new PauseTransition(Duration.seconds(1.5)); // simulate 1.5 secs waiting time of machine player
                         delay.setOnFinished(event -> {
-                            int machineMove = MachinePlayer.makeMove(roundNr, gameStack);
+                            int machineMove = MachinePlayer.makeMove(roundNr, gameStack); // machine makes a move
                             inputField.setText(String.valueOf(machineMove));
                             input = String.valueOf(machineMove);
                             System.out.println("Machine number: " + input);
@@ -77,7 +77,7 @@ public class Game {
             }
         }
     }
-
+   // converts a given input string to integer, or handles error input
     private int stringToInteger(String input, Label messageLabel) {
         int inputNr = 0;
         try {
@@ -85,7 +85,7 @@ public class Game {
                 inputNr = Math.abs(Integer.parseInt(input));
                 messageLabel.setText("Entered Number: " + inputNr);
             }
-        } catch (NumberFormatException e) { // when a user enters a symbol that is not a number
+        } catch (NumberFormatException e) { // in case user enters a symbol that is not a number
             messageLabel.setText("Input invalid! Please enter a number between 1 & 9!");
             inputNr = -1; // default wrong (handled in playTheGame)
         }
@@ -152,11 +152,11 @@ public class Game {
             }
         }
         if (inputValid) {
-            checkWinner(playersList);
-            switchPlayer(roundLabel, playerLabel, messageLabel, inputField, playersList);
+            checkWinner(playersList); // if someone has won, the method stops here
+            switchPlayer(roundLabel, playerLabel, messageLabel, inputField, playersList); // change current player
             inputField.clear();
             if (playersList[currentPlayer - 1].getScoreTracker().isTimerRunning()) {
-                playersList[currentPlayer - 1].getScoreTracker().incrementMoves();
+                playersList[currentPlayer - 1].getScoreTracker().incrementMoves(); // count moves for leaderboard
             }
         }
         ENTER = false;
@@ -166,14 +166,13 @@ public class Game {
 
     private void updateGrid(GridPane gridPane) {
         int stackSize = gameStack.size();
-
         int gridRowIndex = gridPane.getRowCount() - 1;
-
         int stackIndex = stackSize - 1;
 
         while (gridRowIndex >= 0) {
             Label label = (Label) gridPane.getChildren().get(gridRowIndex);
             Font fontstack = Font.getDefault();
+            // load fonts
             try {
                 InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
                 if (is != null) {
@@ -188,15 +187,15 @@ public class Game {
             }
 
             if (stackIndex >= 0) {
-                // Es gibt noch Werte im Stapel, aktualisiere das Label entsprechend
+                // if stack is not empty
                 label.setText(String.valueOf(gameStack.get(stackIndex)));
 
             } else {
-                // Der Stapel hat keine weiteren Werte, setze das Label auf 0
+                // if stack is empty, set label on 0
                 label.setText(" ");
             }
 
-            // Gehe eine Zeile nach oben im GridPane und dekrementiere den Index für den Stapel
+            // go up one column in gridpane and reduce the stack index by one
             gridRowIndex--;
             stackIndex--;
         }
@@ -204,7 +203,7 @@ public class Game {
     }
 
     private void checkWinner(Player[] playersList) {
-        if (gameStack.peek() >= 21) {
+        if (gameStack.peek() >= 21) { // if upper nr is >= 21, there is a winner & the game stops
             stop = true;
             Player winningPlayer = playersList[currentPlayer - 1];
             String winnerName = winningPlayer.getName();
@@ -212,13 +211,14 @@ public class Game {
         }
     }
 
-    private void showWinnerPopup(String winnerName) {
+    private void showWinnerPopup(String winnerName) { // in case someone wins, there is a popup with the winner name
         Platform.runLater(() -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Congratulations!");
             alert.setHeaderText("The winner is " + winnerName + "!");
             alert.setContentText("Click 'Next' to return to the main menu.");
 
+            // exit game by clicking on next
             ButtonType nextButtonType = new ButtonType("Next", ButtonBar.ButtonData.OK_DONE);
             alert.getButtonTypes().setAll(nextButtonType);
 
@@ -234,7 +234,7 @@ public class Game {
     private void switchPlayer(Label roundLabel, Label playerLabel, Label messageLabel, TextField inputField, Player[] playersList) {
         if (!stop) {
             int nrPlayers = 2;
-            currentPlayer = (currentPlayer % nrPlayers) + 1;
+            currentPlayer = (currentPlayer % nrPlayers) + 1; // calculate current player
             Player currentPlayerObject = playersList[currentPlayer - 1]; // subtract 1 to get to either 0 or 1 (not 1 or 2)
             if (currentPlayer == 1) {
                 roundNr++; // go to next round
@@ -249,7 +249,7 @@ public class Game {
         } else {
             Player winningPlayer = playersList[currentPlayer - 1]; // identify the winner
             if (winningPlayer != null) {
-                ScoreTracker scoreTracker = winningPlayer.getScoreTracker();
+                ScoreTracker scoreTracker = winningPlayer.getScoreTracker(); // get winners scoretracker for highscore
                 if (scoreTracker != null) {
                     scoreTracker.stopTimer(); // stop tracking the time of the winner
                     if (winningPlayer instanceof HumanPlayer) { // if the user (a human) has won
@@ -268,11 +268,11 @@ public class Game {
         if (currentPlayer == 1) {
             playersList[1].getScoreTracker().stopTimer();
             System.out.println("Player2 :" + playersList[1].getScoreTracker().time);
-        } else {
+        } else { // for the other player
             playersList[0].getScoreTracker().stopTimer();
             System.out.println("Player1 :" + playersList[0].getScoreTracker().time);
         }
-        currentPlayerObject.getScoreTracker().startTimer();
+        currentPlayerObject.getScoreTracker().startTimer(); // start timer of next player
     }
 }
 
