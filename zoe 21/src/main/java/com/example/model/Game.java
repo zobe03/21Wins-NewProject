@@ -87,6 +87,7 @@ public class Game {
             }
         } catch (NumberFormatException e) {
             messageLabel.setText("Input invalid! Please enter a number between 1 & 9!");
+            inputNr = -1;
         }
         return inputNr;
     }
@@ -107,7 +108,11 @@ public class Game {
                     gameStack.push(number);
                     updateGrid(gridPane);
                     inputValid = true;
-                } else {
+                }
+                else if(inputNr==-1){
+                    messageLabel.setText("Invalid input, Please enter a number between 1-9.");
+                }
+                else {
                     int number = gameStack.pop() + inputNr;
                     gameStack.push(number);
                     updateGrid(gridPane);
