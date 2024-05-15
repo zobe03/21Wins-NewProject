@@ -6,6 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="adding comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaderboard.csv" beforeDir="false" afterPath="$PROJECT_DIR$/leaderboard.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/HighscoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/zoe21/HighscoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/HumanPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/model/HumanPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MachineSetDifficultyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MachineSetDifficultyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground$Star.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground$Star.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController$SpaceBackground.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/RegularGameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/RegularGameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/SwitchingScenes.class" beforeDir="false" afterPath="$PROJECT_DIR$/zoe 21/target/classes/com/example/zoe21/SwitchingScenes.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +46,12 @@
     &quot;assignee&quot;: &quot;zobe03&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/zobe03/21Wins-NewProject.git&quot;,
-    &quot;accountId&quot;: &quot;6f6b0d26-fafe-453a-a8b5-9e2e1830ed80&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/zobe03/21Wins-NewProject.git",
+    "accountId": "fbf6420f-0fbb-4fad-a433-8bff494125ef"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -50,23 +63,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MainApplication.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/JanaC/Documents/Uni/WI-Programmierung_II/21Wins-NewProject/zoe 21/src/main/java/com/example/model",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.fileTypes",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/JanaC/Documents/Uni/WI-Programmierung_II/21Wins-NewProject/zoe 21/src/main/java/com/example/model&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\JanaC\Documents\Uni\WI-Programmierung_II\21Wins-NewProject\zoe 21\src\main\java\com\example\model" />
@@ -126,6 +139,8 @@
       <workItem from="1715531941707" duration="422000" />
       <workItem from="1715557497982" duration="1188000" />
       <workItem from="1715558701230" duration="1430000" />
+      <workItem from="1715771989926" duration="192000" />
+      <workItem from="1715787287502" duration="1483000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -407,7 +422,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715733343624</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="adding comments">
+      <option name="closed" value="true" />
+      <created>1715739788624</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1715739788624</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

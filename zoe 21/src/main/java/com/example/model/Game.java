@@ -59,18 +59,20 @@ public class Game {
             input = inputField.getText();
             final int[] inputNr = {stringToInteger(input, messageLabel)};
             inputValid = playTheGame(inputNr[0], roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
-            if (inputValid) {
-                if (playersList[1] instanceof MachinePlayer) {
-                    PauseTransition delay = new PauseTransition(Duration.seconds(1.5)); // simulate 1.5 secs waiting time of machine player
-                    delay.setOnFinished(event -> {
-                        int machineMove = MachinePlayer.makeMove(roundNr, gameStack);
-                        inputField.setText(String.valueOf(machineMove));
-                        input = String.valueOf(machineMove);
-                        System.out.println("Machine number: " + input);
-                        inputNr[0] = stringToInteger(input, messageLabel);
-                        playTheGame(inputNr[0], roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
-                    });
-                    delay.play();
+            if (!stop) { // if player has won
+                if (inputValid) {
+                    if (playersList[1] instanceof MachinePlayer) {
+                        PauseTransition delay = new PauseTransition(Duration.seconds(1.5)); // simulate 1.5 secs waiting time of machine player
+                        delay.setOnFinished(event -> {
+                            int machineMove = MachinePlayer.makeMove(roundNr, gameStack);
+                            inputField.setText(String.valueOf(machineMove));
+                            input = String.valueOf(machineMove);
+                            System.out.println("Machine number: " + input);
+                            inputNr[0] = stringToInteger(input, messageLabel);
+                            playTheGame(inputNr[0], roundLabel, playerLabel, messageLabel, inputField, gridPane, playersList);
+                        });
+                        delay.play();
+                    }
                 }
             }
         }
@@ -219,8 +221,8 @@ public class Game {
 
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == nextButtonType) {
-                SwitchingScenes.setScene(0);
-                RegularGameController.setHumanMode(); // Setze MACHINEMODE auf false
+                SwitchingScenes.setScene(0); // return to main menu scene
+                RegularGameController.setHumanMode(); // set machinemode on false so that next game does not start in machine mode (unless previously selected)
             }
         });
     }

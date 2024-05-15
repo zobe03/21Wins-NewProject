@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 
+import javax.print.DocFlavor;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
@@ -46,14 +47,18 @@ public class HighscoreController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         // Laden der Schriftart für den Button
         Font fontmachine = Font.getDefault();
+        Font fontheading = Font.getDefault();
         try {
             InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
+            InputStream is40 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
             if (is != null) {
                 fontmachine = Font.loadFont(is, 12);
+                fontheading = Font.loadFont(is40, 40);
             } else {
                 System.err.println("Font file not found, using default font.");
             }
             backToMainMenuButton.setFont(fontmachine);// Anpassung des Labels
+            highscoreLabel.setFont(fontheading);
             updateButton.setFont(fontmachine);
             rankLabel.setFont(fontmachine);
             nameLabel.setFont(fontmachine);
@@ -104,6 +109,7 @@ public class HighscoreController implements Initializable {
             // Apply font and style
             Font font = Font.getDefault();
             try {
+                // loads the font
                 InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
                 if (is != null) {
                     font = Font.loadFont(is, 12);
