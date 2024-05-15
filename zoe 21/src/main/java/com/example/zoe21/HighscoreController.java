@@ -2,7 +2,6 @@ package com.example.zoe21;
 
 import com.example.model.leaderboard.LeaderBoard;
 import com.example.model.leaderboard.LeaderBoardItem;
-import com.example.model.leaderboard.StaticLeaderBoard;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -12,7 +11,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 
-import javax.print.DocFlavor;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
