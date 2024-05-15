@@ -66,8 +66,6 @@ public class MachineSetDifficultyController implements Initializable {
 
 
     @FXML
-    private AnchorPane gameLayout;
-    @FXML
     public void initialize(URL location, ResourceBundle resources) {
 
         Font fontmachine = Font.getDefault();
