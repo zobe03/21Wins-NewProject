@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="FINAL FINAL FINAL">
-      <change afterPath="$PROJECT_DIR$/zoe 21/src/main/java/com/example/vorlageCodeLaura/A21Gewinnt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leaderboard.csv" beforeDir="false" afterPath="$PROJECT_DIR$/leaderboard.csv" afterDir="false" />
-    </list>
+    <list default="true" id="c00f5014-1d61-408a-92a4-e64823660f0c" name="Changes" comment="FINAL FINAL FINAL" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,6 +74,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/zoe 21/ai-testing/src" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.vorlageCodeLaura" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -128,7 +128,7 @@
       <workItem from="1715557497982" duration="1188000" />
       <workItem from="1715558701230" duration="1430000" />
       <workItem from="1715771989926" duration="192000" />
-      <workItem from="1715787287502" duration="4570000" />
+      <workItem from="1715787287502" duration="5867000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -442,7 +442,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715800284231</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="FINAL FINAL FINAL">
+      <option name="closed" value="true" />
+      <created>1715800664133</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1715800664133</updated>
+    </task>
+    <task id="LOCAL-00041" summary="FINAL FINAL FINAL">
+      <option name="closed" value="true" />
+      <created>1715802947820</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1715802947821</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
