@@ -32,7 +32,8 @@ public class MainApplication extends Application {
     public void start(Stage stage) throws Exception {
 
         window = stage; // set window as main stage where the respective scenes will be applied to
-        // create controller for every scene and
+
+        // create all scenes
         createScenes();
         window.setScene(mainMenuScene);
         window.setTitle("21 Wins!!!");
@@ -41,6 +42,11 @@ public class MainApplication extends Application {
     }
 
     private void createScenes() {
+        /* for every scene:
+        1. creates a loader in order to load the respective fxml
+        2. creates the scene by adressing the fxml (loader) &
+            uses MainController to add the same background and size for each scene
+         */
         try {
             FXMLLoader fxmlLoaderMenu = new FXMLLoader(getClass().getResource("mainmenu.fxml"));
             mainMenuScene = createSceneWithBackground(fxmlLoaderMenu.load(), new MainController.SpaceBackground(1000, 1000));

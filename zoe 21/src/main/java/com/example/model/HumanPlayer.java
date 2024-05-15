@@ -3,20 +3,23 @@ package com.example.model;
 
 import com.example.model.leaderboard.ScoreTracker;
 
-// es können keine weiteren Unterklassen erstellt werden
+// HumanPlayer set to final so that it is impossible to create any subclasses
+// HumanPlayer is a subclass of Player, as is MachinePlayer
 public final class HumanPlayer extends Player {
-    private static int currentID = 1;
+
     private final String name;
+
     public HumanPlayer(String name) {
         super();
         this.name = name;
-        currentID++;
-        this.scoreTracker = new ScoreTracker();
+        this.scoreTracker = new ScoreTracker(); // create a new ScoreTracker for the HumanPlayer object
     }
+
     @Override
     public String getName() {
         return name;
     }
+
     @Override
     public ScoreTracker getScoreTracker() {
         return scoreTracker;
