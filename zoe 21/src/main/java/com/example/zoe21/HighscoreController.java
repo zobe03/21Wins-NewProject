@@ -49,10 +49,10 @@ public class HighscoreController implements Initializable {
         Font fontheading = Font.getDefault();
         try {
             InputStream is = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
-            InputStream is20 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
-            if (is != null && is20 != null) {
+            InputStream is40 = MainController.class.getResourceAsStream("/font/PressStart2P-vaV7.ttf");
+            if (is != null && is40 != null) {
                 fontmachine = Font.loadFont(is, 12);
-                fontheading = Font.loadFont(is20, 40);
+                fontheading = Font.loadFont(is40, 40);
             } else {
                 System.err.println("Font file not found, using default font.");
             }
